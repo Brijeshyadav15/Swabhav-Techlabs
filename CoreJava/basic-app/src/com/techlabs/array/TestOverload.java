@@ -8,6 +8,7 @@ public class TestOverload {
 		print(10.5);
 		print(11.22);
 		print(7.43f);
+		print();
 	}
 
 	private static void print() {
