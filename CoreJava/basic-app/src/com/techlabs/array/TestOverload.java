@@ -9,6 +9,7 @@ public class TestOverload {
 		print(11.22);
 		print(7.43f);
 		print();
+		//System.out.println(print());
 	}
 
 	private static void print() {
