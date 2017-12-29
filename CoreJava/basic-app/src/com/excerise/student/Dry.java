@@ -5,7 +5,7 @@ import java.util.*;
 public class Dry {
 	private String username;
 	private String password;
-	ArrayList<String> User = new ArrayList();
+	ArrayList<String> User = new ArrayList<String>();
 
 	public String getUsername() {
 		return username;
