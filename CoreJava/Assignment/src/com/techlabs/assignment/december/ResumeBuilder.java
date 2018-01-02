@@ -1,13 +1,13 @@
 package com.techlabs.assignment.december;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.awt.Desktop;
+import java.io.*;
 
 public class ResumeBuilder {
 	private String name;
 	private String mobile;
-	private int age;
-	private float percentage;
+	private String age;
+	private String percentage;
 	private String address;
 
 	public String getName() {
@@ -26,19 +26,19 @@ public class ResumeBuilder {
 		this.mobile = mobile;
 	}
 
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 
-	public float getPercentage() {
+	public String getPercentage() {
 		return percentage;
 	}
 
-	public void setPercentage(float percentage) {
+	public void setPercentage(String percentage) {
 		this.percentage = percentage;
 	}
 
@@ -46,22 +46,35 @@ public class ResumeBuilder {
 		return address;
 	}
 
+	@NeedRefactoring(str = "This method needs refactoring")
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
+	@NeedRefactoring(str = "This method needs refactoring")
 	public void buildResume() {
-		String result = "<html> <head><title>" + getName()
-				+ " -Resume </title></head>";
-		result += "<body>" + "<h1> Name :" + getName() + "</h1>";
-		result += "<h1> Age :" + getAge() + "</h1>";
-		result += "<h1> Percentage :" + getPercentage() + "</h1>";
-		result += "<h1> Address :" + getAddress() + "</h1>";
-		result += "<h1> Mobile :" + getMobile() + "</h1>";
 		try {
-			FileWriter fw = new FileWriter(getName() + "Resume.html");
-			fw.write(result);
+			File file = new File("Resumes/resume.html");
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String iteration;
+			String htmldata = null;
+			while ((iteration = br.readLine()) != null) {
+				htmldata += iteration;
+			}
+			br.close();
+			htmldata = htmldata.replaceAll("null", "");
+			htmldata = htmldata.replaceAll("##name##", getName());
+			htmldata = htmldata.replaceAll("##age##", getAge());
+			htmldata = htmldata.replaceAll("##address##", getAddress());
+			htmldata = htmldata.replaceAll("##percentage##", getPercentage());
+			htmldata = htmldata.replaceAll("##mobilenumber##", getMobile());
+			FileWriter fw = new FileWriter("Resumes/" + getName()
+					+ "Resume.html");
+			fw.write(htmldata);
 			fw.close();
+			File resumefile = new File("Resumes/" + getName() + "Resume.html");
+			Desktop.getDesktop().browse(resumefile.toURI());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
