@@ -1,16 +1,18 @@
 package com.techlabs.student;
 
-public class Student {
+import java.io.*;
+
+public class Student implements Serializable{
 	private int id;
 	private String name;
 	private int age;
-	private int marks;
+	private String location;
 
-	public Student(int id, String name, int age, int marks) {
+	public Student(int id, String name, int age, String location) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
-		this.marks = marks;
+		this.location = location;
 	}
 
 	public int getId() {
@@ -25,7 +27,7 @@ public class Student {
 		return age;
 	}
 
-	public int getMarks() {
-		return marks;
+	public String getLocation() {
+		return location;
 	}
 }
