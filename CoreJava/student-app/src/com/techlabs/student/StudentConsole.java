@@ -8,9 +8,9 @@ public class StudentConsole implements Serializable {
 	public static final int AddChoice = 1;
 	public static final int DisplayChoice = 2;
 	public static final int SortNameChoice = 3;
-	public static final int CHOICE_4 = 4;
-	public static final int CHOICE_5 = 5;
-	public static final int CHOICE_6 = 6;
+	public static final int SortLocationChoice = 4;
+	public static final int SearchStudentChoice = 5;
+	public static final int DeleteStudentChoice = 6;
 
 	public void start() {
 		StudentStore student = new StudentStore();
@@ -24,7 +24,9 @@ public class StudentConsole implements Serializable {
 		System.out.println("Press 6 to Delete Student");
 
 		int choice = Integer.parseInt(input.nextLine());
-
+//		switch(choice):
+//			case 1:
+				
 		if (choice == AddChoice) {
 			getDetails();
 		} else if (choice == DisplayChoice) {
@@ -32,11 +34,11 @@ public class StudentConsole implements Serializable {
 			start();
 		} else if (choice == SortNameChoice) {
 			student.sortByName();
-		} else if (choice == CHOICE_4) {
+		} else if (choice == SortLocationChoice) {
 			student.sortByLocation();
-		} else if (choice == CHOICE_5) {
+		} else if (choice == SearchStudentChoice) {
 			student.searchByName();
-		} else if (choice == CHOICE_6) {
+		} else if (choice == DeleteStudentChoice) {
 			student.deleteByName();
 		}
 	}
