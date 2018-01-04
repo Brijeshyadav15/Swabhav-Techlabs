@@ -5,9 +5,9 @@ import com.techlabs.inheritance.*;
 public class TestMan {
 	public static void main(String[] args) {
 		// caseone();
-		casetwo();
+		//casetwo();
 		// casethree();
-		// casefour();
+		 casefour();
 	}
 
 	public static void caseone() {

@@ -5,9 +5,9 @@ import java.util.*;
 
 public class StudentStore implements Serializable {
 
-	public void saveStudent(List<Student> student,boolean append) {
+	public void saveStudent(List<Student> student) {
 		try {
-			FileOutputStream fos = new FileOutputStream("studentdata.ser", append);
+			FileOutputStream fos = new FileOutputStream("studentdata.ser", true);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(student);
 			oos.close();
@@ -63,8 +63,6 @@ public class StudentStore implements Serializable {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter Student Name");
 		String name = input.nextLine();
-
-		ArrayList<String> studentNames = new ArrayList<String>();
 		for (Student studentName : retrieveStudents()) {
 			if (name.equals(studentName.getName())) {
 				System.out.println("Student Found");
@@ -75,11 +73,12 @@ public class StudentStore implements Serializable {
 						+ studentName.getLocation());
 			}
 		}
+		input.close();
 	}
 
 	public void deleteByName() {
 		Scanner input = new Scanner(System.in);
-		System.out.println("Please enter Student Name");
+		System.out.println("Enter Student Name to delete :");
 		String name = input.nextLine();
 		Student removeStudent = null;
 		ArrayList<Student> studentlist = retrieveStudents();
@@ -91,6 +90,7 @@ public class StudentStore implements Serializable {
 			}
 		}
 		studentlist.remove(removeStudent);
-		saveStudent(studentlist, false);
+		saveStudent(studentlist);
+		input.close();
 	}
 }

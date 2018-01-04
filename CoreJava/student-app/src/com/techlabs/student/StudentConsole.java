@@ -5,9 +5,9 @@ import java.util.*;
 
 public class StudentConsole implements Serializable {
 	private static Scanner input;
-	public static final int CHOICE_1 = 1;
-	public static final int CHOICE_2 = 2;
-	public static final int CHOICE_3 = 3;
+	public static final int AddChoice = 1;
+	public static final int DisplayChoice = 2;
+	public static final int SortNameChoice = 3;
 	public static final int CHOICE_4 = 4;
 	public static final int CHOICE_5 = 5;
 	public static final int CHOICE_6 = 6;
@@ -25,12 +25,12 @@ public class StudentConsole implements Serializable {
 
 		int choice = Integer.parseInt(input.nextLine());
 
-		if (choice == CHOICE_1) {
+		if (choice == AddChoice) {
 			getDetails();
-		} else if (choice == CHOICE_2) {
+		} else if (choice == DisplayChoice) {
 			student.retrieveStudents();
 			start();
-		} else if (choice == CHOICE_3) {
+		} else if (choice == SortNameChoice) {
 			student.sortByName();
 		} else if (choice == CHOICE_4) {
 			student.sortByLocation();
@@ -38,7 +38,7 @@ public class StudentConsole implements Serializable {
 			student.searchByName();
 		} else if (choice == CHOICE_6) {
 			student.deleteByName();
-		} 
+		}
 	}
 
 	public void getDetails() {
@@ -64,10 +64,9 @@ public class StudentConsole implements Serializable {
 			System.out.println("Press 1 to add more Student");
 			System.out.println("Any Other number to exit");
 
-		} while (Integer.parseInt(input.nextLine()) == CHOICE_1);
-
+		} while (Integer.parseInt(input.nextLine()) == AddChoice);
 		StudentStore student = new StudentStore();
-		student.saveStudent(studentlist,true);
+		student.saveStudent(studentlist);
 		start();
 	}
 }
