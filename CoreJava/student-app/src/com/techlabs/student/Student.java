@@ -2,6 +2,7 @@ package com.techlabs.student;
 
 import java.io.*;
 
+@SuppressWarnings("serial")
 public class Student implements Serializable{
 	private int id;
 	private String name;

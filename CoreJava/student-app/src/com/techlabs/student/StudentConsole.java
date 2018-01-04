@@ -3,44 +3,40 @@ package com.techlabs.student;
 import java.io.*;
 import java.util.*;
 
+@SuppressWarnings("serial")
 public class StudentConsole implements Serializable {
 	private static Scanner input;
 	public static final int AddChoice = 1;
 	public static final int DisplayChoice = 2;
-	public static final int SortNameChoice = 3;
-	public static final int SortLocationChoice = 4;
-	public static final int SearchStudentChoice = 5;
-	public static final int DeleteStudentChoice = 6;
+	public static final int SearchStudentChoice = 3;
+	public static final int DeleteStudentChoice = 4;
 
 	public void start() {
-		StudentStore student = new StudentStore();
+		StudentBinaryStore student = new StudentBinaryStore();
 		input = new Scanner(System.in);
 
 		System.out.println("Press 1 to add Student");
-		System.out.println("Press 2 to display Students");
-		System.out.println("Press 3 to Sort Student By Name");
-		System.out.println("Press 4 to Sort Student By Location");
-		System.out.println("Press 5 to Search Student By Name");
-		System.out.println("Press 6 to Delete Student");
+		System.out.println("Press 2 to Display Students");
+		System.out.println("Press 3 to Search Student By Name");
+		System.out.println("Press 4 to Delete Student");
 
 		int choice = Integer.parseInt(input.nextLine());
-//		switch(choice):
-//			case 1:
-				
-		if (choice == AddChoice) {
+
+		switch (choice) {
+		case AddChoice:
 			getDetails();
-		} else if (choice == DisplayChoice) {
-			student.retrieveStudents();
-			start();
-		} else if (choice == SortNameChoice) {
-			student.sortByName();
-		} else if (choice == SortLocationChoice) {
-			student.sortByLocation();
-		} else if (choice == SearchStudentChoice) {
-			student.searchByName();
-		} else if (choice == DeleteStudentChoice) {
-			student.deleteByName();
+			break;
+		case DisplayChoice:
+			student.read();
+			break;
+		case SearchStudentChoice:
+			student.search();
+			break;
+		case DeleteStudentChoice:
+			student.delete();
+			break;
 		}
+
 	}
 
 	public void getDetails() {
@@ -67,6 +63,7 @@ public class StudentConsole implements Serializable {
 			System.out.println("Any Other number to exit");
 
 		} while (Integer.parseInt(input.nextLine()) == AddChoice);
+		
 		StudentStore student = new StudentStore();
 		student.saveStudent(studentlist);
 		start();
