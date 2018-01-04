@@ -10,7 +10,7 @@ public class TestSetIterator {
 		cities.add("New Delhi");
 		cities.add("Ahmedabad");
 
-		Iterator iterator = cities.iterator();
+		Iterator<String> iterator = cities.iterator();
 		while (iterator.hasNext()) {
 			System.out.println(iterator.next());
 		}

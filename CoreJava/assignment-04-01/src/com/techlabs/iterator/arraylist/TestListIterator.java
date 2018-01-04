@@ -10,7 +10,7 @@ public class TestListIterator {
 		names.add("Akash");
 		names.add("Bhavesh");
 
-		Iterator iterator = names.iterator();
+		Iterator<String> iterator = names.iterator();
 		while (iterator.hasNext()) {
 			System.out.println(iterator.next());
 		}
