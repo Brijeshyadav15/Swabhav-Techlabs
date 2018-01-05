@@ -20,7 +20,7 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void testArrangeOne() {
+	public void testNegativeValue() {
 		// Arrange
 		Calculator calculator = new Calculator(3, -2);
 
@@ -28,8 +28,8 @@ public class CalculatorTest {
 		int result = calculator.add();
 
 		// Assert
-		fail("Integer values can't be negative");
-		// assertEquals(5, result);
+		//fail("Integer values can't be negative");
+		assertEquals(5, result);
 
 	}
 

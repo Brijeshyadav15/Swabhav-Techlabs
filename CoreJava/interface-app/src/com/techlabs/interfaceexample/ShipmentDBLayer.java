@@ -1,6 +1,6 @@
 package com.techlabs.interfaceexample;
 
-public class Shipment implements Icrudable{
+public class ShipmentDBLayer implements ICrudable{
 	@Override
 	public void create() {
 		System.out.println("Shipment is creating");

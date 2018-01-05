@@ -5,6 +5,10 @@ import java.util.*;
 
 @SuppressWarnings("serial")
 public class StudentConsole implements Serializable {
+	public StudentConsole(StudentBinaryStore sbs) {
+
+	}
+
 	private static Scanner input;
 	public static final int AddChoice = 1;
 	public static final int DisplayChoice = 2;
@@ -30,17 +34,19 @@ public class StudentConsole implements Serializable {
 			student.read();
 			break;
 		case SearchStudentChoice:
-			student.search();
+			student.search("name");
 			break;
 		case DeleteStudentChoice:
-			student.delete();
+			student.delete(0);
 			break;
 		}
 
 	}
 
+	@SuppressWarnings("unused")
 	public void getDetails() {
 		ArrayList<Student> studentlist = new ArrayList<Student>();
+		StudentBinaryStore studentstore = new StudentBinaryStore();
 
 		do {
 			System.out.println("Enter Student Id :");
@@ -56,16 +62,13 @@ public class StudentConsole implements Serializable {
 			String location = input.nextLine();
 
 			Student student = new Student(id, name, age, location);
-			studentlist.add(student);
+			((IStudentStore) studentstore).add(student);
 
 			System.out.println("Thank You !! Your details are being saved.");
 			System.out.println("Press 1 to add more Student");
 			System.out.println("Any Other number to exit");
 
 		} while (Integer.parseInt(input.nextLine()) == AddChoice);
-		
-		StudentStore student = new StudentStore();
-		student.saveStudent(studentlist);
 		start();
 	}
 }

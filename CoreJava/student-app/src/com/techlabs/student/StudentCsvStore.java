@@ -3,11 +3,11 @@ package com.techlabs.student;
 import java.io.*;
 import java.util.*;
 
-public class StudentBinaryStore implements IStudentStore {
-	ArrayList<Student> studentlist;
+public class StudentCsvStore implements IStudentStore {
+	ArrayList<Student> studentlist = null;
 
 	// int idCounter = studentlist.size();
-	public StudentBinaryStore() {
+	public StudentCsvStore() {
 		init();
 	}
 
@@ -35,10 +35,12 @@ public class StudentBinaryStore implements IStudentStore {
 
 	private void save() {
 		try {
+
 			FileOutputStream fos = new FileOutputStream("studentdata.ser");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(studentlist);
 			oos.close();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

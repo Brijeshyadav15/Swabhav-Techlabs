@@ -25,7 +25,7 @@ public abstract class Employee {
 		this.basic = basic;
 	}
 
-	public String calcAge() {
+	public float calcAge() {
 		Date birthdate = getDob();
 
 		Calendar birthday = Calendar.getInstance();
@@ -51,7 +51,7 @@ public abstract class Employee {
 				months = 11;
 			}
 		}
-		return years + "." + months;
+		return years;
 	}
 
 	public abstract double calcNetSalary();

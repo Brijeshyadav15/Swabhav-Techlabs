@@ -1,6 +1,6 @@
 package com.techlabs.interfaceexample;
 
-public class Customer implements Icrudable {
+public class CustomerDBLayer implements ICrudable {
 
 	@Override
 	public void create() {

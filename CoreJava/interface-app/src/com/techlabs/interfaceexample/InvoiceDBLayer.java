@@ -1,6 +1,6 @@
 package com.techlabs.interfaceexample;
 
-public class Invoice implements Icrudable {
+public class InvoiceDBLayer implements ICrudable {
 	@Override
 	public void create() {
 		System.out.println("Invoice is creating");

@@ -5,7 +5,7 @@ import com.techlabs.student.*;
 public class TestStudent {
 
 	public static void main(String[] args) {
-		StudentConsole student =new StudentConsole();
+		StudentConsole student =new StudentConsole(new StudentBinaryStore());
 		student.start();
 	}
 }
