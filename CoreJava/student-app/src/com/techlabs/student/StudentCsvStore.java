@@ -3,18 +3,17 @@ package com.techlabs.student;
 import java.io.*;
 import java.util.*;
 
+@SuppressWarnings({ "unchecked", "resource" })
 public class StudentCsvStore implements IStudentStore {
-	ArrayList<Student> studentlist = null;
+	ArrayList<Student> studentlist;
 
-	// int idCounter = studentlist.size();
 	public StudentCsvStore() {
 		init();
 	}
 
-	@SuppressWarnings({ "unchecked", "resource" })
 	public void init() {
 		try {
-			FileInputStream fs = new FileInputStream("studentdata.ser");
+			FileInputStream fs = new FileInputStream("studentdata.csv");
 			studentlist = (ArrayList<Student>) new ObjectInputStream(fs)
 					.readObject();
 		} catch (Exception e) {
@@ -36,7 +35,7 @@ public class StudentCsvStore implements IStudentStore {
 	private void save() {
 		try {
 
-			FileOutputStream fos = new FileOutputStream("studentdata.ser");
+			FileOutputStream fos = new FileOutputStream("studentdata.csv");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(studentlist);
 			oos.close();
@@ -48,16 +47,6 @@ public class StudentCsvStore implements IStudentStore {
 
 	@Override
 	public void read() {
-		// Iterator<Student> it = studentlist.iterator();
-		// while (it.hasNext()) {
-		// System.out.println("Student Name:" + ((Student) it.next()).getId());
-		// System.out.println("Student Name:"
-		// + ((Student) it.next()).getName());
-		// System.out.println("Student Age:" + ((Student) it.next()).getAge());
-		// System.out.println("Student Location:"
-		// + ((Student) it.next()).getLocation());
-		// System.out.println();
-		// }
 
 		for (Student student : studentlist) {
 			System.out.println("Student Id:" + student.getId());
