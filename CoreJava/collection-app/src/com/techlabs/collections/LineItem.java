@@ -33,4 +33,8 @@ public class LineItem {
 	public double calcTotal() {
 		return getQuantity() * getUnitprice();
 	}
+	
+	public String toString() {
+		return this.getId() + " " + this.getProduct() + " " + this.getQuantity() + " " + this.getUnitprice();
+	}
 }

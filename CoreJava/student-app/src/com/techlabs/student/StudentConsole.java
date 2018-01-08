@@ -14,11 +14,11 @@ public class StudentConsole implements Serializable {
 	public static final int DisplayChoice = 2;
 	public static final int SearchStudentChoice = 3;
 	public static final int DeleteStudentChoice = 4;
+	StudentBinaryStore student = new StudentBinaryStore();
 
 	public void start() {
-		StudentBinaryStore student = new StudentBinaryStore();
-		input = new Scanner(System.in);
 
+		input = new Scanner(System.in);
 		System.out.println("Press 1 to add Student");
 		System.out.println("Press 2 to Display Students");
 		System.out.println("Press 3 to Search Student By Name");
@@ -34,7 +34,7 @@ public class StudentConsole implements Serializable {
 			student.read();
 			break;
 		case SearchStudentChoice:
-			student.search("name");
+			getSearch();
 			break;
 		case DeleteStudentChoice:
 			student.delete(0);
@@ -69,6 +69,11 @@ public class StudentConsole implements Serializable {
 			System.out.println("Any Other number to exit");
 
 		} while (Integer.parseInt(input.nextLine()) == AddChoice);
+		start();
+	}
+
+	@SuppressWarnings("unused")
+	public void getSearch() {
 		start();
 	}
 }

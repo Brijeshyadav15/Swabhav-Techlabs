@@ -67,19 +67,12 @@ public class StudentBinaryStore implements IStudentStore {
 	}
 
 	@Override
-	public void search(String name) {
+	public Student search(String name) {
 		for (Student studentName : studentlist) {
-			if (name.equals(studentName.getName())) {
-
-				System.out.println("Student Found");
-				System.out.println("Student Id  :" + studentName.getId());
-				System.out.println("Student Name :" + studentName.getName());
-				System.out.println("Student Age :" + studentName.getAge());
-				System.out.println("Student Location: "
-						+ studentName.getLocation());
-
-			}
+			if (name.equals(studentName.getName()))
+				return studentName;
 		}
+		return null;
 	}
 
 	@Override

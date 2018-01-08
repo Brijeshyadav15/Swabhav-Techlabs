@@ -9,7 +9,7 @@ public interface IStudentStore {
 
 	public void read();
 
-	public void search(String name);
+	public Student search(String name);
 
 	public void delete(int id);
 

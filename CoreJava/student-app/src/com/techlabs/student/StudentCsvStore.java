@@ -8,14 +8,14 @@ public class StudentCsvStore implements IStudentStore {
 	ArrayList<Student> studentlist;
 
 	public StudentCsvStore() {
-		init();
+		// init();
 	}
 
 	public void init() {
 		try {
 			FileInputStream fs = new FileInputStream("studentdata.csv");
-			studentlist = (ArrayList<Student>) new ObjectInputStream(fs)
-					.readObject();
+			// studentlist = (ArrayList<Student>) new ObjectInputStream(fs)
+			// .readObject();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -28,18 +28,25 @@ public class StudentCsvStore implements IStudentStore {
 
 	@Override
 	public void add(Student student) {
-		studentlist.add(student);
-		save();
+		try {
+			studentlist.add(student);
+			save();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	private void save() {
 		try {
 
-			FileOutputStream fos = new FileOutputStream("studentdata.csv");
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(studentlist);
-			oos.close();
-
+			FileWriter fos = new FileWriter("studentdata.csv");
+			for (Student student : studentlist) {
+				String temp = student.getId() + "," + student.getName() + ","
+						+ student.getAge() + "," + student.getLocation();
+				fos.append(temp);
+			}
+			fos.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -58,19 +65,12 @@ public class StudentCsvStore implements IStudentStore {
 	}
 
 	@Override
-	public void search(String name) {
+	public Student search(String name) {
 		for (Student studentName : studentlist) {
-			if (name.equals(studentName.getName())) {
-
-				System.out.println("Student Found");
-				System.out.println("Student Id  :" + studentName.getId());
-				System.out.println("Student Name :" + studentName.getName());
-				System.out.println("Student Age :" + studentName.getAge());
-				System.out.println("Student Location: "
-						+ studentName.getLocation());
-
-			}
+			if (name.equals(studentName.getName()))
+				return studentName;
 		}
+		return null;
 	}
 
 	@Override
