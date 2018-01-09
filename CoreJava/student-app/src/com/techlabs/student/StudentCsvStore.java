@@ -5,8 +5,9 @@ import java.util.*;
 
 @SuppressWarnings({ "unchecked", "resource" })
 public class StudentCsvStore implements IStudentStore {
-	ArrayList<Student> studentlist;
-
+	ArrayList<Student> studentlist= new ArrayList<Student>();
+	
+	studentlist.add(new Student(16, "Test Student", 24, "Mumbai"));
 	public StudentCsvStore() {
 		// init();
 	}

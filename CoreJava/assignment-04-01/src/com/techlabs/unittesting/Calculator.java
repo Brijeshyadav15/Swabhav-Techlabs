@@ -10,7 +10,17 @@ public class Calculator {
 	}
 
 	public int add() {
-		return first + second;
-	}
 
+		if (first >= 0 && second >= 0) {
+			return first + second;
+		} else {
+			try {
+				throw new RuntimeException("Numbers can not be negative");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return 0;
+	}
 }

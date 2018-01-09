@@ -1,10 +1,7 @@
 package com.techlabs.calc.test;
 
 import static org.junit.Assert.*;
-import junit.framework.Assert;
-
 import org.junit.Test;
-
 import com.techlabs.calculator.Calculator;
 
 public class TestCalculator {

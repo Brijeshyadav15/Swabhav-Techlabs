@@ -1,7 +1,6 @@
 package com.techlabs.employeecsv.test;
 
 import java.util.*;
-
 import com.techlabs.employeecsv.*;
 
 public class TestEmployeeService {
@@ -20,7 +19,6 @@ public class TestEmployeeService {
 		for (Employee employee : empset) {
 			System.out.println(employee.toString());
 		}
-
 	}
 
 	private static void casestudybySortByName() {
@@ -33,6 +31,5 @@ public class TestEmployeeService {
 		for (Employee employee : empset) {
 			System.out.println(employee.toString());
 		}
-
 	}
 }

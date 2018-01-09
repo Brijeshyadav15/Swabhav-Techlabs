@@ -1,7 +1,5 @@
 package com.techlabs.employeecsv;
 
-import java.util.Date;
-
 public class Employee {
 	private String id;
 	private String name;

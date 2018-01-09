@@ -25,6 +25,7 @@ public class CalculatorTest {
 		// Arrange
 		Calculator calculator = new Calculator(3, -2);
 		boolean exceptionoccured = false;
+
 		// Act
 		try {
 			int result = calculator.add();
