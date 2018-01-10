@@ -24,6 +24,8 @@ public class OrderUnitTest {
 		int lengthofAdditem = order.getItems().size();
 		assertEquals(1, lengthofAdditem);
 		
+		order.addItem(lineItem2);
+		
 	}
 	
 	@Test

@@ -3,20 +3,27 @@ package com.techlabs.student;
 import java.io.*;
 import java.util.*;
 
-@SuppressWarnings({ "unchecked", "resource" })
+@SuppressWarnings({ "resource" })
 public class StudentCsvStore implements IStudentStore {
-	ArrayList<Student> studentlist= new ArrayList<Student>();
-	
-	studentlist.add(new Student(16, "Test Student", 24, "Mumbai"));
+	ArrayList<Student> studentlist = new ArrayList<Student>();
+
 	public StudentCsvStore() {
-		// init();
+		init();
 	}
 
 	public void init() {
 		try {
-			FileInputStream fs = new FileInputStream("studentdata.csv");
-			// studentlist = (ArrayList<Student>) new ObjectInputStream(fs)
-			// .readObject();
+
+			FileReader fr = new FileReader("studentdata.csv");
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while ((line = br.readLine()) != null) {
+				String[] studentarray = line.split(",");
+				studentlist.add(new Student(Long.parseLong(studentarray[0]),
+						studentarray[1], Integer.parseInt(studentarray[2]),
+						studentarray[3]));
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -41,27 +48,18 @@ public class StudentCsvStore implements IStudentStore {
 	private void save() {
 		try {
 
-			FileWriter fos = new FileWriter("studentdata.csv");
+			BufferedWriter fos = new BufferedWriter(new FileWriter(
+					"studentdata.csv"));
 			for (Student student : studentlist) {
 				String temp = student.getId() + "," + student.getName() + ","
 						+ student.getAge() + "," + student.getLocation();
 				fos.append(temp);
+				fos.newLine();
+
 			}
 			fos.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public void read() {
-
-		for (Student student : studentlist) {
-			System.out.println("Student Id:" + student.getId());
-			System.out.println("Student Name:" + student.getName());
-			System.out.println("Student Age:" + student.getAge());
-			System.out.println("Student Location:" + student.getLocation()
-					+ "\n");
 		}
 	}
 
@@ -75,16 +73,42 @@ public class StudentCsvStore implements IStudentStore {
 	}
 
 	@Override
-	public void delete(int id) {
-		Student removeStudent = null;
+	public String delete(long id) {
 		for (Student studentName : studentlist) {
 			if (id == studentName.getId()) {
-				System.out.println("Student Found by name of :"
-						+ studentName.getName());
-				removeStudent = studentName;
+				studentlist.remove(studentName);
+				save();
+				return "Student Found by name of :" + studentName.getName();
 			}
 		}
-		studentlist.remove(removeStudent);
-		save();
+		return "No Student found with the Given Name";
+	}
+
+	@Override
+	public void Export() {
+		try {
+			File file = new File("Resumes/resume.html");
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String iteration;
+			String htmldata = null;
+			while ((iteration = br.readLine()) != null) {
+				htmldata += iteration;
+			}
+			br.close();
+			for (Student student : studentlist) {
+				htmldata = htmldata.replaceAll("null", "");
+				htmldata = htmldata.replaceAll("##name##", student.getName());
+				// htmldata = htmldata.replaceAll("##age##", student.getAge());
+				htmldata = htmldata.replaceAll("##address##",
+						student.getLocation());
+				FileWriter fw = new FileWriter("Resumes/" + student.getName()
+						+ "Resume.html");
+				fw.write(htmldata);
+				fw.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

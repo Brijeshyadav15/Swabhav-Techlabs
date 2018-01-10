@@ -19,13 +19,14 @@ public class CustomerUnitTest {
 		LineItem lineItem1 = new LineItem(1, 3, new Product(4, "Product4",
 				2000, 200f));
 
-		LineItem lineItem2 = new LineItem(1, 3, new Product(5, "Product5",
-				2200, 250f));
-
 		order.addItem(lineItem1);
 		customer.addOrder(order);
 		int lengthofOrders = customer.getOrders().size();
 		assertEquals(1, lengthofOrders);
+
+		LineItem lineItem2 = new LineItem(1, 3, new Product(5, "Product5",
+				2200, 250f));
+		order.addItem(lineItem2);
 
 	}
 }

@@ -7,44 +7,43 @@ public class TestStudentStore {
 	static ArrayList<Student> studentlist = new ArrayList<Student>();
 
 	public static void main(String[] args) {
-//		casestudyone();
-//		casestudytwo();
-//		casestudythree();
-//		casestudyfour();
-		casestudyfive();
+		// casestudyAdd();
+		 casestudyRead();
+		// casestudySearch();
+		//casestudyDelete();
 	}
 
-	public static void casestudyone() {
+	public static void casestudyAdd() {
 		StudentBinaryStore studentbinary = new StudentBinaryStore();
-		Student student = new Student(3, "Brijesh", 22, "Mumbai");
+		Student student = new Student("Brijesh", 22, "Mumbai");
 		studentbinary.add(student);
 	}
 
-	public static void casestudytwo() {
+	public static void casestudyDelete() {
 		StudentBinaryStore studentbinary = new StudentBinaryStore();
-		studentbinary.read();
+		studentbinary.delete(20180109170314L);
 	}
 
-	public static void casestudythree() {
+	public static void casestudyRead() {
 		StudentBinaryStore studentbinary = new StudentBinaryStore();
-		studentbinary.delete(1);
-	}
+		for (Student student : studentbinary.get()) {
 
-	public static void casestudyfour() {
-		StudentBinaryStore studentbinary = new StudentBinaryStore();
-		ArrayList<Student> studentlist = studentbinary.get();
-		Iterator<Student> it = studentlist.iterator();
-		while (it.hasNext()) {
-			System.out.println("Student Name:" +((Student) it.next()).getName());
-			System.out.println("Student Age:" +((Student) it.next()).getAge());
-			System.out.println("Student Location:"+((Student) it.next()).getLocation());
-			System.out.println();
+			System.out.println("Student ID:" + student.getId());
+			System.out.println("Student Name:" + student.getName());
+			System.out.println("Student Age:" + student.getAge());
+			System.out.println("Student Location:" + student.getLocation());
 
 		}
 	}
-	
-	public static void casestudyfive() {
+
+	public static void casestudySearch() {
 		StudentBinaryStore studentbinary = new StudentBinaryStore();
-		studentbinary.search("Brijesh");
+		Student result = studentbinary.search("Brijesh");
+
+		System.out.println("Student ID:" + result.getId());
+		System.out.println("Student Name:" + result.getName());
+		System.out.println("Student Age:" + result.getAge());
+		System.out.println("Student Location:" + result.getLocation());
+
 	}
 }
