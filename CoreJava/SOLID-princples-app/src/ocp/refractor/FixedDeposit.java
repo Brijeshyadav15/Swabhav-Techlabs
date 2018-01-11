@@ -28,7 +28,6 @@ public class FixedDeposit {
 	}
 
 	public double calcInterest() {
-		float rate = 0;
 		return amount * period * festivalrate.getRate() / 100;
 	}
 }

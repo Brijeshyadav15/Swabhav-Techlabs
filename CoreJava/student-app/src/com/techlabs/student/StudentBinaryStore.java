@@ -1,28 +1,38 @@
 package com.techlabs.student;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentBinaryStore implements IStudentStore {
-	ArrayList<Student> studentlist = new ArrayList<Student>();
+	private List<Student> studentlist;
 
 	public StudentBinaryStore() {
 		init();
+		studentlist = new ArrayList<Student>();
 	}
 
-	@SuppressWarnings({ "unchecked", "resource" })
+	@SuppressWarnings({ "resource", "unchecked" })
 	public void init() {
 		try {
 			FileInputStream fs = new FileInputStream("studentdata.ser");
-			studentlist = (ArrayList<Student>) new ObjectInputStream(fs)
-					.readObject();
+			studentlist = ((List<Student>) new ObjectInputStream(fs)
+					.readObject());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Override
-	public ArrayList<Student> get() {
+	public List<Student> get() {
 		return studentlist;
 	}
 
@@ -30,7 +40,6 @@ public class StudentBinaryStore implements IStudentStore {
 	public void add(Student student) {
 		studentlist.add(student);
 		save();
-		init();
 	}
 
 	private void save() {
@@ -67,7 +76,7 @@ public class StudentBinaryStore implements IStudentStore {
 	}
 
 	@Override
-	public void Export() {
+	public void export() {
 		try {
 			File file = new File("Resumes/resume.html");
 			FileReader fr = new FileReader(file);

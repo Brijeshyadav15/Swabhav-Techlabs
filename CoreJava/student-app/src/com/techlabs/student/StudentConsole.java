@@ -1,6 +1,9 @@
 package com.techlabs.student;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 
 public class StudentConsole {
 	IStudentStore studentobj;
@@ -10,11 +13,11 @@ public class StudentConsole {
 	}
 
 	private static Scanner input;
-	public static final int AddChoice = 1;
-	public static final int DisplayChoice = 2;
-	public static final int SearchStudentChoice = 3;
-	public static final int DeleteStudentChoice = 4;
-	public static final int ExportToHTML = 5;
+	private static final int ADD_CHOICE = 1;
+	private static final int DISPLAY_CHOICE = 2;
+	private static final int SEARCH_STUDENT_CHOICE = 3;
+	private static final int DELETE_STUDENT_CHOICE = 4;
+	private static final int EXPORT_TO_HTML = 5;
 
 	public void start() {
 
@@ -28,21 +31,21 @@ public class StudentConsole {
 		int choice = Integer.parseInt(input.nextLine());
 
 		switch (choice) {
-		case AddChoice:
+		case ADD_CHOICE:
 			getDetails();
 			break;
-		case DisplayChoice:
+		case DISPLAY_CHOICE:
 			print(studentobj.get());
 			break;
-		case SearchStudentChoice:
+		case SEARCH_STUDENT_CHOICE:
 			getSearch();
 			break;
-		case DeleteStudentChoice:
+		case DELETE_STUDENT_CHOICE:
 			getDelete();
 			studentobj.delete(0);
 			break;
-		case ExportToHTML:
-			studentobj.Export();
+		case EXPORT_TO_HTML:
+			studentobj.export();
 			System.out.println("Data has been exported to CSV file");
 			break;
 		}
@@ -51,7 +54,7 @@ public class StudentConsole {
 
 	@SuppressWarnings("unused")
 	public void getDetails() {
-		ArrayList<Student> studentlist = new ArrayList<Student>();
+		List<Student> studentlist = new ArrayList<Student>();
 
 		do {
 			System.out.println("Enter Student Name :");
@@ -70,12 +73,12 @@ public class StudentConsole {
 			System.out.println("Press 1 to add more Student");
 			System.out.println("Any Other number to exit");
 
-		} while (Integer.parseInt(input.nextLine()) == AddChoice);
+		} while (Integer.parseInt(input.nextLine()) == ADD_CHOICE);
 		start();
 	}
 
-	public void print(ArrayList<Student> students) {
-		for (Student student : students) {
+	public void print(List<Student> list) {
+		for (Student student : list) {
 			System.out.println("Student Id:" + student.getId());
 			System.out.println("Student Name:" + student.getName());
 			System.out.println("Student Age:" + student.getAge());

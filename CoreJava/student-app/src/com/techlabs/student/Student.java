@@ -2,7 +2,7 @@ package com.techlabs.student;
 
 import java.io.*;
 import java.text.*;
-import java.util.*;
+import java.util.Date;
 
 @SuppressWarnings("serial")
 public class Student implements Serializable {

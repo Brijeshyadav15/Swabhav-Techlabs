@@ -8,6 +8,6 @@ public class TestDipRefractor {
 		System.out.println(taxcalculator.calculateTax(10, 5));
 		
 		TaxCalculator taxcalculator1 = new TaxCalculator(new TxtLogger());
-		System.out.println(taxcalculator.calculateTax(0, 0));
+		System.out.println(taxcalculator1.calculateTax(0, 0));
 	}
 }

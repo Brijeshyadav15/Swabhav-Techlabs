@@ -12,9 +12,9 @@ public class TaxCalculator {
 		try {
 			result = amount / rate;
 		} catch (Exception ex) {
-			if (log == log.XML)
+			if (log == Logtype.XML)
 				new XmlLogger().logError(ex.toString());
-			else if (log == log.TXT)
+			else if (log == Logtype.TXT)
 				new TxtLogger().logError(ex.toString());
 		}
 		return result;

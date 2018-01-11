@@ -1,19 +1,19 @@
 package com.techlabs.student.test;
 
-import java.util.*;
+import java.util.List;
 
-import com.techlabs.student.*;
+import com.techlabs.student.Student;
+import com.techlabs.student.StudentCsvStore;
 
 public class TestCSVStore {
 	public static void main(String[] args) {
 		StudentCsvStore studentcsv = new StudentCsvStore();
-		//studentcsv.add(new Student("Akash", 26, "Laram Center"));
 		print(studentcsv.get());
 
 	}
 
-	private static void print(ArrayList<Student> students) {
-		for (Student student : students) {
+	private static void print(List<Student> list) {
+		for (Student student : list) {
 			System.out.println("Student Id:" + student.getId());
 			System.out.println("Student Name:" + student.getName());
 			System.out.println("Student Age:" + student.getAge());

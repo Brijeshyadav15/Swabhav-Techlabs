@@ -1,6 +1,6 @@
 package com.techlabs.tictactoe;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class GameConsole {
 	private GameController gamecontroller;

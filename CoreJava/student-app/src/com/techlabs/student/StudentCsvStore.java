@@ -1,14 +1,21 @@
 package com.techlabs.student;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressWarnings({ "resource" })
 public class StudentCsvStore implements IStudentStore {
-	ArrayList<Student> studentlist = new ArrayList<Student>();
+	private ArrayList<Student> studentlist;
 
 	public StudentCsvStore() {
 		init();
+		studentlist = new ArrayList<Student>();
 	}
 
 	public void init() {
@@ -30,7 +37,7 @@ public class StudentCsvStore implements IStudentStore {
 	}
 
 	@Override
-	public ArrayList<Student> get() {
+	public List<Student> get() {
 		return studentlist;
 	}
 
@@ -78,14 +85,14 @@ public class StudentCsvStore implements IStudentStore {
 			if (id == studentName.getId()) {
 				studentlist.remove(studentName);
 				save();
-				return "Student Found by name of :" + studentName.getName();
+				return "Deleted Student name:" + studentName.getName();
 			}
 		}
 		return "No Student found with the Given Name";
 	}
 
 	@Override
-	public void Export() {
+	public void export() {
 		try {
 			File file = new File("Resumes/resume.html");
 			FileReader fr = new FileReader(file);
