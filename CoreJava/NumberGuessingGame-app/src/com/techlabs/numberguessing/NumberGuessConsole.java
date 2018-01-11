@@ -3,13 +3,15 @@ package com.techlabs.numberguessing;
 import java.util.*;
 
 public class NumberGuessConsole {
+	private Scanner input;
+
 	public NumberGuessConsole() {
 		start();
 	}
 
 	public void start() {
 		GameController ga = new GameController(1, 100, 2);
-		Scanner input = new Scanner(System.in);
+		input = new Scanner(System.in);
 		ga.setGamestate(GameState.START);
 		int attempts = 0;
 
