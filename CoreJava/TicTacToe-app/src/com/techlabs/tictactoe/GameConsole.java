@@ -57,8 +57,7 @@ public class GameConsole {
 				gamecontroller.currentCol = col;
 				validInput = true;
 			} else {
-				System.out.println("This move at (" + (row + 1) + ","
-						+ (col + 1) + ") is not valid. Try again...");
+				System.out.println("Move is not valid");
 			}
 		} while (!validInput);
 	}
