@@ -1,12 +1,12 @@
 package com.techlabs.tictactoe;
 
 public class GameController {
-	private static final int rows = 3;
-	private static final int cols = 3;
+	static final int rows = 3;
+	static final int cols = 3;
 
 	Tile[][] cellstate;
-	private int currentRow;
-	private int currentCol;
+	int currentRow;
+	int currentCol;
 
 	public GameController() {
 		cellstate = new Tile[rows][cols];
@@ -15,6 +15,14 @@ public class GameController {
 				cellstate[row][col] = new Tile(row, col);
 		}
 	}
+	
+	public void init() {
+	      for (int row = 0; row < rows; ++row) {
+	         for (int col = 0; col < cols; ++col) {
+	            cellstate[row][col].clear();  // clear the cell content
+	         }
+	      }
+	   }
 
 	public boolean checkDraw() {
 		for (int row = 0; row < rows; row++) {
@@ -42,7 +50,17 @@ public class GameController {
 	}
 
 	public void paintBoard() {
-
+		for (int row = 0; row < rows; row++) {
+			for (int col = 0; col < cols; col++) {
+				cellstate[row][col].intialize();
+				if (col < cols - 1) {
+					System.out.print("|");
+				}
+			}
+			System.out.println();
+			if (row < rows - 1) {
+				System.out.println("-----");
+			}
+		}
 	}
-
 }
