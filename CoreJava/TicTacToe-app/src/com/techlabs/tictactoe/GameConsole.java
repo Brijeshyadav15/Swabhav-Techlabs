@@ -11,20 +11,21 @@ public class GameConsole {
 		gamecontroller = new GameController();
 		init();
 		do {
-	         playerMove(currentPlayer); 
-	         gamecontroller.paintBoard();
-	         updateGame(currentPlayer); // update currentState
-	         // Print message if game-over
-	         if (currentstate == GameState.XWON) {
-	            System.out.println("'X' won! Bye!");
-	         } else if (currentstate == GameState.OWON) {
-	            System.out.println("'O' won! Bye!");
-	         } else if (currentstate == GameState.DRAW) {
-	            System.out.println("It's Draw! Bye!");
-	         }
-	         // Switch player
-	         currentPlayer = (currentPlayer == CellState.CROSS) ? CellState.NOUGHT : CellState.CROSS;
-	      } while (currentstate == GameState.RUNNING);  // repeat until game-over
+			playerMove(currentPlayer);
+			gamecontroller.paintBoard();
+			updateGame(currentPlayer);
+
+			if (currentstate == GameState.XWON) {
+				System.out.println("'X' won! Bye!");
+			} else if (currentstate == GameState.OWON) {
+				System.out.println("'O' won! Bye!");
+			} else if (currentstate == GameState.DRAW) {
+				System.out.println("It's Draw! Bye!");
+			}
+
+			currentPlayer = (currentPlayer == CellState.CROSS) ? CellState.NOUGHT
+					: CellState.CROSS;
+		} while (currentstate == GameState.RUNNING);
 	}
 
 	public void init() {
