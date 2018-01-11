@@ -1,12 +1,36 @@
 package com.techlabs.tictactoe;
 
 public class GameController {
-	static final int rows = 3;
-	static final int cols = 3;
+	private static final int rows = 3;
+	public int getRows() {
+		return rows;
+	}
+
+	public int getCols() {
+		return cols;
+	}
+
+	private static final int cols = 3;
 
 	Tile[][] cellstate;
-	int currentRow;
-	int currentCol;
+	private int currentRow;
+	private int currentCol;
+
+	public int getCurrentRow() {
+		return currentRow;
+	}
+
+	public void setCurrentRow(int currentRow) {
+		this.currentRow = currentRow;
+	}
+
+	public int getCurrentCol() {
+		return currentCol;
+	}
+
+	public void setCurrentCol(int currentCol) {
+		this.currentCol = currentCol;
+	}
 
 	public GameController() {
 		cellstate = new Tile[rows][cols];

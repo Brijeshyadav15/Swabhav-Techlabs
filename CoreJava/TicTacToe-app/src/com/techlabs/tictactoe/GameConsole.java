@@ -10,6 +10,12 @@ public class GameConsole {
 	public GameConsole() {
 		gamecontroller = new GameController();
 		init();
+	}
+
+	public void init() {
+		gamecontroller.init();
+		currentPlayer = CellState.CROSS;
+		currentstate = GameState.RUNNING;
 		do {
 			playerMove(currentPlayer);
 			gamecontroller.paintBoard();
@@ -26,12 +32,7 @@ public class GameConsole {
 			currentPlayer = (currentPlayer == CellState.CROSS) ? CellState.NOUGHT
 					: CellState.CROSS;
 		} while (currentstate == GameState.RUNNING);
-	}
 
-	public void init() {
-		gamecontroller.init();
-		currentPlayer = CellState.CROSS;
-		currentstate = GameState.RUNNING;
 	}
 
 	public void playerMove(CellState cell) {
@@ -40,21 +41,21 @@ public class GameConsole {
 		do {
 			if (cell == CellState.CROSS) {
 				System.out
-						.println("Player 'X', enter your move (row[1-3] column[1-3]): ");
+						.println("'X', enter your move (row[1-"+ gamecontroller.getRows()+"] column[1-"+ gamecontroller.getCols()+"]):");
 			} else {
 				System.out
-						.println("Player 'O', enter your move (row[1-3] column[1-3]): ");
+						.println("'O', enter your move (row[1-3] column[1-3]): ");
 			}
 			int row = input.nextInt() - 1;
 			int col = input.nextInt() - 1;
 			if (row >= 0
-					&& row < gamecontroller.rows
+					&& row < gamecontroller.getRows()
 					&& col >= 0
-					&& col < gamecontroller.cols
+					&& col < gamecontroller.getCols()
 					&& gamecontroller.cellstate[row][col].cell == CellState.EMPTY) {
 				gamecontroller.cellstate[row][col].cell = cell;
-				gamecontroller.currentRow = row;
-				gamecontroller.currentCol = col;
+				gamecontroller.setCurrentRow(row);
+				gamecontroller.setCurrentCol(col);
 				validInput = true;
 			} else {
 				System.out.println("Move is not valid");
