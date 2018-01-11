@@ -1,16 +1,35 @@
 package com.techlabs.numberguessing;
 
 public class GameController {
-	private int rangeStart = 0;
-	private int rangeEnd = 100;
-	private int noOfAttempts = 5;
+
+	private int rangeStart;
+	private int rangeEnd;
+	private final int noOfAttempts;
+	private GameState gamestate;
+	private final int declaredNumber;
+
+	public GameController(int rangeStart, int rangeEnd, int noOfAttempts) {
+		this.rangeStart = rangeStart;
+		this.rangeEnd = rangeEnd;
+		this.noOfAttempts = noOfAttempts;
+		this.declaredNumber = (int) (Math.random() * getRangeEnd())
+				+ getRangeStart();
+	}
+
+	public int getDeclaredNumber() {
+		return declaredNumber;
+	}
+
+	public GameState getGamestate() {
+		return gamestate;
+	}
+
+	public void setGamestate(GameState gamestate) {
+		this.gamestate = gamestate;
+	}
 
 	public int getNoOfAttempts() {
 		return noOfAttempts;
-	}
-
-	public void setNoOfAttempts(int noOfAttempts) {
-		this.noOfAttempts = noOfAttempts;
 	}
 
 	public int getRangeStart() {
@@ -21,19 +40,21 @@ public class GameController {
 		return rangeEnd;
 	}
 
-	public void setRangeEnd(int rangeEnd) {
-		if (rangeEnd > getRangeStart())
-			this.rangeEnd = rangeEnd;
-		else
-			throw new RuntimeException(
-					"Range ending number must be greater than Range Starting number");
+	public NumberState compare(int guessNumber) {
+		if (guessNumber == declaredNumber) {
+			setGamestate(GameState.WON);
+			return NumberState.MATCHED;
+		} else if (guessNumber > declaredNumber) {
+			setGamestate(GameState.STOP);
+			return NumberState.UPPER_BOUND;
+		} else if (guessNumber < declaredNumber) {
+			setGamestate(GameState.STOP);
+			return NumberState.LOWER_BOUND;
+		}
+		return null;
 	}
 
-	public void setRangeStart(int rangeStart) {
-		if (rangeStart < getRangeEnd())
-			this.rangeEnd = rangeStart;
-		else
-			throw new RuntimeException(
-					"Range starting number must be smaller than Range Ending number");
+	public int checkattempts(int attempts) {
+		return getNoOfAttempts() - attempts;
 	}
 }

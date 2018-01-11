@@ -1,7 +1,8 @@
 package com.techlabs.numberguessing;
 
 public enum GameState {
-	START, STOP, RUNNING, WAITING, ENDED;
+	START, STOP, RUNNING, WAITING, ENDED,WON;
+	
 	@Override
 	public String toString() {
 		switch (this) {
@@ -15,6 +16,8 @@ public enum GameState {
 			return "Game is in waiting mode";
 		case ENDED:
 			return "Game has ended";
+		case WON:
+			return "Player won";
 		}
 		return null;
 	}

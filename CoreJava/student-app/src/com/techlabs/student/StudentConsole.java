@@ -1,16 +1,13 @@
 package com.techlabs.student;
 
-import java.io.*;
 import java.util.*;
 
-@SuppressWarnings("serial")
-public class StudentConsole implements Serializable {
+public class StudentConsole {
 	IStudentStore studentobj;
-	
+
 	public StudentConsole(IStudentStore obj) {
-		studentobj= obj;
+		studentobj = obj;
 	}
-		
 
 	private static Scanner input;
 	public static final int AddChoice = 1;
@@ -18,7 +15,6 @@ public class StudentConsole implements Serializable {
 	public static final int SearchStudentChoice = 3;
 	public static final int DeleteStudentChoice = 4;
 	public static final int ExportToHTML = 5;
-	
 
 	public void start() {
 
