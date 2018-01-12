@@ -21,13 +21,12 @@ public class Game {
 			paintBoard();
 			updateGame(currentPlayer);
 
-			if (currentstate == GameState.XWON) {
+			if (currentstate == GameState.XWON)
 				System.out.println("'X' won! Bye!");
-			} else if (currentstate == GameState.OWON) {
+			else if (currentstate == GameState.OWON)
 				System.out.println("'O' won! Bye!");
-			} else if (currentstate == GameState.DRAW) {
+			else if (currentstate == GameState.DRAW)
 				System.out.println("It's Draw! Bye!");
-			}
 
 			currentPlayer = (currentPlayer == CellState.CROSS) ? CellState.NOUGHT
 					: CellState.CROSS;
@@ -39,26 +38,19 @@ public class Game {
 		boolean validInput = false;
 		Scanner input = new Scanner(System.in);
 		do {
-			if (cell == CellState.CROSS) {
+			if (cell == CellState.CROSS)
 				System.out.println("'X', enter your move (row[1-"
 						+ board.getRows() + "] column[1-" + board.getCols()
 						+ "]):");
-			} else {
-				System.out
-						.println("'O', enter your move (row[1-3] column[1-3]): ");
-			}
+			else
+				System.out.println("'O', enter your move (row[1-"
+						+ board.getRows() + "] column[1-" + board.getCols()
+						+ "]): ");
 			int row = input.nextInt() - 1;
 			int col = input.nextInt() - 1;
-			if (row >= 0 && row < board.getRows() && col >= 0
-					&& col < board.getCols()
-					&& board.cellstate[row][col].cell == CellState.EMPTY) {
-				board.cellstate[row][col].cell = cell;
-				board.setCurrentRow(row);
-				board.setCurrentCol(col);
-				validInput = true;
-			} else {
-				System.out.println("Move is not valid");
-			}
+			validInput = board.markInput(row, col, cell);
+			if (!validInput)
+				System.out.println("Move is not valid.");
 		} while (!validInput);
 	}
 

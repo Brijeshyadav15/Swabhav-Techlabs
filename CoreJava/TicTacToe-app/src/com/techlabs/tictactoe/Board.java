@@ -78,5 +78,15 @@ public class Board {
 				&& cellstate[2][0].cell == cell);
 	}
 
-	
+	public boolean markInput(int row, int col, CellState cell) {
+		boolean validInput = false;
+		if (row >= 0 && row < getRows() && col >= 0 && col < getCols()
+				&& cellstate[row][col].cell == CellState.EMPTY) {
+			cellstate[row][col].cell = cell;
+			setCurrentRow(row);
+			setCurrentCol(col);
+			validInput = true;
+		}
+		return validInput;
+	}
 }
