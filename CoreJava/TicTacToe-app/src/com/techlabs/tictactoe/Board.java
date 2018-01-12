@@ -1,12 +1,18 @@
 package com.techlabs.tictactoe;
 
 public class Board {
-	private int rows = 3;
-	private int cols = 3;
+	private int rows = 0;
+	private int cols = 0;
 
 	public Board(int rows, int cols) {
 		this.rows = rows;
 		this.cols = cols;
+
+		cellstate = new Cell[rows][cols];
+		for (int row = 0; row < getRows(); row++) {
+			for (int col = 0; col < getCols(); col++)
+				cellstate[row][col] = new Cell(row, col);
+		}
 	}
 
 	public int getCols() {
@@ -37,18 +43,10 @@ public class Board {
 		this.currentCol = currentCol;
 	}
 
-	public Board() {
-		cellstate = new Cell[rows][cols];
-		for (int row = 0; row < rows; row++) {
-			for (int col = 0; col < cols; col++)
-				cellstate[row][col] = new Cell(row, col);
-		}
-	}
-
 	public void init() {
 		for (int row = 0; row < rows; ++row) {
 			for (int col = 0; col < cols; ++col) {
-				cellstate[row][col].clear(); // clear the cell content
+				cellstate[row][col].clear();
 			}
 		}
 	}
@@ -64,18 +62,7 @@ public class Board {
 	}
 
 	public boolean checkWinner(CellState cell) {
-		return (cellstate[currentRow][0].cell == cell
-				&& cellstate[currentRow][1].cell == cell
-				&& cellstate[currentRow][2].cell == cell
-				|| cellstate[0][currentCol].cell == cell
-				&& cellstate[1][currentCol].cell == cell
-				&& cellstate[2][currentCol].cell == cell
-				|| currentRow == currentCol && cellstate[0][0].cell == cell
-				&& cellstate[1][1].cell == cell && cellstate[2][2].cell == cell || currentRow
-				+ currentCol == 2
-				&& cellstate[0][2].cell == cell
-				&& cellstate[1][1].cell == cell
-				&& cellstate[2][0].cell == cell);
+		return (checkRow(cell) || checkCol(cell) || checkDiagonal(cell));
 	}
 
 	public boolean markInput(int row, int col, CellState cell) {
@@ -88,5 +75,46 @@ public class Board {
 			validInput = true;
 		}
 		return validInput;
+	}
+
+	public boolean checkRow(CellState cell) {
+		boolean rowCheck = false;
+		for (int row = 0; row < getRows(); row++) {
+			rowCheck = cellstate[currentRow][row].cell == cell ? true : false;
+			System.out.println("Row Check is :" +cellstate[currentRow][row]);
+			System.out.println("Row Check is :" +cell);
+		}
+		System.out.println("Row Check is :" +rowCheck);
+		return rowCheck;
+	}
+
+	public boolean checkCol(CellState cell) {
+		boolean colCheck = false;
+		for (int col = 0; col < getCols(); col++) {
+			colCheck = cellstate[col][currentCol].cell == cell ? true : false;
+		}
+		System.out.println("Col Check is :" +colCheck);
+		return colCheck;
+	}
+
+	public boolean checkDiagonal(CellState cell) {
+		boolean diagonalCheck = false;
+		for (int col = 0; col < getCols(); ++col) {
+			diagonalCheck = currentRow == currentCol
+					&& cellstate[col][col].cell == cell ? true : false;
+		}
+		System.out.println("Diagonal Check is :" +diagonalCheck);
+		return diagonalCheck;
+	}
+
+	public boolean checkOppDiagonal(CellState cell) {
+		boolean oppDiagonalCheck = false;
+		int n = getCols() - 1;
+		for (int col = 0; col < getCols(); ++col) {
+			oppDiagonalCheck = currentRow + currentCol == n
+					&& cellstate[col][n - col].cell == cell ? true : false;
+		}
+		System.out.println("Opposite Diagonal Check is :" +oppDiagonalCheck);
+		return oppDiagonalCheck;
 	}
 }

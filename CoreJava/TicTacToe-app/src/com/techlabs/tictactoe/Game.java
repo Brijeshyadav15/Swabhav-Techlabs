@@ -8,7 +8,7 @@ public class Game {
 	private CellState currentPlayer;
 
 	public Game() {
-		board = new Board();
+		board = new Board(4,4);
 		init();
 	}
 
