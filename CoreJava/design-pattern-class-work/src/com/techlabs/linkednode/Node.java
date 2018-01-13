@@ -1,7 +1,5 @@
 package com.techlabs.linkednode;
 
-import java.util.Iterator;
-
 public class Node<T> implements Comparable<T> {
 
 	private T data;
@@ -28,5 +26,4 @@ public class Node<T> implements Comparable<T> {
 		return (item == this.data) ? 0 : 1;
 	}
 
-	
 }

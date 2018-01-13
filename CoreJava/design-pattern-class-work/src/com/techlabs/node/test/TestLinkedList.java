@@ -16,10 +16,13 @@ public class TestLinkedList {
 		node.addAfter(50, 40);
 
 		node.deleteAfter(50);
-		node.print();
+		// node.print();
 
-		System.out.println("Count is:" +node.count());
+		System.out.println("Count is: " + node.count());
+
+		for (Integer n : node) {
+			System.out.println(n);
+		}
 
 	}
-	
 }

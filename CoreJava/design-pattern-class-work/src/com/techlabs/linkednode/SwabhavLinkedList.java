@@ -1,6 +1,8 @@
 package com.techlabs.linkednode;
 
 import java.util.Iterator;
+import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 public class SwabhavLinkedList<T> implements Iterable<T> {
 	private Node<T> head;
@@ -42,14 +44,14 @@ public class SwabhavLinkedList<T> implements Iterable<T> {
 	}
 
 	public T deleteFront() {
-		if (head == null) 
+		if (head == null)
 			return null;
 
 		Node<T> tmp = head;
 		head = tmp.getNextNode();
 		if (head == null)
 			tail = null;
-		
+
 		return (T) tmp.getNextNode();
 	}
 
@@ -90,15 +92,8 @@ public class SwabhavLinkedList<T> implements Iterable<T> {
 		return count;
 	}
 
-	@Override
-	public Iterator<T> iterator() {
-		return (Iterator<T>) head;
-	}
-
 	public void print() {
 		Node<T> tmp = head;
-
-		Node<T>[] data = null;
 		while (true) {
 			if (tmp == null)
 				break;
@@ -106,5 +101,69 @@ public class SwabhavLinkedList<T> implements Iterable<T> {
 			System.out.println(tmp.getData());
 			tmp = tmp.getNextNode();
 		}
+	}
+
+	@Override
+	public Iterator<T> iterator() {
+		return new ListIterator<T>() {
+
+			Node<T> currentNode = head;
+			Node<T> previous = null;
+
+			@Override
+			public void add(T arg0) {
+			}
+
+			@Override
+			public boolean hasNext() {
+				if (currentNode != null && currentNode.getNextNode() != null)
+					return true;
+				else
+					return false;
+			}
+
+			@Override
+			public boolean hasPrevious() {
+				return false;
+			}
+
+			@Override
+			public T next() {
+				if (!hasNext())
+					throw new NoSuchElementException();
+				if (previous == null) {
+					previous = currentNode;
+					return previous.getData();
+				}
+				T node = currentNode.getData();
+				currentNode = currentNode.getNextNode();
+				return currentNode.getData();
+			}
+
+			@Override
+			public int nextIndex() {
+				return 0;
+			}
+
+			@Override
+			public T previous() {
+				return null;
+			}
+
+			@Override
+			public int previousIndex() {
+				return 0;
+			}
+
+			@Override
+			public void remove() {
+
+			}
+
+			@Override
+			public void set(T arg0) {
+
+			}
+		};
 	}
 }
