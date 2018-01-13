@@ -2,7 +2,7 @@ package com.techlabs.node.test;
 
 import com.techlabs.linkednode.*;
 
-public class TestNode {
+public class TestLinkedList {
 
 	public static void main(String[] args) {
 		SwabhavLinkedList<Integer> node = new SwabhavLinkedList<Integer>();

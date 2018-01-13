@@ -22,10 +22,7 @@ public class Node<T> implements Comparable<T> {
 	}
 
 	@Override
-	public int compareTo(T arg) {
-		if (arg == this.data)
-			return 0;
-		else
-			return 1;
+	public int compareTo(T item) {
+		return (item == this.data) ? 0 : 1;
 	}
 }
