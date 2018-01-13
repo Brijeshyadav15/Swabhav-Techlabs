@@ -106,13 +106,8 @@ public class SwabhavLinkedList<T> implements Iterable<T> {
 	@Override
 	public Iterator<T> iterator() {
 		return new ListIterator<T>() {
-
 			Node<T> currentNode = head;
 			Node<T> previous = null;
-
-			@Override
-			public void add(T arg0) {
-			}
 
 			@Override
 			public boolean hasNext() {
@@ -120,11 +115,6 @@ public class SwabhavLinkedList<T> implements Iterable<T> {
 					return true;
 				else
 					return false;
-			}
-
-			@Override
-			public boolean hasPrevious() {
-				return false;
 			}
 
 			@Override
@@ -138,6 +128,15 @@ public class SwabhavLinkedList<T> implements Iterable<T> {
 				T node = currentNode.getData();
 				currentNode = currentNode.getNextNode();
 				return currentNode.getData();
+			}
+
+			@Override
+			public void add(T arg0) {
+			}
+
+			@Override
+			public boolean hasPrevious() {
+				return false;
 			}
 
 			@Override
@@ -157,12 +156,10 @@ public class SwabhavLinkedList<T> implements Iterable<T> {
 
 			@Override
 			public void remove() {
-
 			}
 
 			@Override
 			public void set(T arg0) {
-
 			}
 		};
 	}

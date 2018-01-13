@@ -79,6 +79,7 @@ public class Board {
 
 	public boolean checkWinner(CellState cell) {
 		int counter = 1;
+		
 		// horizontal
 		for (int i = 0; i < getRows(); i++) {
 			for (int j = 0; j < getRows() - 1; j++) {
@@ -112,6 +113,7 @@ public class Board {
 		}
 
 		counter = 1;
+		
 		// diagonal from left-top to right-bottom
 		for (int i = 0; i < getCols() - 1; i++) {
 			if (cellstate[i][i].cell == cellstate[i + 1][i + 1].cell) {
@@ -123,6 +125,7 @@ public class Board {
 		}
 
 		counter = 1;
+		
 		// diagonal from right-top to left-bottom
 		for (int i = 0; i < getCols() - 1; i++) {
 			if (cellstate[i][getCols() - 1 - i].cell == cellstate[i + 1][getCols()
@@ -133,9 +136,7 @@ public class Board {
 				return true;
 			}
 		}
-
 		return false;
-
 	}
 
 	public boolean markInput(int row, int col, CellState cell) {
