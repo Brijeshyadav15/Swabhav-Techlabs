@@ -18,7 +18,7 @@ public class TestNode {
 		node.deleteAfter(50);
 		node.print();
 
-		System.out.println("List is:" +node.count());
+		System.out.println("Count is:" +node.count());
 
 	}
 	

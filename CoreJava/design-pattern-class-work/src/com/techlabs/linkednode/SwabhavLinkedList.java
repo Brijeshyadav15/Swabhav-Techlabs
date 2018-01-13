@@ -42,37 +42,37 @@ public class SwabhavLinkedList<T> implements Iterable<T> {
 	}
 
 	public T deleteFront() {
-		if (head == null) {
+		if (head == null) 
 			return null;
-		}
+
 		Node<T> tmp = head;
 		head = tmp.getNextNode();
 		if (head == null)
 			tail = null;
-
+		
 		return (T) tmp.getNextNode();
 	}
 
 	public T deleteAfter(T after) {
-		Node<T> tmp = head;
-		Node<T> refNode = null;
+		Node<T> tmpData = head;
+		Node<T> tmpNode = null;
 		while (true) {
-			if (tmp == null) {
+			if (tmpData == null) {
 				break;
 			}
-			if (tmp.compareTo(after) == 0) {
-				refNode = tmp;
+			if (tmpData.compareTo(after) == 0) {
+				tmpNode = tmpData;
 				break;
 			}
-			tmp = tmp.getNextNode();
+			tmpData = tmpData.getNextNode();
 		}
-		if (refNode != null) {
-			tmp = refNode.getNextNode();
-			refNode.setNextNode(tmp.getNextNode());
-			if (refNode.getNextNode() == null) {
-				tail = refNode;
+		if (tmpNode != null) {
+			tmpData = tmpNode.getNextNode();
+			tmpNode.setNextNode(tmpData.getNextNode());
+			if (tmpNode.getNextNode() == null) {
+				tail = tmpNode;
 			}
-			return tmp.getData();
+			return tmpData.getData();
 		}
 		return null;
 	}
@@ -100,9 +100,9 @@ public class SwabhavLinkedList<T> implements Iterable<T> {
 
 		Node<T>[] data = null;
 		while (true) {
-			if (tmp == null) {
+			if (tmp == null)
 				break;
-			}
+
 			System.out.println(tmp.getData());
 			tmp = tmp.getNextNode();
 		}
