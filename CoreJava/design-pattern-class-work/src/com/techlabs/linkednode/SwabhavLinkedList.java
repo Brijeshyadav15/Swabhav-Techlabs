@@ -107,5 +107,4 @@ public class SwabhavLinkedList<T> implements Iterable<T> {
 			tmp = tmp.getNextNode();
 		}
 	}
-
 }
