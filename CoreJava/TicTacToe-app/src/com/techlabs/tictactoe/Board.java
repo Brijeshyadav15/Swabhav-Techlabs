@@ -61,8 +61,81 @@ public class Board {
 		return true;
 	}
 
+	// public boolean checkWinner(CellState cell) {
+	// return (cellstate[currentRow][0].cell == cell
+	// && cellstate[currentRow][1].cell == cell
+	// && cellstate[currentRow][2].cell == cell
+	// || cellstate[0][currentCol].cell == cell
+	// && cellstate[1][currentCol].cell == cell
+	// && cellstate[2][currentCol].cell == cell
+	// || currentRow == currentCol && cellstate[0][0].cell == cell
+	// && cellstate[1][1].cell == cell && cellstate[2][2].cell == cell ||
+	// currentRow
+	// + currentCol == 2
+	// && cellstate[0][2].cell == cell
+	// && cellstate[1][1].cell == cell
+	// && cellstate[2][0].cell == cell);
+	// }
+
 	public boolean checkWinner(CellState cell) {
-		return (checkRow(cell) || checkCol(cell) || checkDiagonal(cell));
+		int counter = 1;
+		// horizontal
+		for (int i = 0; i < getRows(); i++) {
+			for (int j = 0; j < getRows() - 1; j++) {
+				if (cellstate[i][j] == cellstate[i][j + 1]) {
+					counter = counter + 1;
+					System.out.println("Current cell is:"+cellstate[i][j]);
+					System.out.println("next cell is:"+cellstate[i][j + 1]);
+					System.out.println("Counter is: " + counter);
+				}
+				
+				if (counter == getRows()) {
+					return true;
+				}
+			}
+			counter = 1;
+		}
+
+		counter = 1;
+
+		// vertical
+		for (int i = 0; i < getCols(); i++) {
+			for (int j = 0; j < getCols() - 1; j++) {
+				if (cellstate[j][i].cell == cellstate[j + 1][i].cell) {
+					counter = counter + 1;
+				}
+				if (counter == getCols()) {
+					return true;
+				}
+			}
+			counter = 1;
+		}
+
+		counter = 1;
+		// diagonal from left-top to right-bottom
+		for (int i = 0; i < getCols() - 1; i++) {
+			if (cellstate[i][i].cell == cellstate[i + 1][i + 1].cell) {
+				counter = counter + 1;
+			}
+			if (counter == getCols()) {
+				return true;
+			}
+		}
+
+		counter = 1;
+		// diagonal from right-top to left-bottom
+		for (int i = 0; i < getCols() - 1; i++) {
+			if (cellstate[i][getCols() - 1 - i].cell == cellstate[i + 1][getCols()
+					- 1 - (i + 1)].cell) {
+				counter = counter + 1;
+			}
+			if (counter == getCols()) {
+				return true;
+			}
+		}
+
+		return false;
+
 	}
 
 	public boolean markInput(int row, int col, CellState cell) {
@@ -75,46 +148,5 @@ public class Board {
 			validInput = true;
 		}
 		return validInput;
-	}
-
-	public boolean checkRow(CellState cell) {
-		boolean rowCheck = false;
-		for (int row = 0; row < getRows(); row++) {
-			rowCheck = cellstate[currentRow][row].cell == cell ? true : false;
-			System.out.println("Row Check is :" +cellstate[currentRow][row]);
-			System.out.println("Row Check is :" +cell);
-		}
-		System.out.println("Row Check is :" +rowCheck);
-		return rowCheck;
-	}
-
-	public boolean checkCol(CellState cell) {
-		boolean colCheck = false;
-		for (int col = 0; col < getCols(); col++) {
-			colCheck = cellstate[col][currentCol].cell == cell ? true : false;
-		}
-		System.out.println("Col Check is :" +colCheck);
-		return colCheck;
-	}
-
-	public boolean checkDiagonal(CellState cell) {
-		boolean diagonalCheck = false;
-		for (int col = 0; col < getCols(); ++col) {
-			diagonalCheck = currentRow == currentCol
-					&& cellstate[col][col].cell == cell ? true : false;
-		}
-		System.out.println("Diagonal Check is :" +diagonalCheck);
-		return diagonalCheck;
-	}
-
-	public boolean checkOppDiagonal(CellState cell) {
-		boolean oppDiagonalCheck = false;
-		int n = getCols() - 1;
-		for (int col = 0; col < getCols(); ++col) {
-			oppDiagonalCheck = currentRow + currentCol == n
-					&& cellstate[col][n - col].cell == cell ? true : false;
-		}
-		System.out.println("Opposite Diagonal Check is :" +oppDiagonalCheck);
-		return oppDiagonalCheck;
 	}
 }
