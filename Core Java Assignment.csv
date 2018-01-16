@@ -1,0 +1,47 @@
+ID,Assignment ,Description,Date ,Status,App Name
+1,Tic Tac Toe,Application of Tic Tac toe of 2 players with N*N board size. ,12/01/2018,Running,TicTacToe-app
+2,Organization Hierarchy,Displaying the organization hierarchy in a Composite pattern from data to be taken from external file,15/01/2018,Running,organisation_hierarchy-app
+3,Account ,performing basic operations of Account like Deposit and withdraw and implementing RuntimeException when balance is less than Minimum Required Balance,05/01/2018,Completed,account-app
+4,Account Polymorphism,Creating accounts based on princple of Polymorphism and providing different account types like Saving and Current to created at Runtime,04/01/2018,Completed,accountpolymorphism-app
+5,Resume Builder,Creating resume of student based on getting html file as a template and replacing the contents in it,01/01/2018,Completed,Assignment
+6,Custom exception,creating a custom exception which returns an unchecked negative value exception,01/01/2018,Completed,Assignment
+7,Annontation,creating a annotation which implements needrefactoring annontation,01/01/2018,Completed,Assignment
+8,Reading from File ,reading the contents of the file ,30/12/2018,Completed,Assignment
+9,Count Methods ,"Count all the number of methods,constructor ,getter and setter",01/01/2018,Completed,Assignment
+10,Serialization of Object[Rectangle],Serializing the rectangle object and reading and writing it to a serialized  object file,01/01/2018,Completed,Assignment
+11,Writing to File ,writing the contents of the file ,30/12/2018,Completed,Assignment
+12,Example of Interface,Implement a example of interface of Shapes,02/01/2018,Completed,assignment_jan_week1
+13,Inheritance with Interface,Implement a interface with concept of inhertance in it,02/01/2018,Completed,assignment_jan_week1
+14,Example of Abstract Class,Implement a example of Abstract Class,03/01/2018,Completed,assignment-03-01
+15,HashCode ,Implement a example of HashCode,03/01/2018,Completed,assignment-03-01
+16,List ,Implement a example of List(ArrayList),03/01/2018,Completed,assignment-03-01
+17,Map,Implement a example of Map(HashMap),03/01/2018,Completed,assignment-03-01
+18,Set,Implement a example of Set(HashSet),03/01/2018,Completed,assignment-03-01
+19,Boxing,Implement Boxing and Unboxing ,04/01/2018,Completed,assignment-04-01
+20,Iterator,Implement example of Iterator,04/01/2018,Completed,assignment-04-01
+21,Unit Testing,Implement example of Unit Testing through Junit,04/01/2018,Completed,assignment-04-01
+22,Basic Student app,Implement a basic student app which sets and gets the property of Student,29/12/2017,Completed,basic-app
+23,Basic Dry ,Implement a basic app which implements the concept of DRY,29/12/2017,Completed,basic-app
+24,Circle App,Implement a circle with  the Border Style option of ENUM,29/12/2017,Completed,circle-app
+25,Collection Java,Implement a collection based app which does the sorting and implementing Line Item through Different collections,08/01/2018,Completed,collection-app
+26,Engineering College App,"Implement a engineering college app which have Student , Professor which implement Department and Salaried Employee class respectively",08/01/2018,Completed,college-app
+27,Design pattern,Implement different kinds of Design pattern with examples,12/01/2018,Completed,Design Pattern-app
+28,Dog Door ,Implement Dog Door application based on concepts of OOAD Head First Book,10/01/2018,Completed,DogDoor
+29,Employee,Create an employee app which two different types of employee through an Interface and common Calculate Age function,04/01/2018,Completed,employee-app
+30,Employee CSV,create an employee app which reads the data from the CSV file and sort it by Salary and Name,08/01/2018,Completed,EmployeeCSV-app
+31,Encapsulation ,Implement the Encapsulation concept with the help of Rectangle class,29/12/2017,Completed,encapsulation-app
+32,Exception,Implement concept of Exception which implements Custom Exception of InsufficientFundsException,05/01/2018,Completed,exception-app
+33,Inheritance App,"Implement Inheritance app with the concept of Polymorphism of Man, Boy,Kid and Infant",02/01/2018,Completed,inheritance-app
+34,Inheritance  ConstructorApp,Implement constructor calling from the Inherited classes and Constructor overloading through Inheritance,02/01/2018,Completed,inheritance-app
+35,Interface App,Implement ICRUDABLE interface which is implemented by InvoiceDB and ShipmentDB Layer,05/01/2018,Completed,interface-app
+36,Interface Polymorphism,Implement polymorphism through Interface with Classes of Boy and Man,05/01/2018,Completed,interfacepolymorphism-app
+37,Number Guessing Game,Implement Number Guessing game which implements the basics of OOAD ,11/01/2018,Completed,NumberGuessingGame-app
+38,Player App,Implement Player app which overrides toString and equals method,02/01/2018,Completed,Player
+39,Property App,Implement a property file which sets and reads Properties from External File,07/01/2018,Completed,Property-App
+40,Ricks Guitar,Implement Ricks Guitar app based on OOAD Book concept,08/01/2018,Completed,RicksGuitar-app
+41,Shopping Cart,"Implement Shopping Cart based on Invoice Creation and layering it by Customer, LineItem,Order and Product classes",09/01/2018,Completed,shoppingcart
+42,Solid Princples,Implement different SOLID princples and show them through violation and refracting of them,11/01/2018,Completed,SOLID-princples-app
+43,States,Implement and HashMap based States app which returns the State Name by providing State Code to it,07/01/2018,Completed,States-app
+44,Student App,Create a student app based on concepts of Serialiazation and OOAD principles,11/01/2018,Completed,student-app
+45,Student Generic App,Implement Student app through Generic Data Structures,05/01/2018,Completed,studentgeneric-app
+46,TDD,Implement an app based on princple of Test Driven Development,08/01/2018,Completed,TDD-app
