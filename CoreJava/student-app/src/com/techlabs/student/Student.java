@@ -3,6 +3,8 @@ package com.techlabs.student;
 import java.io.*;
 import java.text.*;
 import java.util.Date;
+import java.util.UUID;
+
 
 @SuppressWarnings("serial")
 public class Student implements Serializable {
@@ -15,8 +17,7 @@ public class Student implements Serializable {
 	}
 
 	public Student(String name, int age, String location) {
-		this.id = Long.parseLong(new SimpleDateFormat("yyyyMMddHHmmss")
-				.format(new Date()));
+		this.id = UUID.randomUUID().toString().replace("-", "");
 		this.name = name;
 		this.age = age;
 		this.location = location;
