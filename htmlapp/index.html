@@ -9,7 +9,8 @@
 	<div>
 		<h4>Class  Work</h4>
 		<a href="welcome.html">Welcome</a><br>
-		<a href="colorpicker.html">Color Picker</a>
+		<a href="colorpicker.html">Color Picker</a><br>
+		<a href="hoisting.html">Hoisting</a>
 	</div>
 	<div>
 			<h4>Assignments </h4>
@@ -17,6 +18,14 @@
 		<a href="colorpicker.html">Session Storage</a><br>
 		<a href="videoplayer.html">Video Player</a><br>
 	</div>
-	
 </body>
+	<script>
+		initClassWork();
+		function initClassWork()
+		{
+			var fs = require('fs');
+			var files = fs.readdirSync('/assets/photos/');
+			console.log(files);
+		}
+	</script>
 </html>

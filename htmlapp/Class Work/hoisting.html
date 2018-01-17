@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>
+            Hoisting Javascript
+        </title>
+    </head>
+    <script>
+        f1();
+        function f1()
+        {
+            console.log("Inside F1");
+            for(var c=1;c<=10;c++)
+            {
+                console.log(c);
+            }
+            console.log("Outside Loop " +c);
+        }
+        
+
+    </script>
+</html>
