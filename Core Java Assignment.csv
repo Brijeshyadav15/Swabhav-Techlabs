@@ -43,5 +43,6 @@ ID,Assignment ,Description,Date ,Status,App Name
 42,Solid Princples,Implement different SOLID princples and show them through violation and refracting of them,11/01/2018,Completed,SOLID-princples-app
 43,States,Implement and HashMap based States app which returns the State Name by providing State Code to it,07/01/2018,Completed,States-app
 44,Student App,Create a student app based on concepts of Serialiazation and OOAD principles,11/01/2018,Completed,student-app
-45,Student Generic App,Implement Student app through Generic Data Structures,05/01/2018,Completed,studentgeneric-app
-46,TDD,Implement an app based on princple of Test Driven Development,08/01/2018,Completed,TDD-app
+45,Composite of File and Folder,Implement Composite Pattern using File and Folders,16/07/2018,Running,-
+46,Student Generic App,Implement Student app through Generic Data Structures,05/01/2018,Completed,studentgeneric-app
+47,TDD,Implement an app based on princple of Test Driven Development,08/01/2018,Completed,TDD-app

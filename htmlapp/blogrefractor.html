@@ -38,20 +38,19 @@
     </div>
 </body>
 <script>
-    var getMessages = JSON.parse(localStorage.getItem("BlogContent")) !=null ? JSON.parse(localStorage.getItem("BlogContent")) :[""];
-    
-    (function(){
+    var getMessages = JSON.parse(localStorage.getItem("BlogContent")) != null ? JSON.parse(localStorage.getItem("BlogContent")) : [""];
+
+    (function () {
         var blogarea = document.getElementById("blogarea");
         init();
     })();
 
-    function init(){
-        if(getMessages != null && getMessages.length > -1  )  
-        {    
+    function init() {
+        if (getMessages != null && getMessages.length > -1) {
             for (var i = 0; i < getMessages.length; i++) {
-                if(getMessages[i] != ""){
+                if (getMessages[i] != "") {
                     child = document.createElement("div");
-                    newMessageBox = "<span id='message" + i + "' class='output' onkeydown='prependToBlog(this)'>" + getMessages[i] + "<button onclick='editBlog(message"+i+")' name='messageedit" + i + "'>EDIT</button><button onclick='divRemover(message"+i+")' name='messageclose" + i + "' class='close'>X</button></span>";
+                    newMessageBox = "<span class='output'><span id='message" + i + "' onkeydown='prependToBlog(this)'>" + getMessages[i] + "</span><button onclick='editBlog(message" + i + ")' name='messageedit" + i + "'>EDIT</button><button onclick='divRemover(message" + i + ")' name='messageclose" + i + "' class='close'>X</button></span>";
                     child.innerHTML = newMessageBox;
                     blogarea.insertBefore(child, blogarea.firstChild);
                 }
@@ -59,40 +58,38 @@
         }
     }
 
+    function saveToLocalStorage() {
+        localStorage.setItem("BlogContent", JSON.stringify(getMessages));
+        document.getElementById("messagebox").value = '';
+        getMessages = JSON.parse(localStorage.getItem("BlogContent"));
+    }
+
     function prependToBlog(ele) {
         if (event.key === 'Enter') {
             var textMessage = document.getElementById("messagebox").value;
-            if(getMessages != null && getMessages.length > -1) 
-            {
+            if (getMessages != null && getMessages.length > -1) {
                 getMessages.push(textMessage);
-                localStorage.setItem("BlogContent", JSON.stringify(getMessages));
-                document.getElementById("messagebox").value = '';    
-                getMessages =JSON.parse(localStorage.getItem("BlogContent"));   
+                saveToLocalStorage();
                 init();
             }
-
         }
     }
 
     function divRemover(arg) {
-        alert(arg.id);
         var x = document.getElementById(arg.id);
         x.parentNode.removeChild(x);
-        //var index = array.indexOf(x);
-
-        
+        var index = getMessages.indexOf(x.innerHTML);
+        if (index > -1) {
+            getMessages.splice(index, 1);
+            saveToLocalStorage();
+            init();
+        }
     }
 
     function editBlog(arg) {
         var x = document.getElementById(arg.id);
-        console.log(x);
-        var att = document.createAttribute("contenteditable");
-        att.value = "true";
-        x.setAttributeNode(att);
-
-    }
-
-    
+        document.getElementById("messagebox").value = x.innerHTML;
+    }    
 </script>
 
 </html>

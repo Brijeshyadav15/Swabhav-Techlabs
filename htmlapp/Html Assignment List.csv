@@ -2,3 +2,4 @@ ID,Assignment ,Description,Date ,Status,File Name
 1,Local Storeage,Implement Local Storage concept of HTML5,16/01/2018,Completed,localstoreage.html
 2,Session Storage,Implement Session Storage concept of HTML5,16/01/2018,Completed,sessionstorage.html
 3,Video Player ,Implement Basic Video Player,16/01/2018,Completed,videoplayer.html
+4,Canvas Example,Implement Canvas with circle of 40 and 60 ratio of two different colors,17/01/2018,Completed,circle canvas.html
