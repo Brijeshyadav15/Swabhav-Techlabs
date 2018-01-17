@@ -33,7 +33,7 @@
     <label for="message box">
         Message:
     </label>
-    <textarea name="messagebox" id="messagebox" cols="30" rows="3" onkeydown="prependToBlog(this)"></textarea>
+    <textarea name="messagebox" id="messagebox" cols="30" rows="3" onkeydown="prependToBlog(this)" data-index="0"></textarea>
     <div name="blogarea" id="blogarea">
     </div>
 </body>
@@ -50,7 +50,7 @@
             for (var i = 0; i < getMessages.length; i++) {
                 if (getMessages[i] != "") {
                     child = document.createElement("div");
-                    newMessageBox = "<span class='output'><span id='message" + i + "' onkeydown='prependToBlog(this)'>" + getMessages[i] + "</span><button onclick='editBlog(message" + i + ")' name='messageedit" + i + "'>EDIT</button><button onclick='divRemover(message" + i + ")' name='messageclose" + i + "' class='close'>X</button></span>";
+                    newMessageBox = "<span class='output'><span id='message" + i + "'>" + getMessages[i] + "</span><button onclick='editBlog(message" + i + ")' name='messageedit" + i + "'>EDIT</button><button onclick='divRemover(message" + i + ")' name='messageclose" + i + "' class='close'>X</button></span>";
                     child.innerHTML = newMessageBox;
                     blogarea.insertBefore(child, blogarea.firstChild);
                 }
@@ -67,11 +67,16 @@
     function prependToBlog(ele) {
         if (event.key === 'Enter') {
             var textMessage = document.getElementById("messagebox").value;
-            if (getMessages != null && getMessages.length > -1) {
-                getMessages.push(textMessage);
-                saveToLocalStorage();
-                init();
+            var dataIndex = document.getElementById("messagebox").getAttribute("data-index");
+            if (dataIndex > 0) {
+                getMessages[dataIndex] = textMessage;
             }
+            else if (getMessages != null && getMessages.length > -1) {
+                getMessages.push(textMessage);
+            }
+            document.getElementById("blogarea").innerHTML ='';
+            saveToLocalStorage();
+            init();
         }
     }
 
@@ -88,7 +93,10 @@
 
     function editBlog(arg) {
         var x = document.getElementById(arg.id);
-        document.getElementById("messagebox").value = x.innerHTML;
+        var textbox = document.getElementById("messagebox");
+        var index = getMessages.indexOf(x.innerHTML);
+        textbox.value = x.innerHTML;
+        textbox.setAttribute("data-index", index);
     }    
 </script>
 
