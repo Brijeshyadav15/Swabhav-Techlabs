@@ -3,6 +3,7 @@
         <title>Object Example</title>
     </head>
     <script>
+        (function f1(){
         var student={};
         console.log(student);
         console.log(typeof(student));
@@ -42,6 +43,7 @@
         console.log(JSON.stringify(student));
 
         console.log(JSON.stringify(students));
+        })();
     </script>
 
 </html>

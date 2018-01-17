@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>
+            Blog App
+        </title>
+    </head>
+    <style>
+        div
+        {
+            margin: 5%;
+            font-size: 1.3em;
+        }
+        button
+        {
+            margin-left: 10%;
+            color: black;
+            background-color: red;
+        }
+        label
+        {
+            font-size: 2em;
+        }
+        .output
+        {
+            border-style:solid;
+            border-color: #0000ff;
+            border-width:3px;
+            background-color:silver; 
+        }
+    </style>
+    <body>
+        <label for="message box">
+                Message: 
+        </label>
+        <textarea name="messagebox" id="messagebox" cols="30" rows="3" onkeydown="prependToBlog(this)"></textarea>
+        <div name="blogarea" id="blogarea">
+        </div>
+    </body>
+    <script>
+        function prependToBlog(ele)
+        {
+            if(event.key === 'Enter') {
+                var blogarea =document.getElementById("blogarea");
+                var textMessage = document.getElementById("messagebox").value;
+                child = document.createElement("div");
+
+                newMessageBox= "<span id='"+textMessage+"div' class='output'>"+textMessage+"<button onclick='divRemover(this)' name='"+textMessage+"div'>X</button></span>";
+                child.innerHTML = newMessageBox;
+
+                blogarea.insertBefore(child,blogarea.firstChild);
+                document.getElementById("messagebox").value =''; 
+                localStorage.setItem("BlogContent",JSON.stringify(blogarea.innerHTML));
+            }
+        }
+        
+        function divRemover(arg){
+            var x=document.getElementById(arg.name); 
+            console.log(arg.name);
+            console.log(x);
+            x.parentNode.removeChild(x);
+            localStorage.setItem("BlogContent",JSON.stringify(document.getElementById("blogarea").innerHTML));
+	    }
+        (function(){
+            var blogarea =document.getElementById("blogarea");
+            blogarea.innerHTML = JSON.parse(localStorage.getItem("BlogContent"));
+        })();
+    </script>
+</html>
