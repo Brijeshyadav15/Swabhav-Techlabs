@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <title>
+        Blog App
+    </title>
+</head>
+<style>
+    div {
+        margin: 5%;
+        font-size: 1.3em;
+    }
+
+    .close {
+        margin-left: 10%;
+        color: black;
+        background-color: red;
+    }
+
+    label {
+        font-size: 2em;
+    }
+
+    .output {
+        border-style: solid;
+        border-color: #0000ff;
+        border-width: 3px;
+        background-color: silver;
+    }
+</style>
+
+<body>
+    <label for="message box">
+        Message:
+    </label>
+    <textarea name="messagebox" id="messagebox" cols="30" rows="3" onkeydown="prependToBlog(this)"></textarea>
+    <div name="blogarea" id="blogarea">
+    </div>
+</body>
+<script>
+    var getMessages = JSON.parse(localStorage.getItem("BlogContent")) !=null ? JSON.parse(localStorage.getItem("BlogContent")) :[""];
+    
+    (function(){
+        var blogarea = document.getElementById("blogarea");
+        init();
+    })();
+
+    function init(){
+        if(getMessages != null && getMessages.length > -1  )  
+        {    
+            for (var i = 0; i < getMessages.length; i++) {
+                if(getMessages[i] != ""){
+                    child = document.createElement("div");
+                    newMessageBox = "<span id='message" + i + "' class='output' onkeydown='prependToBlog(this)'>" + getMessages[i] + "<button onclick='editBlog(message"+i+")' name='messageedit" + i + "'>EDIT</button><button onclick='divRemover(message"+i+")' name='messageclose" + i + "' class='close'>X</button></span>";
+                    child.innerHTML = newMessageBox;
+                    blogarea.insertBefore(child, blogarea.firstChild);
+                }
+            }
+        }
+    }
+
+    function prependToBlog(ele) {
+        if (event.key === 'Enter') {
+            var textMessage = document.getElementById("messagebox").value;
+            if(getMessages != null && getMessages.length > -1) 
+            {
+                getMessages.push(textMessage);
+                localStorage.setItem("BlogContent", JSON.stringify(getMessages));
+                document.getElementById("messagebox").value = '';    
+                getMessages =JSON.parse(localStorage.getItem("BlogContent"));   
+                init();
+            }
+
+        }
+    }
+
+    function divRemover(arg) {
+        alert(arg.id);
+        var x = document.getElementById(arg.id);
+        x.parentNode.removeChild(x);
+        //var index = array.indexOf(x);
+
+        
+    }
+
+    function editBlog(arg) {
+        var x = document.getElementById(arg.id);
+        console.log(x);
+        var att = document.createAttribute("contenteditable");
+        att.value = "true";
+        x.setAttributeNode(att);
+
+    }
+
+    
+</script>
+
+</html>

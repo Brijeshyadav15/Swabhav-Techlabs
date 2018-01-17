@@ -44,7 +44,7 @@
                 var textMessage = document.getElementById("messagebox").value;
                 child = document.createElement("div");
 
-                newMessageBox= "<span id='"+textMessage+"div' class='output'>"+textMessage+"<button onclick='divRemover(this)' name='"+textMessage+"div'>X</button></span>";
+                newMessageBox= "<span id='"+textMessage+"div' class='output'>"+textMessage+"</span><button onclick='editBlog(this)' name='"+textMessage+"div'>EDIT</button><button onclick='divRemover(this)' name='"+textMessage+"div'>X</button>";
                 child.innerHTML = newMessageBox;
 
                 blogarea.insertBefore(child,blogarea.firstChild);
@@ -55,11 +55,19 @@
         
         function divRemover(arg){
             var x=document.getElementById(arg.name); 
-            console.log(arg.name);
-            console.log(x);
             x.parentNode.removeChild(x);
             localStorage.setItem("BlogContent",JSON.stringify(document.getElementById("blogarea").innerHTML));
 	    }
+
+        function editBlog(arg){
+            var x=document.getElementById(arg.name); 
+            console.log(x);
+            var att = document.createAttribute("contenteditable"); 
+            att.value = "true"; 
+            x.setAttributeNode(att);
+
+	    }
+
         (function(){
             var blogarea =document.getElementById("blogarea");
             blogarea.innerHTML = JSON.parse(localStorage.getItem("BlogContent"));
