@@ -10,9 +10,11 @@
         margin: 5%;
         font-size: 1.3em;
     }
-
-    .close {
+    .edit {
         margin-left: 10%;
+        color: black;
+    }
+    .close {
         color: black;
         background-color: red;
     }
@@ -50,7 +52,7 @@
             for (var i = 0; i < getMessages.length; i++) {
                 if (getMessages[i] != "") {
                     child = document.createElement("div");
-                    newMessageBox = "<span class='output'><span id='message" + i + "'>" + getMessages[i] + "</span><button onclick='editBlog(message" + i + ")' name='messageedit" + i + "'>EDIT</button><button onclick='divRemover(message" + i + ")' name='messageclose" + i + "' class='close'>X</button></span>";
+                    newMessageBox = "<span class='output'><span id='message" + i + "'>" + getMessages[i] + "</span><button onclick='editBlog(message" + i + ")' name='messageedit" + i + "' class='edit'>EDIT</button><button onclick='divRemover(message" + i + ")' name='messageclose" + i + "' class='close'>X</button></span>";
                     child.innerHTML = newMessageBox;
                     blogarea.insertBefore(child, blogarea.firstChild);
                 }
@@ -86,6 +88,7 @@
         var index = getMessages.indexOf(x.innerHTML);
         if (index > -1) {
             getMessages.splice(index, 1);
+            document.getElementById("blogarea").innerHTML ='';
             saveToLocalStorage();
             init();
         }
@@ -97,6 +100,7 @@
         var index = getMessages.indexOf(x.innerHTML);
         textbox.value = x.innerHTML;
         textbox.setAttribute("data-index", index);
+        textbox.focus();
     }    
 </script>
 
