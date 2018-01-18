@@ -1,5 +1,10 @@
 ID,Assignment ,Description,Date ,Status,File Name
-1,Local Storeage,Implement Local Storage concept of HTML5,16/01/2018,Completed,localstoreage.html
+1,Local Storage,Implement Local Storage concept of HTML5,16/01/2018,Completed,localstoreage.html
 2,Session Storage,Implement Session Storage concept of HTML5,16/01/2018,Completed,sessionstorage.html
 3,Video Player ,Implement Basic Video Player,16/01/2018,Completed,videoplayer.html
 4,Canvas Example,Implement Canvas with circle of 40 and 60 ratio of two different colors,17/01/2018,Completed,circle canvas.html
+5,Stopwatch,Implement a stopwatch with the help of Javascript,18/01/2018,Completed,stopwatch.html
+6,Array CRUD ,Implement Array Crud Operations,18/01/2018,Completed,arrayCrud.html
+7,ColorPicker with IFFY,Refractor colorpicker with IFFY,18/01/2018,Completed,colorpickeriffy.html
+8,Welcome with IFFY,Refractor welcome with IFFY,18/01/2018,Completed,welcomeiffy.html
+9,Number Guessing Game,Implement Number Guessing Game with CSS,18/01/2018,Completed,numbergame.html
