@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Color Picker</title>
+</head>
+
+<body>
+    Choose color:
+    <select id="colorpicker" onchange="changeColor()">
+        <option>Select</option>
+        <option id="Blue" value="#0000AA">Blue</option>
+        <option id="Green" value="#00FF00">Green</option>
+        <option id="Green" value="#DC0000">Red</option>
+        <option id="Green" value="Yellow">Yellow</option>
+    </select>
+</body>
+<script type="text/javascript">
+    (function () {
+        var stateChange = document.getElementById('colorpicker');
+        stateChange.onchange= function changeColor() {
+        var colorPicker = document.getElementById("colorpicker");
+        var color = colorPicker.options[colorPicker.selectedIndex].value;
+        document.bgColor = color;
+        }
+    }());
+</script>
+</html>
