@@ -9,7 +9,8 @@ public class TestOrganisationHierarchy {
 	public static void main(String[] args) {
 		OrganizationHierarchyApp app = new OrganizationHierarchyApp(
 				new OrganisationHierarchyBuilder(), new EmployeeCSVLoader());
-		app.display();
+		// app.display();
+		System.out.println(app.parseToXML());
 
 	}
 
