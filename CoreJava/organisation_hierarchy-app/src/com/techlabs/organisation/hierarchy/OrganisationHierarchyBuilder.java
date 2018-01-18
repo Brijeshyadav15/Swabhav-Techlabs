@@ -1,38 +1,43 @@
 package com.techlabs.organisation.hierarchy;
 
-import java.util.LinkedList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class OrganisationHierarchyBuilder {
 	private List<Employee> employeelist;
-	private List<Employee> employeetestlist;
+	private EmployeeCSVLoader loader;
+	LinkedHashMap<Integer, Employee> employeemap;
 
 	public OrganisationHierarchyBuilder() {
-		employeelist = new EmployeeDTO().getData();
-		sortData();
+		loader = new EmployeeCSVLoader();
+		employeemap = new LinkedHashMap<Integer, Employee>();
 	}
 
-	public List<Employee> sortData() {
-		employeetestlist = new LinkedList<Employee>();
-		Employee king = null;
+	public Employee getCEO() {
+		employeelist = loader.convertData();
 		for (Employee employee : employeelist) {
-			if (employee.getReportingid().equals("NULL")) {
-				employeetestlist.add(employee);
-				 king= employee;
+			if (employee.getReportingid().equals("NULL") == true) {
+				employeemap.put(employee.getId(), employee);
+				addReportees(employee);
+				break;
 			}
 		}
-		
-		employeelist.remove(king);
-		
 		for (Employee employee : employeelist) {
 			if (employee.getReportingid().equals("NULL") == false) {
-				if (Integer.parseInt(employee.getReportingid()) == employeetestlist
-						.get(0).getId()) {
-					employeetestlist.add(employee);
-				}
+				employeemap.put(employee.getId(), employee);
+				addReportees(employee);
 			}
 		}
 
-		return employeetestlist;
+		return employeemap.entrySet().iterator().next().getValue();
+	}
+
+	public void addReportees(Employee employeeManager) {
+		for (Employee employee : employeelist) {
+			if (employee.getReportingid().equals("NULL") == false)
+				if (Integer.parseInt(employee.getReportingid()) == employeeManager
+						.getId())
+					employeeManager.addReportee(employee);
+		}
 	}
 }

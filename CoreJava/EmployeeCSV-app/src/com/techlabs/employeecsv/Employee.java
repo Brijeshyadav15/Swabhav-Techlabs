@@ -1,5 +1,8 @@
 package com.techlabs.employeecsv;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Employee {
 	private String id;
 	private String name;
@@ -9,6 +12,7 @@ public class Employee {
 	private int salary;
 	private String da;
 	private String departmentid;
+	private List<Employee> reportees;
 
 	public Employee(String id, String name, String desg, String reportingid,
 			String dob, int salary, String da, String workingdays) {
@@ -21,6 +25,7 @@ public class Employee {
 		this.salary = salary;
 		this.da = da;
 		this.departmentid = workingdays;
+		this.reportees = new ArrayList<Employee>();
 	}
 
 	public String getId() {
@@ -54,6 +59,14 @@ public class Employee {
 	public String getWorkingdays() {
 		return departmentid;
 
+	}
+
+	public List<Employee> getReportees() {
+		return reportees;
+	}
+
+	public void addReportee(Employee employee) {
+		this.reportees.add(employee);
 	}
 
 	@Override

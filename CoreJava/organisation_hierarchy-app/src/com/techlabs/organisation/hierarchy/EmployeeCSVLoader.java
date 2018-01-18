@@ -7,11 +7,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class EmployeeDTO {
+public class EmployeeCSVLoader {
 	private Set<String> employeeset;
 	private List<Employee> employeelist;
 
-	public EmployeeDTO() {
+	public EmployeeCSVLoader() {
 		employeeset = new HashSet<String>();
 		employeelist = new ArrayList<Employee>();
 		init();
@@ -31,7 +31,7 @@ public class EmployeeDTO {
 		}
 	}
 
-	public List<Employee> getData() {
+	public List<Employee> convertData() {
 		for (String employee : employeeset) {
 			String[] emp1 = employee.split(",");
 
