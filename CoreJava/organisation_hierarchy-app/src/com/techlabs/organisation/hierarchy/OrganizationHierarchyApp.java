@@ -1,14 +1,13 @@
 package com.techlabs.organisation.hierarchy;
 
+import java.io.FileWriter;
+
 public class OrganizationHierarchyApp {
 	private OrganisationHierarchyBuilder builder;
-	private EmployeeCSVLoader loader;
 	String parseContent = "\n";
 
-	public OrganizationHierarchyApp(OrganisationHierarchyBuilder builder,
-			EmployeeCSVLoader loader) {
+	public OrganizationHierarchyApp(OrganisationHierarchyBuilder builder) {
 		this.builder = builder;
-		this.loader = loader;
 	}
 
 	public void display() {
@@ -22,9 +21,9 @@ public class OrganizationHierarchyApp {
 		Employee CEO = builder.getCEO();
 		String content;
 		content = "<Employees>";
-		content += "\n<RootEmployee name='" + CEO.getName() + "'>";
+		content += "\n<Employee name='" + CEO.getName() + "'>";
 		content += parseReportees(CEO);
-		content += "</RootEmployee>";
+		content += "</Employee>";
 		content += "</Employees>";
 		return content;
 	}
@@ -48,4 +47,16 @@ public class OrganizationHierarchyApp {
 		}
 		return parseContent;
 	}
+
+	public void saveToXML(String fileName) {
+		try {
+			FileWriter filewriter = new FileWriter(fileName + ".xml");
+			filewriter.write(parseToXML());
+			filewriter.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+
+	}
+
 }
