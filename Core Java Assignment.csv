@@ -1,6 +1,6 @@
 ID,Assignment ,Description,Date ,Status,App Name
 1,Tic Tac Toe,Application of Tic Tac toe of 2 players with N*N board size. ,12/01/2018,Running,TicTacToe-app
-2,Organization Hierarchy,Displaying the organization hierarchy in a Composite pattern from data to be taken from external file,15/01/2018,Running,organisation_hierarchy-app
+2,Organization Hierarchy,Displaying the organization hierarchy in a Composite pattern from data to be taken from external file,18/01/2018,Completed,organisation_hierarchy-app
 3,Account ,performing basic operations of Account like Deposit and withdraw and implementing RuntimeException when balance is less than Minimum Required Balance,05/01/2018,Completed,account-app
 4,Account Polymorphism,Creating accounts based on princple of Polymorphism and providing different account types like Saving and Current to created at Runtime,04/01/2018,Completed,accountpolymorphism-app
 5,Resume Builder,Creating resume of student based on getting html file as a template and replacing the contents in it,01/01/2018,Completed,Assignment

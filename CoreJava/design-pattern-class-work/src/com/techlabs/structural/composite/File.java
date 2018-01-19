@@ -26,11 +26,7 @@ public class File implements IDiskItem {
 
 	@Override
 	public void showDetails() {
-		System.out.println(String.format("%" + Folder.getLevel() + "s", " ") + getName());
-		
-		//System.out.println("\t" + getName());
-		//System.out.println("\t\t\tFile size :" + getSize());
-		//System.out.println("\t\t\tFile Extension :" + getExtension());
+		System.out.println(String.format("%" + Folder.getLevel() + "s", " ")
+				+ getName());
 	}
-
 }

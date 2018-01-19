@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>
+        Ajax Example
+    </title>
+</head>
+
+<body>
+        <h3 id="headingArea"></h3>
+</body>
+<script>
+    (function ajaxExample() {
+        var ajax = new XMLHttpRequest();
+
+        ajax.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("headingArea").innerHTML =
+                    this.responseText;
+            }
+        };
+        ajax.open("GET", "header.txt", true);
+        ajax.send();
+    }());
+</script>
+
+</html>

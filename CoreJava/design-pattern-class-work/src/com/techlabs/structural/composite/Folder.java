@@ -29,6 +29,10 @@ public class Folder implements IDiskItem {
 		items.add(item);
 	}
 
+	public List<IDiskItem> getItems() {
+		return items;
+	}
+
 	@Override
 	public void showDetails() {
 		System.out.println(String.format("%" + level + "s", " ") + getName());
@@ -36,7 +40,6 @@ public class Folder implements IDiskItem {
 		for (IDiskItem item : items) {
 			item.showDetails();
 		}
-
 	}
 
 }

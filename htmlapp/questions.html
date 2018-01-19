@@ -16,9 +16,13 @@
         font-weight: bolder;
         font-size: 16px;
         text-align: center;
-        margin-left: 50%;
+        margin-left: 40%;
         width: 150px;
         height: 50px;
+    }
+
+    .input {
+        font-weight: bolder;
     }
 </style>
 
@@ -44,6 +48,15 @@
         defineQuestions();
         initializeQuestions();
     })();
+
+    function getRandomColor() {
+        var letters = '6789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 10)];
+        }
+        return color;
+    }
 
     function defineQuestions() {
         questions = [
@@ -126,33 +139,33 @@
             endIndex = randomNumber + totalQuestions;
         }
 
-        console.log("Start Index" + startIndex);
-        console.log("End Index" + endIndex);
-        console.log(questions[2]);
-        console.log(questions[3]);
         for (i = startIndex; i < endIndex; i++) {
             console.log(i);
 
-            qArea.innerHTML += "<div class='questions'><h3 data-question=" + k + "> " + k + "." + questions[i].title + "</h3>";
+            qArea.innerHTML += "<div class='questions'style='background-color:" + getRandomColor() + "' id='question" + k + "'><h3 data-question=" + k + "> " + k + "." + questions[i].title + "</h3>";
 
+            var optionsi = document.createElement('div');;
             for (var option of questions[i].options) {
-                qArea.innerHTML += '<input type="radio" name="option' + j + '" id="option' + j + '" data-question="' + i + '" value="' + option.id + '" >' + option.title + '<br>'
-
+                optionsi.innerHTML += '<input type="radio" class="input" name="option' + j + '" id="option' + j + '" data-question="' + i + '" value="' + option.id + '" ><label for="OptionI" class="input">' + option.title + '</label>';
             }
+
             j++;
-            qArea.innerHTML += '</div>'
+            document.getElementById("question" + k).appendChild(optionsi);
+            //qArea.appendChild(optionsi);
             k++;
         }
-        qArea.innerHTML += '<input type="button" name="submit" id="submitQuestion" value="Submit Answers" onclick="checkAnswer()"><br>'
+
+        
+        qArea.innerHTML += '<br><input type="button" name="submit" id="submitQuestion" value="Submit Answers" onclick="checkAnswer()"><br>'
 
     }
 
     function checkAnswer() {
         var submit = document.getElementById("submitQuestion");
 
-
         submit.setAttribute("disabled", " ");
         submit.style.backgroundColor = "silver";
+
         for (i = 1; i <= totalQuestions; i++) {
             try {
                 var selectedOption = document.querySelector('input[id="option' + i + '"]:checked').value;
@@ -162,6 +175,7 @@
             }
             var questionNum = document.getElementById("option" + i).getAttribute("data-question");
             var correctOption = questions[questionNum].answer;
+
             if (selectedOption == correctOption) {
                 correcctAnswers++;
             }
@@ -174,7 +188,6 @@
         resultArea.innerHTML += "<h1>Score : " + correcctAnswers + " /" + totalQuestions + "</h1> <h2>Percentage :" + (correcctAnswers / totalQuestions) * 100 + "%</h2> ";
         resultArea.scrollIntoView();
     }
-
 </script>
 
-</html>/
+</html>

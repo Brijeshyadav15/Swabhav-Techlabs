@@ -12,3 +12,4 @@ ID,Assignment ,Description,Date ,Status,File Name
 10,Number Guessing Game,Implement Number Guessing Game with CSS,18/01/2018,Completed,numbergame.html
 11,Global Namespace Pollution,Implement concept of Global Namespace,18/01/2018,Completed,globalnamespace.html
 12,Question Bank,Implement question bank of random questions and display result based on inputs,19/01/2018,Completed,questions.html
+13,Ajax Example,Implement example on Ajax Request,19/01/2018,Completed,ajaxexample.html
