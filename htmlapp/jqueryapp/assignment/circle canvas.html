@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>Circle Drawing Canvas</title>
+</head>
+
+<body>
+    <canvas id="Circle">
+    </canvas>
+</body>
+
+<script src="../jquery.js" type="text/javascript"></script>
+
+<script>
+
+    $(document).ready(function () {
+        var c = $(this).find("#Circle")[0];
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(95, 75, 60, 0, Math.PI - Math.PI / 5);
+        ctx.fillStyle = "red";
+        ctx.fill();
+        ctx.stroke();
+
+
+        var c1 = $(this).find("#Circle")[0];
+        var ctx1 = c1.getContext("2d");
+        ctx1.beginPath();
+        ctx1.arc(95, 75, 60, Math.PI - Math.PI / 5, 0);
+        ctx1.fillStyle = "blue";
+        ctx1.fill();
+        ctx1.stroke();
+    });
+
+
+
+
+</script>
+
+</html>

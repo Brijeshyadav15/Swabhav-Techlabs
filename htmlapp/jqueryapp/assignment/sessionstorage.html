@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <title>Session Storage Example</title>
+</head>
+
+<body>
+    <div id="displayStorage"></div>
+</body>
+
+<script src="../jquery.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+        sessionStorage.clickcount = sessionStorage.clickcount > 0 ? Number(sessionStorage.clickcount) + 1 : 1;
+
+        $("#displayStorage").html("You have clicked the button " +
+            sessionStorage.clickcount + " time(s).");
+    });
+
+</script>
+
+</html>

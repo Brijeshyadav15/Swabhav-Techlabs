@@ -1,0 +1,183 @@
+<html>
+
+<head>
+    <title>
+        Question Bank
+    </title>
+</head>
+<style>
+    body {
+        background-color: silver;
+        color: black;
+    }
+
+    #submitQuestion {
+        background-color: lawngreen;
+        font-weight: bolder;
+        font-size: 16px;
+        text-align: center;
+        margin-left: 40%;
+        width: 150px;
+        height: 50px;
+    }
+
+    .input {
+        font-weight: bolder;
+    }
+</style>
+
+<body>
+    <div id="headingArea">
+        <center>
+            <h1>
+                MCQ GK TEST
+            </h1>
+        </center>
+    </div>
+    <div id="questionsArea"></div>
+    <div id="resultArea"></div>
+</body>
+
+<script src="../jquery.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        var totalQuestions = 5;
+        var correcctAnswers = 0;
+        var questionNo = [Math.floor(Math.random() * 10)];
+
+        var questions = [
+            {
+                id: 1, title: "Who is the richest man in the World?",
+                options: [{ id: 'a', title: 'Warren Buffet' }, { id: 'b', title: 'Bill Gates' },
+                { id: 'c', title: 'Jeff Bezos' }, { id: 'd', title: 'Mark Zuckerberg' }],
+                answer: 'c'
+            },
+            {
+                id: 2, title: "Who is the highest Run Scorer in Cricket World?",
+                options: [{ id: 'a', title: 'Ricky Ponting' }, { id: 'b', title: 'Sachin Tendulkar' },
+                { id: 'c', title: 'Saurav Ganguly' }, { id: 'd', title: 'Brian Lara' }],
+                answer: 'b'
+            },
+            {
+                id: 3, title: "Which is the largest country in the World?",
+                options: [{ id: 'a', title: 'Russia' }, { id: 'b', title: 'Canada' },
+                { id: 'c', title: 'USA' }, { id: 'd', title: 'China' }],
+                answer: 'a'
+            },
+            {
+                id: 4, title: "Which is the satellite of the Planet  Earth?",
+                options: [{ id: 'a', title: 'Titan' }, { id: 'b', title: 'Moon' },
+                { id: 'c', title: 'Exodus' }, { id: 'd', title: 'Venus' }],
+                answer: 'b'
+            },
+            {
+                id: 5, title: "When is the Independence Day of India?",
+                options: [{ id: 'a', title: '4th,July' }, { id: 'b', title: '15th,August' },
+                { id: 'c', title: '1st,May' }, { id: 'd', title: '26th, January' }],
+                answer: 'b'
+            },
+            {
+                id: 6, title: "What is the Capital of Portugal?",
+                options: [{ id: 'a', title: 'Madrid' }, { id: 'b', title: 'Lisbon' },
+                { id: 'c', title: 'New York' }, { id: 'd', title: 'Cape Town' }],
+                answer: 'b'
+            },
+            {
+                id: 7, title: "Which is the highest mountain?",
+                options: [{ id: 'a', title: 'Mt. Everest' }, { id: 'b', title: 'Kanchenjunga' },
+                { id: 'c', title: 'Nanda Devi' }, { id: 'd', title: 'Lhotse' }],
+                answer: 'a'
+            },
+            {
+                id: 8, title: "What is the value of PI?",
+                options: [{ id: 'a', title: '22/9' }, { id: 'b', title: '3.14' },
+                { id: 'c', title: '11.22' }, { id: 'd', title: '4.98' }],
+                answer: 'b'
+            },
+            {
+                id: 9, title: "Who has won the Most Grand Slams in Female Tennis?",
+                options: [{ id: 'a', title: 'Maria Sharapova' }, { id: 'b', title: 'Serena Willams' },
+                { id: 'c', title: 'Steffi Graf' }, { id: 'd', title: 'Maragaret Court' }],
+                answer: 'd'
+            },
+            {
+                id: 10, title: "Which organisation has the highest market value?",
+                options: [{ id: 'a', title: 'Google' }, { id: 'b', title: 'Microsoft' },
+                { id: 'c', title: 'Apple' }, { id: 'd', title: 'Amazon' }],
+                answer: 'c'
+            }
+        ];
+
+        var qArea = document.getElementById("questionsArea");
+        var j = 1, k = 1;
+        var randomNumber = Math.floor(Math.random() * 10);
+        var startIndex;
+        var endIndex;
+
+        if (randomNumber + totalQuestions > 9) {
+            startIndex = randomNumber - totalQuestions;
+            endIndex = randomNumber
+        }
+        else {
+            startIndex = randomNumber;
+            endIndex = randomNumber + totalQuestions;
+        }
+
+        for (i = startIndex; i < endIndex; i++) {
+            console.log(i);
+
+            $("#questionsArea").append("<div class='questions'style='background-color:" + getRandomColor() + "' id='question" + k + "'><h3 data-question=" + k + "> " + k + "." + questions[i].title + "</h3>");
+
+            var optionsi = document.createElement('div');;
+            for (var option of questions[i].options) {
+                optionsi.innerHTML += '<input type="radio" class="input" name="option' + j + '" id="option' + j + '" data-question="' + i + '" value="' + option.id + '" ><label for="OptionI" class="input">' + option.title + '</label>';
+            }
+
+            j++;
+            document.getElementById("question" + k).appendChild(optionsi);
+            k++;
+        }
+
+
+        qArea.innerHTML += '<br><input type="button" name="submit" id="submitQuestion" value="Submit Answers"><br>'
+
+
+        $("#submitQuestion").click(function () {
+            $("#submitQuestion").attr("disabled", " ");
+            $("#submitQuestion").css("backgroundColor", "silver");
+
+            for (i = 1; i <= totalQuestions; i++) {
+                try {
+                    var selectedOption = $('input[id="option' + i + '"]:checked').val();
+                }
+                catch (err) {
+                    console.log(err);
+                }
+
+                var correctOption = questions[$("#option" + i).attr("data-question")].answer;
+
+                if (selectedOption == correctOption) {
+                    correcctAnswers++;
+                }
+            }
+            $("#resultArea").append("<h1>Score : " + correcctAnswers + " /" + totalQuestions + "</h1> <h2>Percentage :" + (correcctAnswers / totalQuestions) * 100 + "%</h2> ");
+            $("#resultArea").focusin();
+        
+        });
+
+
+    function getRandomColor() {
+        var letters = '6789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 10)];
+        }
+        return color;
+    }
+
+
+
+    });
+</script>
+
+</html>

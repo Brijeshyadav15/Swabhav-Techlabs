@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <title>Number Game</title>
+</head>
+<div id="gameArea">
+    <center>
+        <h4>
+            Click on Box to corretly Guess number
+        </h4>
+    </center>
+</div>
+<style>
+    .bluebox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid blue;
+        background-color: blue;
+    }
+
+    .greenbox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid green;
+        background-color: green;
+    }
+
+    .redbox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid red;
+        background-color: red;
+    }
+
+    .blankbox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid grey;
+        background-color: grey
+    }
+</style>
+
+<script src="../jquery.js" type="text/javascript"></script>
+
+    
+<script>
+    $(document).ready(function () {
+        var counter = 0;
+        var declaredNumber = Math.floor(Math.random() * 100);
+        for (var i = 1; i <= 100; i++) {
+            $('#gameArea').append('<button name="boxed" class="blankbox"  value="' + i + '"> BOX ' + i + '</button>');
+        }
+
+        $(".blankbox").click(function () {
+            counter++;
+            console.log(declaredNumber);
+
+            if (counter <= 3) {
+                if (this.value == declaredNumber) {
+                    $(this).removeClass("blankbox");
+                    $(this).addClass("bluebox");
+                    alert("Congrats !! You have guessed the correct Number");
+                    location.reload();
+                }
+                else if (this.value < declaredNumber) {
+                    $(this).removeClass("blankbox");
+                    $(this).addClass("greenbox");
+                }
+                else if (this.value > declaredNumber) {
+                    $(this).removeClass("blankbox");
+                    $(this).addClass("redbox");
+                }
+            }
+            else {
+                alert("Sorry ! You have lost the Game");
+                location.reload();
+            }
+        });
+    });
+
+</script>
+
+</html>

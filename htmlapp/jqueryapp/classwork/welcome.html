@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Welcome Html</title>
+</head>
+
+<body>
+	<label>Name:</label>
+	<input type="text" name="txt_name" id="txt_name">
+	<input type="button" name="btn_wish" id="btn_wish" value="Wish">
+	<br>
+	<div id="wishdiv"></div>
+</body>
+
+<script src="../jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+
+		$("#btn_wish").click(function () {
+			var name = $("#txt_name").val();
+			var childElement = "<br><span id='" + name + "wishbox'>Welcome " + name + " <button name='" + name + "' class='removeWish' >X</button></span>";
+			$("#wishdiv").append(childElement);
+			$("#txt_name").val("");
+
+			$("button[class='removeWish']").click(function () {
+				var name = $(this).attr('name');
+				$("#" + name + "wishbox").remove();
+			});
+
+		});
+	});
+
+</script>
+
+</html>

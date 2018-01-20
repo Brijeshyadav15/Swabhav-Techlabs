@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>
+        Array of Objects
+    </title>
+</head>
+
+<body>
+    <div id="arrayCreateOperation">
+        <h3>
+            Array Create Operation
+        </h3>
+    </div>
+    <div id="arrayReadOperations">
+        <h3>
+            Array Read Operation
+        </h3>
+    </div>
+    <div id="arrayUpdateOperations">
+        <h3>
+            Array Read Operation
+        </h3>
+    </div>
+</body>
+<script>
+    (function () {
+        var displayCreateArea = document.getElementById("arrayCreateOperation");
+        var displayReadArea = document.getElementById("arrayReadOperations");
+        var displayUpdateArea = document.getElementById("arrayUpdateOperations");
+        var displayDeleteArea = document.getElementById("arrayDeleteOperations");
+        var vehicles = [{ id: 12, name: 'Car' },
+        { id: 13, name: 'Bus' },
+        { id: 14, name: 'Train' }
+        ];
+
+        for (var v of vehicles) {
+            displayReadArea.innerHTML += JSON.stringify(v.name) + "<br>";
+        }
+        vehicles.push({ id: 15, name: 'Biken' });
+        vehicles.push("Cart");
+        for (var v of vehicles) {
+            displayCreateArea.innerHTML += JSON.stringify(v.name) + "<br>";
+        }
+
+        vehicles[3] = {id: 15, name: "MotorBikes" };
+        for (var v of vehicles) {
+            displayUpdateArea.innerHTML += JSON.stringify("ID is: " + v.id + " Name is: " + v.name) + "<br>";
+        }
+
+
+    }());
+</script>
+
+</html>

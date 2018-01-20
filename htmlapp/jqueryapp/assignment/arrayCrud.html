@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>
+        Array Crud Operations
+    </title>
+</head>
+
+<body>
+    <div id="arrayCreateOperation">
+        <h3>
+            Array Create Operation
+        </h3>
+    </div>
+    <div id="arrayReadOperations">
+        <h3>
+            Array Read Operation
+        </h3>
+    </div>
+    <div id="arrayUpdateOperations">
+        <h3>
+            Array Read Operation
+        </h3>
+    </div>
+    <div id="arrayDeleteOperations">
+        <h3>
+            Array Delete Operation
+        </h3>
+    </div>
+</body>
+<script src="../jquery.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        var vehicles = ['Car', 'Bus', 'Train'];
+
+        for (var v of vehicles) {
+            $("#arrayCreateOperation").append(v + "<br>");
+        }
+
+        vehicles.push("motorbikes");
+        vehicles.push("Cart");
+        for (var v of vehicles) {
+            $("#arrayReadOperations").append(v + "<br>");
+        }
+
+        vehicles[3] = "MotorBikes";
+        for (var v of vehicles) {
+            $("#arrayUpdateOperations").append(v + "<br>");
+        }
+
+        vehicles.pop("Cart");
+        for (var v of vehicles) {
+            $("#arrayDeleteOperations").append(v + "<br>");
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <title>
+    StopWatch HTML
+  </title>
+</head>
+<body. <p>
+  <span id="minutes">00</span>:
+  <span id="seconds">00</span>:
+  <span id="tens">00</span>
+  </p>
+  <button id="button-start">Start</button>
+  <button id="button-stop">Stop</button>
+  <button id="button-reset">Reset</button>
+  </body>
+
+  <script src="../jquery.js" type="text/javascript"></script>
+
+  <script>
+    $(document).ready(function () {
+
+      var seconds = 00;
+      var tens = 00;
+      var minutes = 00;
+      var appendMinutes = $("#minutes");
+      var appendTens = $("#tens");
+      var appendSeconds = $("#seconds");
+      var Interval;
+
+      $('#button-start').click(function () {
+        clearInterval(Interval);
+        Interval = setInterval(startTimer, 10);
+      });
+
+      $('#button-stop').click(function () {
+        clearInterval(Interval);
+      });
+
+      $('#button-reset').click(function () {
+        clearInterval(Interval);
+        $("#tens").html("00");
+        $("#seconds").html("00");
+        $("#minutes").html("00");
+      });
+
+      function startTimer() {
+        tens++;
+
+        if (tens < 9) 
+          $("#tens").html("0" + tens);
+        
+
+        if (tens > 9)
+          $("#tens").html(tens);
+        
+
+        if (tens > 99) {
+          seconds++;
+          $("#seconds").html("0" + seconds);
+          tens = 0;
+          $("#tens").html("0" + tens);
+        }
+
+        if (seconds > 60) {
+          minutes++;
+          $("#minutes").html("0" + minutes);
+
+          seconds = 0;
+          $("#seconds").html("0" + seconds);
+        }
+
+        if (seconds > 9) 
+          $("#seconds").html(seconds);
+
+      }
+
+    });
+  </script>
+
+</html>

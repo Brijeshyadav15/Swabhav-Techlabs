@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>
+        Loader GIF
+    </title>
+    <style>
+        .loading {
+            position: absolute;
+            width: 95%;
+            height: 95%;
+            background: url('loader.gif') no-repeat center center;
+        }
+    </style>
+
+    <body>
+        <div id="gifloader" class="loading"></div>
+    </body>
+</head>
+<script>
+    var loaderDiv = document.getElementById("gifloader");
+    show = function () {
+        setTimeout(hide, 5000);
+    },
+
+        hide = function () {
+            loaderDiv.style.display = "none";
+        };
+
+    show();
+</script>
+
+</html>

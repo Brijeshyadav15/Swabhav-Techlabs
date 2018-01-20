@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>
+        Global Namespace
+    </title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var x = 10;
+    function example1() {
+        console.log(x);
+    }
+    example1(); //Will print 10
+
+    var x = 10;
+    function example2() {
+        var x = 20;
+        console.log("X inside the function "+x); //Prints 20
+    }
+    example2();
+    console.log("X outside the function "+x); //Prints 20
+</script>
+
+</html>

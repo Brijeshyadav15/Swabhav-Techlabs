@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>
+        Array of Objects
+    </title>
+</head>
+
+<body>
+    <div id="arrayCreateOperation">
+        <h3>
+            Array Create Operation
+        </h3>
+    </div>
+    <div id="arrayReadOperations">
+        <h3>
+            Array Read Operation
+        </h3>
+    </div>
+    <div id="arrayUpdateOperations">
+        <h3>
+            Array Read Operation
+        </h3>
+    </div>
+</body>
+
+<script src="../jquery.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+        var vehicles = [{ id: 12, name: 'Car' },
+        { id: 13, name: 'Bus' },
+        { id: 14, name: 'Train' }
+        ];
+
+        for (var v of vehicles) {
+            $("#arrayReadOperations").append(JSON.stringify(v.name) + "<br>");
+        }
+
+
+        for (var v of vehicles) {
+            $("#arrayCreateOperation").append(JSON.stringify(v.name) + "<br>");
+        }
+
+        vehicles.push("motorbikes");
+        vehicles.push("Cart");
+
+        vehicles[3] = "MotorBikes";
+        for (var v of vehicles) {
+            $("#arrayUpdateOperations").append(JSON.stringify(v.name) + "<br>");
+        }
+
+        vehicles.pop("Cart");
+        for (var v of vehicles) {
+            $("#arrayDeleteOperations").append(JSON.stringify(v.name) + "<br>");
+        }
+    });
+</script>
+
+</html>
