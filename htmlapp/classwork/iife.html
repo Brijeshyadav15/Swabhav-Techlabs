@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>
+            IIFE
+        </title>
+    </head>
+    <body>
+        <h1>Immediately Executing Function</h1>
+    </body>
+    <script>
+        var f1=function (){
+            console.log("Inside F1 ");
+        }();
+
+        (function f2(){
+            console.log("Inside F2 ");
+        })();
+
+        (function f3(){
+            console.log("Inside F3 ");
+        }());
+    </script>
+</html>

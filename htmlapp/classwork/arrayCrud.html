@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>
+        Array Crud Operations
+    </title>
+</head>
+
+<body>
+    <div id="arrayCreateOperation">
+        <h3>
+            Array Create Operation
+        </h3>
+    </div>
+    <div id="arrayReadOperations">
+        <h3>
+            Array Read Operation
+        </h3>
+    </div>
+    <div id="arrayUpdateOperations">
+            <h3>
+                Array Read Operation
+            </h3>
+    </div>
+    <div id="arrayDeleteOperations">
+            <h3>
+                Array Delete Operation
+            </h3>
+    </div>
+</body>
+<script>
+    (function () {
+        var displayCreateArea = document.getElementById("arrayCreateOperation");
+        var displayReadArea = document.getElementById("arrayReadOperations");
+        var displayUpdateArea = document.getElementById("arrayUpdateOperations");
+        var displayDeleteArea = document.getElementById("arrayDeleteOperations");
+        var vehicles = ['Car', 'Bus', 'Train'];
+
+        for (var v of vehicles) {
+            displayCreateArea.innerHTML += v + "<br>";
+        }
+        vehicles.push("motorbikes");
+        vehicles.push("Cart");
+        for (var v of vehicles) {
+            displayReadArea.innerHTML += v + "<br>";
+        }
+
+        vehicles[3] ="MotorBikes";
+        for (var v of vehicles) {
+            displayUpdateArea.innerHTML += v + "<br>";
+        }
+
+        vehicles.pop("Cart");
+        for (var v of vehicles) {
+            displayDeleteArea.innerHTML += v + "<br>";
+        }
+
+    }());
+</script>
+
+</html>

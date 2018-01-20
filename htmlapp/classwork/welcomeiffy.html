@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome Html</title>
+</head>
+<body>
+	<label>Name:</label>
+	<input type="text" name="txt_name" id="txt_name">
+	<input type="button" name="btn_wish" id="btn_wish" value="Wish">
+	<br>
+	<div id="wishdiv"></div>
+</body>
+<script type="text/javascript">
+    (function () {
+        var wishButton = document.getElementById('btn_wish');
+        wishButton.onclick= function wishListener(){
+        console.log("INto function"+wishButton);
+		var name = document.getElementById("txt_name").value;   
+		document.getElementById("wishdiv").innerHTML += "<br><output id='"+name+"wishbox'>Welcome "+name+" <button onclick='divRemover(this)' class='closeDiv' name='"+name+"div'>X</button></output>";
+	    }
+
+        //var wishButton = document.getElementById('btn_wish');
+
+        function divRemover(arg){
+		document.getElementById(arg.name+"wishbox").remove();
+	    }    
+    }());
+</script>
+</html>

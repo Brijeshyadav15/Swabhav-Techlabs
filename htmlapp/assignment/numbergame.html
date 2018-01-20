@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <title>Number Game</title>
+</head>
+<div id="gameArea">
+    <center>
+        <h4>
+            Click on Box to corretly Guess number
+        </h4>
+    </center>
+</div>
+<style>
+    .bluebox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid blue;
+        background-color: blue;
+    }
+
+    .greenbox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid green;
+        background-color: green;
+    }
+
+    .redbox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid red;
+        background-color: red;
+    }
+
+    .blankbox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid grey;
+        background-color: grey
+    }
+</style>
+<script>
+    var counter = 0;
+    var declaredNumber = Math.floor(Math.random() * 100);
+    (function () {
+        var gameArea = document.getElementById('gameArea');
+        for (var i = 1; i <= 100; i++) {
+            gameArea.innerHTML += '<button name="boxed" class="blankbox" onclick="checkResult(this)" value="' + i + '"> BOX ' + i + '</button>';
+        }
+    }());
+    function checkResult(arg) {
+        counter++;
+        console.log(counter);
+        console.log(declaredNumber);
+
+        if (counter <= 3) {
+            if (arg.value == declaredNumber) {
+                arg.className = arg.className.replace(/\bblankbox\b/g, "bluebox");
+                alert("Congrats !! You have guessed the correct Number");
+            }
+            else if (arg.value < declaredNumber)
+                arg.className = arg.className.replace(/\bblankbox\b/g, "greenbox");
+            else if (arg.value > declaredNumber)
+                arg.className = arg.className.replace(/\bblankbox\b/g, "redbox");
+        }
+        else {
+            alert("Sorry ! You have lost the Game");
+            location.reload();
+        }
+    }
+</script>
+
+</html>

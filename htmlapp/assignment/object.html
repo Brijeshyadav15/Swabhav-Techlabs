@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Object Example</title>
+    </head>
+    <script>
+        (function f1(){
+        var student={};
+        console.log(student);
+        console.log(typeof(student));
+
+        student.id=101;
+        student.name="Brijesh";
+        student.location="Mumbai";
+        student.toString = function(){
+            return "ID : "+ this.id +" Name : "+ this.name +" Location : "+ this.location;
+        }
+        console.log(student);
+        
+        var students=[
+        {id:101,name:"A",location:"Mumbai"},
+        {id:102,name:"B",location:"Ahmedabad"},
+        {id:103,name:"C",location:"Delhi"},
+        ];
+
+        //indexing into Conversion
+        for(var c in students)
+        {
+            console.log("Id :"+c.id);
+            console.log("Name :"+c.name);
+            console.log("Location :"+c.location);
+            console.log(c);
+        }
+
+        //Type Conversion
+        for(var c of students)
+        {
+            console.log("Id :"+c.id);
+            console.log("Name :"+c.name);
+            console.log("Location :"+c.location);
+        }
+        console.log(student.toString());
+
+        console.log(JSON.stringify(student));
+
+        console.log(JSON.stringify(students));
+        })();
+    </script>
+
+</html>

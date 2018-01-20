@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Session Storage Example</title>
+    </head>
+    <body>
+        <div id="displayStorage"></div>
+    </body>
+    <script>
+        if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+        } else {
+            sessionStorage.clickcount = 1;
+        }
+        document.getElementById("displayStorage").innerHTML = "You have clicked the button " +
+        sessionStorage.clickcount + " time(s).";
+    </script>
+</html>

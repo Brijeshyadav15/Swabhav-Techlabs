@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title>
+        Ajax Example
+    </title>
+</head>
+
+<style>
+    #infoArea {
+        color: red;
+        font-weight: bold;
+    }
+
+    #factArea {
+        color: purple;
+        font-weight: bold;
+    }
+
+    label {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <center>
+        <h3 id="headingArea">Check Random Facts about Number</h3>
+    </center>
+    <div>
+        <label for="number Text Box">
+            Enter Number:
+        </label>
+        <input type="text" name="numberText" id="numberText">
+        <input type="submit" name="showButton" id="showButton" value="Show Details">
+        <span id="infoArea" name="infoArea"></span>
+    </div>
+    <br>
+    <span id="factArea" name="factArea">
+    </span>
+</body>
+<script>
+    (function ajaxExample() {
+        var showButton = document.getElementById("showButton");
+
+        showButton.onclick = function () {
+            var number = document.getElementById("numberText").value;
+            var ajax = new XMLHttpRequest();
+
+            if (number = parseInt(number, 10)) {
+                ajax.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("factArea").innerHTML =
+                            this.responseText;
+                        document.getElementById("infoArea").innerHTML =
+                            "";
+                    }
+
+                };
+            }
+            else {
+                document.getElementById("infoArea").innerHTML =
+                    "Please enter a Proper Number, not just random gibberish text";
+            }
+
+
+            ajax.open("GET", "http://numbersapi.com/" + number + "", true);
+            ajax.send();
+        }
+
+    }());
+</script>
+
+</html>
