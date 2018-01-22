@@ -9,22 +9,22 @@
 <script type="text/javascript">
 	function dataService()
 	{
-		var obj = {};
+		var LIMIT =100;
 		obj.getData = function(){
-			return Math.random() *10;	
+			return Math.random() *LIMIT;	
 		}
 		return obj;
 	}
 	console.log(dataService().getData());
 
-	var SwabhavTechlabs =( function (){
+	var SwabhavTechlabs =function (){
 		var obj={};
 		var Students = [{id:1,name:"Akash",age:22},{id:2,name:"Brijesh",age:21},{id:3,name:"Kannan",age:23}];
 		obj.getStudents = function(){
 			return Students;
 		}
 		return obj;
-	})();
+	}();
 
 	console.log(SwabhavTechlabs.getStudents());
 </script>
