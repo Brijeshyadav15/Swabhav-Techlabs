@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Module Pattern</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	function dataService()
+	{
+		var obj = {};
+		obj.getData = function(){
+			return Math.random() *10;	
+		}
+		return obj;
+	}
+	console.log(dataService().getData());
+
+	var SwabhavTechlabs =( function (){
+		var obj={};
+		var Students = [{id:1,name:"Akash",age:22},{id:2,name:"Brijesh",age:21},{id:3,name:"Kannan",age:23}];
+		obj.getStudents = function(){
+			return Students;
+		}
+		return obj;
+	})();
+
+	console.log(SwabhavTechlabs.getStudents());
+</script>
+</html>
