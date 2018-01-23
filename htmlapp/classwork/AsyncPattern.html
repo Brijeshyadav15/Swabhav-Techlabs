@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Async Pattern</title>
 </head>
+
 <body>
 
 </body>
 <script type="text/javascript">
-	function DataService()
-	{
-		var LIMIT =100;
-		this.getData = function(){
-			return Math.random() *LIMIT;	
+	var service = function () {
+		var obj = {};
+
+		obj.getTweets = function () {
+			return "Tweet # " + Math.random() * 10;;
+		};
+
+		obj.getTweetsAsync = function (fn) {
+			setTimeout(function(){
+			var data = "Tweet # " + Math.random() * 1000;
+			fn(data);
+			},0);
 		}
-	}
-	svc = new DataService();
-	console.log(svc.getData());
+
+		return obj;
+	}();
+
+	var tweets = service.getTweets();
+
+	console.log(tweets);
+
+	service.getTweetsAsync(function (response) { console.log("Getting tweets from Service " + response); });
+
+	console.log("End of Program");
 </script>
+
 </html>

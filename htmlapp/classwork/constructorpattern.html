@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Constructor Pattern</title>
 </head>
+
 <body>
 
 </body>
 <script type="text/javascript">
-	function Student(id,name,location){
-		this.id=id;
-		this.name=name;
-		this.location=location;
+	function Student(id, name, location) {
+		this.id = id;
+		this.name = name;
+		this.location = location;
 	}
 
 
-	function DataService()
-	{
-		var LIMIT =100;
-		this.getData = function(){
-			return Math.random() *LIMIT;	
+	function DataService() {
+		var LIMIT = 100;
+		this.getData = function () {
+			return Math.random() * LIMIT;
 		}
-		this.getStudents = function(){
-			var arr=[new Student(101,'ABC',"Mumbai"),new Student(102,'PQR',"Bengaluru"),new Student(103,'XYZ',"Delhi")];
+		this.getStudents = function () {
+			var arr = [new Student(101, 'ABC', "Mumbai"), new Student(102, 'PQR', "Bengaluru"), new Student(103, 'XYZ', "Delhi")];
 			return arr;
 		}
 	}
-	
+
 	svc = new DataService();
 	console.log(svc.getData());
 	console.log(svc.getStudents());
 </script>
+
 </html>

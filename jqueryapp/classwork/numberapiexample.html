@@ -20,6 +20,13 @@
     label {
         font-weight: bold;
     }
+
+    .loading {
+        position: absolute;
+        width: 95%;
+        height: 95%;
+        background: url('loader.gif') no-repeat center center;
+    }
 </style>
 
 <body>
@@ -35,31 +42,45 @@
         <span id="infoArea" name="infoArea"></span>
     </div>
     <br>
+    <span class="loading">
+    </span>
     <span id="factArea" name="factArea">
     </span>
 </body>
 
 <script src="../jquery.js" type="text/javascript"></script>
 
-
 <script>
-    $(document).ready(function () {
 
+    $(document).ready(function () {
+        var getNumbers = JSON.parse(localStorage.getItem("Numbers")) != null ? JSON.parse(localStorage.getItem("Numbers")) : [""];
+        console.log(getNumbers);
+        $(".loading").hide();
         $("#showButton").click(function () {
             var number = $("#numberText").val();
-            if (number = parseInt(number, 10)) {
-                $.ajax({
-                    url: "http://numbersapi.com/" + number,
-                    success: function (newHtml) {
-                        $("#factArea").append(newHtml);
-                        $("#factArea").html(newHtml);
-                        $("#infoArea").html("");
-                    },
-                });
-            }
-            else {
-                $("#infoArea").html("Please enter a Proper Number");
-            }
+            $(".loading").show();
+
+            setTimeout(function () {
+                $(".loading").hide();
+                
+                if (number = parseInt(number, 10)) {
+                    $.ajax({
+                        url: "http://numbersapi.com/" + number,
+                        success: function (newHtml) {
+                            var dataNumbers = { number: number, fact: newHtml };
+                            localStorage.setItem("Numbers", JSON.stringify(dataNumbers));
+                            getNumbers = JSON.parse(localStorage.getItem("Numbers"));
+                            $("#factArea").append(newHtml);
+                            $("#factArea").html(newHtml);
+                            $("#infoArea").html("");
+                        },
+                    });
+                }
+                else {
+                    $("#infoArea").html("Please enter a Proper Number");
+                }
+            }, 1000);
+
         });
 
     });

@@ -1,0 +1,184 @@
+<html>
+
+<head>
+    <title>
+        Students CRUD Example
+    </title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+    <style>
+        .loading {
+            position: absolute;
+            width: 95%;
+            height: 95%;
+            background: url('loader.gif') no-repeat center center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loader" class="loading"></div>
+
+    <center>
+        <h2> Add Student</h2>
+    </center>
+
+
+    <div id="addArea" class="row container">
+
+        <div class="col-md-6">
+            <label for="Id" class="col-md-3">ID:</label>
+            <input type="text" name="idText" id="idText" placeholder="Enter Student ID" class="col-md-3" data-edit="0">
+        </div>
+
+        <div class="col-md-6">
+            <label for="Id" class="col-md-3">Name:</label>
+            <input type="text" name="NameText" id="NameText" placeholder="Enter Student Name" class="col-md-3">
+        </div>
+
+        <div class="col-md-6">
+            <label for="Id" class="col-md-3">Email:</label>
+            <input type="text" name="EmailText" id="EmailText" placeholder="Enter Student ID" class="col-md-3">
+        </div>
+
+        <div class="col-md-6">
+            <label for="Id" class="col-md-3">Joining Date:</label>
+            <input type="text" name="joiningDateText" id="joiningDateText" placeholder="Enter Student Name" class="col-md-3">
+        </div>
+
+        <div class="col-md-6">
+            <label for="Age" class="col-md-3">Age:</label>
+            <input type="text" name="ageText" id="ageText" class="col-md-3">
+        </div>
+
+        <div class="col-md-6">
+            <label for="Id">Gender:</label>
+            <input type="radio" name="gender" id="gender" value="Male">Male
+            <input type="radio" name="gender" id="gender" value="Female">Female
+        </div>
+        <div class="col-md-12">
+            <center>
+                <input type="submit" name="submitForm" id="submitForm" class="btn-primary">
+            </center>
+        </div>
+    </div>
+
+    <center>
+        <h2> Students Details</h2>
+    </center>
+
+    <div id="dataDisplay" name="displayArea" class="row container">
+        <div class="col-md-1" id="RollNo">RollNo</div>
+        <div class="col-md-1" id="name">Name</div>
+        <div class="col-md-2" id="email">Email</div>
+        <div class="col-md-2" id="joining">Joining Date</div>
+        <div class="col-md-1" id="age">Age</div>
+        <div class="col-md-1" id="gender">Gender</div>
+        <div class="col-md-4" id="operations">Operations</div>
+    </div>
+    </div>
+</body>
+
+<script src="../jquery.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#loader').show();
+        $.ajax({
+            url: "http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students",
+            success: function (newHtml) {
+                $('#loader').hide();
+                var response = newHtml;
+                for (var r of response) {
+                    var gender = r.isMale === true ? "Male" : "Female";
+
+                    var html = '<div class="col-md-1" id="RollNo">' + r.rollNo + '</div> <div class="col-md-1" id="name">' + r.name + '</div>';
+                    html += '<div class="col-md-2" id="email">' + r.email + '</div><div class="col-md-2" id="joining">' + r.date + '</div>';
+                    html += '<div class="col-md-1" id="age">' + r.age + '</div> <div class="col-md-1" id="gender">' + gender + '</div>';
+                    html += '<div class="col-md-4" id="operations"><input type="button" class="edit" id="edit" data-edit="' + r.rollNo + '" value="Edit">&nbsp;<input type="button" class="delete" id="delete" data-delete="' + r.rollNo + '" value="Delete"></div>';
+                    $("#dataDisplay").append(html);
+                }
+
+            },
+        });
+
+        $(document).on("click", "#submitForm", function (e) {
+            e.preventDefault();
+            var isMale = $('input[name=gender]:checked').val()
+                == 'Male' ? true : false;
+            var editID = $("#idText").attr("data-edit");
+
+            var student = {
+                RollNo: $("#idText").val(),
+                Name: $("#NameText").val(),
+                Email: $("#EmailText").val(),
+                Age: $("#ageText").val(),
+                Date: $("#joiningDateText").val(),
+                isMale: isMale
+            };
+
+            if (editID > 0) {
+                $.ajax({
+                    url: "http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/" + editID,
+                    type: "PUT",
+                    dataType: 'json',
+                    data: student,
+                    success: function () {
+                        location.reload();
+
+                    },
+                });
+            }
+            else {
+                $.ajax({
+                    url: "http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students",
+                    type: "POST",
+                    dataType: 'json',
+                    data: student,
+                    success: function () {
+                        location.reload();
+
+                    },
+                });
+            }
+
+        });
+
+        $(document).on("click", "#delete", function () {
+            $.ajax({
+                url: "http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/" + $(this).attr("data-delete"),
+                type: "DELETE",
+                success: function () {
+                    location.reload();
+                }
+            });
+        });
+
+        $(document).on("click", "#edit", function () {
+            $('#loader').show();
+            $.ajax({
+                url: "http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/" + $(this).attr("data-edit"),
+                type: "GET",
+                success: function (newHtml) {
+                    console.log(newHtml);
+                    $('#loader').hide();
+                    $("#idText").attr("disabled", "disabled");
+                    $("#idText").attr("data-edit", newHtml.rollNo);
+
+                    $("#idText").val(newHtml.rollNo);
+                    $("#NameText").val(newHtml.name);
+                    $("#EmailText").val(newHtml.email);
+                    $("#ageText").val(newHtml.age);
+
+                    $("#joiningDateText").val(newHtml.date);
+
+                    var gender = newHtml.isMale == true ? "Male" : "Female";
+                    $('input[name=gender][value=' + gender + ']').prop("checked", true);
+                },
+            });
+        });
+
+    });
+
+</script>
+
+</html>
