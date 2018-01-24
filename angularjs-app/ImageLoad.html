@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Load Angular</title>
+    <script src="angular.js"></script>
+    <script src="ImageLoad.js"></script>
+</head>
+
+<body ng-app="imageLoad">
+
+    <div ng-controller="imageLoadCtrl">
+        <button ng-click="resume()">Load</button>
+        <br>
+        <img ng-src="{{image}}" width="300px" height="300px" alt="Click on Load to picture">
+        <h3>Name :{{name}}
+            <h3>Age :{{age}}</h3>
+            <h3>Location :{{location}}</h3>
+
+            <button ng-click="resumes()">Load All</button>
+            <br>
+
+            <div ng-repeat="resume in resumes">
+                <img ng-src="{{resume.image}}" width="300px" height="300px" alt="Click on Load to picture">
+                <h3>Name :{{resume.name}}
+                    <h3>Age :{{resume.age}}</h3>
+                    <h3>Location :{{resume.location}}</h3>
+            </div>
+
+    </div>
+</body>
+
+</html>
