@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Change Color in Angular</title>
+</head>
+<script src="angular.js"></script>
+<script src="colorPicker.js"></script>
+
+<body ng-app="colorPicker" ng-controller="colorPickerCtrl" ng-style="changeColor(colorChange)">
+    <div>
+        Choose color:
+        <select ng-model="colorChange" ng-options="colorOption for colorOption in colors">
+        </select>
+    </div>
+</body>
+
+</html>

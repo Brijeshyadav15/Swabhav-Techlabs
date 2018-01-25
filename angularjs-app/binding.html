@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Binding in Angular</title>
+</head>
+
+<script src="angular.js"></script>
+<script src="binding.js"></script>
+
+<body ng-app="binding" ng-controller="bindingCtrl">
+    <div id="input">
+
+            <label for="txtname">Enter Your Name :</label>
+            <input type="text" ng-model="text">
+        <br>
+
+            <label for="fontColor">Choose Font Color :</label>
+            <select ng-model="fontColor" ng-options="colorOption for colorOption in colors">
+            </select>
+
+        <br>
+    
+            <label for="backGroundColor">Choose Background Color :</label>
+            <select ng-model="backgroundColor" ng-options="colorOption for colorOption in colors">
+            </select>
+
+        <br>
+
+            <label for="fontSize">Choose Font Size :</label>
+            <select ng-model="fontSize" ng-options="fontsize for fontsize in fontsizes">
+            </select>
+    </div>
+    <br>
+    
+    <span ng-style="changeCSS(backgroundColor) || changeCSS(fontColor) || changeCSS(fontSize)">
+            {{text}}
+    </span>
+</body>
+
+</html>

@@ -16,19 +16,19 @@
         <button ng-click="resume()">Load</button>
         <br>
         <img ng-src="{{image}}" width="300px" height="300px" alt="Click on Load to picture">
-        <h3>Name :{{name}}
-            <h3>Age :{{age}}</h3>
-            <h3>Location :{{location}}</h3>
+        <h3>Name :{{name}}</h3>
+        <h3>Age :{{age}}</h3>
+        <h3>Location :{{location}}</h3>
 
-            <button ng-click="resumes()">Load All</button>
-            <br>
+        <button ng-click="resumes()">Load All</button>
+        <br>
 
-            <div ng-repeat="resume in resumes">
-                <img ng-src="{{resume.image}}" width="300px" height="300px" alt="Click on Load to picture">
-                <h3>Name :{{resume.name}}
-                    <h3>Age :{{resume.age}}</h3>
-                    <h3>Location :{{resume.location}}</h3>
-            </div>
+        <div ng-repeat="resume in resumes">
+            <img ng-src="{{resume.image}}" width="300px" height="300px" alt="Click on Load to picture">
+            <h3>Name :{{resume.name}}</h3>
+            <h3>Age :{{resume.age}}</h3>
+            <h3>Location :{{resume.location}}</h3>
+        </div>
 
     </div>
 </body>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data Bind in Angular</title>
+</head>
+<script src="angular.js"></script>
+<script src="dataBind.js"></script>
+
+<body ng-app="BindData">
+    <div ng-controller="BindDataCtrl">
+        <h3>
+            Developer : {{data.developer}}
+        </h3>
+        <h3>
+            Company : {{data.company}}
+        </h3>
+
+        <div>
+            <h3>
+                Customer Name : {{customer.name}}
+            </h3>
+            <h3>
+                Age : {{customer.age}}
+            </h3>
+        </div>
+
+        <div>
+            <label for="name">
+                Name:
+            </label>
+            <input type="name" ng-model="customer.name">
+            <br>
+            <label for="name">
+                Age:
+            </label>
+            <input type="name" ng-model="customer.age">
+        </div>
+
+    </div>
+
+</body>
+
+</html>

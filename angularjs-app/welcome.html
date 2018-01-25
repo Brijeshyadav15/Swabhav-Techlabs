@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome Html</title>
+</head>
+<script src="angular.js"></script>
+<script src="welcome.js"></script>
+
+<body ng-app="welcome" ng-controller="welcomeCtrl">
+    <label>Name:</label>
+    <input type="text" ng-model="name">
+    <input type="button" name="btn_wish" id="btn_wish" value="Wish" ng-click="addName(name)">
+    <br>
+
+
+    <p ng-repeat="person in persons">
+        Hello {{person}}!
+        <button ng-click="delete(person)">x</button>
+    </p>
+</body>
+
+</html>

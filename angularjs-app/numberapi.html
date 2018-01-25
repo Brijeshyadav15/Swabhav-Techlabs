@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>
+        Number API Example
+    </title>
+</head>
+
+<script src="angular.js"></script>
+<script src="numberapi.js"></script>
+
+<style>
+    #infoArea {
+        color: red;
+        font-weight: bold;
+    }
+
+    #factArea {
+        color: purple;
+        font-weight: bold;
+    }
+
+    label {
+        font-weight: bold;
+    }
+</style>
+
+<body ng-app="numberAPI" ng-controller="numberAPICtrl">
+    <center>
+        <h3 id="headingArea">Check Random Facts about Number</h3>
+    </center>
+    <div>
+        <label for="number Text Box">
+            Enter Number:
+        </label>
+        <input type="text" ng-model="number">
+        <input type="submit" ng-click="findDetails()">
+
+        <span id="infoArea" name="infoArea"></span>
+    </div>
+    <span id="factArea">
+        {{facts}}
+    </span>
+</body>
+
+</html>
