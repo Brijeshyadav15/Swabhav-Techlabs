@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Number Guesser with Angular</title>
+</head>
+<script src="angular.js"></script>
+<script src="numberGuesser.js"></script>
+<style>
+    .bluebox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid blue;
+        background-color: blue;
+    }
+
+    .greenbox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid green;
+        background-color: green;
+    }
+
+    .redbox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid red;
+        background-color: red;
+    }
+
+    .blankbox {
+        float: left;
+        width: 250px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 2px solid grey;
+        background-color: grey
+    }
+</style>
+
+<body ng-app="numberGuesser">
+    <div ng-controller="numberGuesserCtrl">
+        <center>
+            <h4>
+                Click on Box to corretly Guess number
+            </h4>
+        </center>
+
+        <button ng-repeat=" n in [] | range:100" class="blankbox" ng-click="checkResult(n)">
+            {{n}}
+        </button>
+    </div>
+</body>
+
+</html>
