@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="swabhavSPA">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Single Page App in Angular</title>
+
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="partialTemplates/homeCtrl.js"></script>
+    <script src="partialTemplates/aboutCtrl.js"></script>
+    <script src="partialTemplates/careerCtrl.js"></script>
+
+</head>
+
+<body>
+    <a href="#/home">Home</a>
+    <a href="#/about">About</a>
+    <a href="#/career">Career</a>
+    <h1>This is index Page</h1>
+    <div ng-view>
+    </div>
+</body>
+
+</html>
