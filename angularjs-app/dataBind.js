@@ -1,4 +1,4 @@
-angular.module('BindData', []).controller('BindDataCtrl', function ($scope, $timeout) {
+angular.module('BindData', []).controller('BindDataCtrl',['$scope', '$timeout', function ($scope, $timeout) {
 
     $scope.data = {
         developer: "Akash",
@@ -13,4 +13,4 @@ angular.module('BindData', []).controller('BindDataCtrl', function ($scope, $tim
     $timeout(function () {
         $scope.data.developer = "Brijesh";
     }, 1000);
-});
+}]);

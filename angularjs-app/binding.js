@@ -1,6 +1,6 @@
 var app = angular.module('binding', []);
 
-app.controller('bindingCtrl', function ($scope) {
+app.controller('bindingCtrl', ['$scope', function ($scope) {
     $scope.text;
 
     $scope.colors = ["Blue", "Red", "Green"];
@@ -11,7 +11,4 @@ app.controller('bindingCtrl', function ($scope) {
         return { 'background-color': '' + $scope.backgroundColor + '', 'color': '' + $scope.fontColor + '', 'font-size': '' + $scope.fontSize + '' };
 
     }
-
-
-
-});
+}]);

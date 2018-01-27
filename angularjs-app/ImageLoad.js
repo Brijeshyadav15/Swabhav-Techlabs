@@ -1,4 +1,4 @@
-angular.module('imageLoad', []).controller('imageLoadCtrl', function ($scope, $scope) {
+angular.module('imageLoad', []).controller('imageLoadCtrl', ['$scope', function ($scope) {
 
     $scope.resume = function () {
         console.log("Inside Function");
@@ -22,4 +22,4 @@ angular.module('imageLoad', []).controller('imageLoadCtrl', function ($scope, $s
             image: "abc.jpg"
         }]
     }
-});
+}]);

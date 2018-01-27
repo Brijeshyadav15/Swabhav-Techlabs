@@ -1,4 +1,4 @@
-var module = angular.module('NumberAPI', []).factory('NumberAPISvc', function ($rootScope, $log, $timeout, $q, $http) {
+var module = angular.module('NumberAPI', []).factory('NumberAPISvc', ['$rootScope', '$log', '$timeout', '$q', '$http' function ($rootScope, $log, $timeout, $q, $http) {
     var obj = {};
 
     obj.getData = function (number) {
@@ -16,10 +16,10 @@ var module = angular.module('NumberAPI', []).factory('NumberAPISvc', function ($
         return defer.promise
     }
     return obj;
-});
+}]);
 
 
-module.controller("NumberAPICtrl", function ($scope, $rootScope, NumberAPISvc) {
+module.controller("NumberAPICtrl", ['$scope', '$rootScope', 'NumberAPISvc', function ($scope, $rootScope, NumberAPISvc) {
     $scope.findDetails = function () {
         var no = $scope.number;
         NumberAPISvc.getData(no)
@@ -32,4 +32,4 @@ module.controller("NumberAPICtrl", function ($scope, $rootScope, NumberAPISvc) {
                 $scope.facts = error;
             });
     }
-});
+}]);

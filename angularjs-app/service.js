@@ -1,4 +1,4 @@
-var module = angular.module('swabhav', []).factory('MathService', function ($rootScope, $log, $timeout, $q) {
+var module = angular.module('swabhav', []).factory('MathService', ['$rootScope', '$log', '$timeout', '$q', function ($rootScope, $log, $timeout, $q) {
     $rootScope.companyName = "Hi-Tech";
     $log.log("Inside Main Service");
     var obj = {};
@@ -24,9 +24,9 @@ var module = angular.module('swabhav', []).factory('MathService', function ($roo
         return defer.promise
     }
     return obj;
-});
+}]);
 
-module.controller("FirstCtrl", function ($scope, $rootScope, MathService) {
+module.controller("FirstCtrl", ['$scope', '$rootScope', 'MathService', function ($scope, $rootScope, MathService) {
     console.log($rootScope.companyName);
     console.log("Inside First Controller");
     console.log(MathService.cubeEvenNo(3));
@@ -38,9 +38,9 @@ module.controller("FirstCtrl", function ($scope, $rootScope, MathService) {
         function (error) {
             console.log(error);
         });
-});
+}]);
 
-module.controller("SecondCtrl", function ($scope, $rootScope, MathService) {
+module.controller("SecondCtrl", ['$scope', '$rootScope', 'MathService', function ($scope, $rootScope, MathService) {
     console.log($rootScope.companyName);
     console.log("Inside Second Controller");
     console.log(MathService.cubeEvenNo(50));
@@ -52,4 +52,4 @@ module.controller("SecondCtrl", function ($scope, $rootScope, MathService) {
         function (error) {
             console.log(error);
         });
-});
+}]);

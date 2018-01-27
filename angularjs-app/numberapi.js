@@ -1,5 +1,4 @@
-angular.module('numberAPI', []).controller('numberAPICtrl', function ($scope, $http) {
-
+angular.module('numberAPI', []).controller('numberAPICtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.findDetails = function () {
         var number = $scope.number;
         var url = "http://numbersapi.com/" + number;
@@ -12,4 +11,4 @@ angular.module('numberAPI', []).controller('numberAPICtrl', function ($scope, $h
                 $scope.facts = "Please Enter valid number";
             });
     }
-});
+}]);

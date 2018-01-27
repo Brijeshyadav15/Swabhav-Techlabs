@@ -1,6 +1,6 @@
 var app = angular.module('welcome', []);
 
-app.controller('welcomeCtrl', function ($scope) {
+app.controller('welcomeCtrl', ['$scope', function ($scope) {
     $scope.persons = [];
 
     $scope.addName = function (name) {
@@ -10,4 +10,4 @@ app.controller('welcomeCtrl', function ($scope) {
     $scope.delete = function (name) {
         $scope.persons.splice(name, 1);
     };
-});
+}]);

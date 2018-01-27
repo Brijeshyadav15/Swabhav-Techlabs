@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="../source/css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <center>
+            <h1 class="jumbotron" style="background-color:cornflowerblue"> Shoppping Cart</h1>
+        </center>
+
+        <div class="container jumbotron row">
+            <center>
+                <h3> Add Products</h3>
+            </center>
+
+            <label for="selectProducts" class="col-lg-3 col-md-3">
+                Products :
+            </label>
+
+            <select name="products" id="products" class="col-lg-2 col-md-2">
+                <option id="product1" value="Iphone 8" product-id="1" data-price="50000">Iphone 8</option>
+                <option id="product2" value="Samsung S8" product-id="2" data-price="35000">Samsung S8</option>
+                <option id="product3" value="Mi Mix2" product-id="3" data-price="25000">Mi MIX 2</option>
+                <option id="product3" value="One Plus5" product-id="4" data-price="33000">One Plus5</option>
+            </select>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+            <input type="text" name="quantity" id="quantity" class="col-lg-3 col-md-3" value="1"> &nbsp;&nbsp;
+            <input type="button" name="addProduct" id="addProduct" value="Add to Cart" class="btn-primary">
+        </div>
+
+        <div class="container jumbotron">
+            <center>
+                <h3> Added Products</h3>
+            </center>
+
+            <div class="row" id="productDisplayPane">
+
+                <span class="col-lg-2 col-md-2">
+                    ID
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    Product
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    Quantity
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    Unit Price
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    Total Product Price
+                </span>
+
+                <br>
+                <br>
+            </div>
+
+            <div id="productArea">
+            </div>
+
+            <br>
+            <br>
+
+            <center>
+                <button id="checkOut" class="btn-lg btn-success">Checkout
+                </button>
+            </center>
+
+        </div>
+    </div>
+
+</body>
+<script src="../source/js/jquery.js"></script>
+<script src="../source/js/bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+        var getProducts = JSON.parse(localStorage.getItem("Products")) != null ? JSON.parse(localStorage.getItem("Products")) : [""];
+        init();
+
+        function init() {
+            $("#checkOut").hide();
+
+            if (getProducts.length > 0) {
+                var newHtml = '';
+                for (var i = 0; i < getProducts.length; i++) {
+                    if (typeof (getProducts[i]) != "string") {
+                        newHtml += '<span class="col-lg-2 col-md-2">' + parseInt(i + 1) + '</span>';
+                        newHtml += '<span class="col-lg-2 col-md-2">' + getProducts[i].productName + '</span>';
+                        newHtml += '<span class="col-lg-2 col-md-2">' + getProducts[i].quantity + '</span>';
+                        newHtml += '<span class="col-lg-2 col-md-2">' + getProducts[i].price + '</span>';
+                        newHtml += '<span class="col-lg-2 col-md-2">' + getProducts[i].totalPrice + '</span>';
+                        newHtml += '<br>';
+                        $("#checkOut").show();
+                    }
+                    $("#productArea").html(newHtml);
+
+                }
+            }
+        }
+
+        //Generate Product
+        $(document).on("click", "#addProduct", function () {
+            addProduct(generateProduct());
+            init();
+        });
+
+        function generateProduct() {
+
+            var productName = $('#products').val();
+            var price = $('option:selected', $('#products')).attr("data-price");
+            var productID = $('option:selected', $('#products')).attr("product-id");
+            var quantity = $('#quantity').val();
+            var totalPrice = parseInt(quantity) * parseInt(price);
+
+            var product = { productID, productName, quantity, price, totalPrice };
+            return product;
+        }
+        
+        //Add Product 
+        function addProduct(product) {
+            var oldProduct;
+            for (var p of getProducts) {
+                if (product.productID == p.productID) {
+                    oldProduct = p;
+                }
+            }
+
+            if (oldProduct == undefined) {
+                console.log("Do nothing");
+            }
+            else {
+                product.quantity = parseInt(oldProduct.quantity) + parseInt(product.quantity);
+                product.totalPrice = product.quantity * product.price;
+                var index = getProducts[oldProduct];
+                getProducts.splice(index, 1);
+            }
+            getProducts.push(product);
+            if (getProducts[0] == "") {
+                getProducts.splice(0, 1);
+            }
+            localStorage.setItem("Products", JSON.stringify(getProducts));
+        }
+
+    });
+</script>
+
+</html>
