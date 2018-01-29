@@ -1,0 +1,7 @@
+ID,Assignment ,Description,Date ,Status,File Name
+1,Binding,Implement HTML Binding for Font related CSS operations,25/01/2018,Completed,binding.html
+2,Color Picker,Implement colorpicker in angular which changes background color of Page,25/01/2018,Completed,colorpicker.html
+3,Custom Filter,Implement concept of Custom Filter in angular,25/01/2018,Completed,customFilter.html
+4,Data Bind,Implement Data Binding with help of model and expression,25/01/2018,Completed,DataBind.html
+5,Expression ,Implement concept of Expression,24/01/2018,Completed,expression.html
+6,Image Load ,Create an app to load image on-click of button,24/01/2018,Completed,ImageLoad.html
