@@ -1,0 +1,25 @@
+ID,Assignment ,Description,Date ,Status,File Name
+1,Binding HTML properties with JQuery,Implement binding of HTML with jquery to perform basic CSS manipulation,23/01/2018,Completed,binding.html
+2,Welcome app,Implement an app to Welcome with some default message,20/01/2018,Completed,/classwork/welcome.html
+3,Color Picker,Implement an app to Welcome with some default message,20/01/2018,Completed,/classwork/colorpicker.html
+4,Hoisting,Implement hoisting with JQuery,17/01/2018,Completed,/classwork/colorpicker.html
+5,IIFE,Implement iify with JQuery,17/01/2018,Completed,/classwork/iife.html
+6,Number API,Implement an app to fetch data from NumberAPI,17/01/2018,Completed,/classwork/numberapiexample.html
+7,Local Storeage,Implement an app for the concept of Local Storage,20/01/2018,Completed,assignment/localstoreage.html
+8,Session Storeage,Implement an app for the concept of Session Storage,20/01/2018,Completed,assignment/sessionstorage.html
+9,Video Player,Implement an video player with Jquery based controls,20/01/2018,Completed,assignment/videoplayer.html
+10,Canvas Circle,Draw a circle on canvas divided in two portions through Jquery,20/01/2018,Completed,assignment/circle canvas.html
+11,StopWatch,Implement StopWatch with JQuery,20/01/2018,Completed,assignment/stopwatch.html
+12,StopWatch,Implement StopWatch with JQuery,20/01/2018,Completed,assignment/stopwatch.html
+13,Array CRUD,Implement Crud operations on Array,20/01/2018,Completed,assignment/arrayCrud.html
+14,Array of objects,Implement Array of objects,20/01/2018,Completed,assignment/arrayobjects.html
+15,Semantics,Implement Semantics tag in jquery,20/01/2018,Completed,assignment/semantic.html
+16,Colorpicker with IFFY,Implement colorpicker with iffy,20/01/2018,Completed,assignment/colorpickeriffy.html
+17,Welcome with IFFY,Implement welcome with iffy,20/01/2018,Completed,assignment/welcomeiffy.html
+18,Number Guessing Game,Implement Number Guesser Game in Jquery,20/01/2018,Completed,assignment/numbergame.html
+19,Global Namespace Pollution,Implement concept of Global Namespace Pollution,20/01/2018,Completed,assignment/globalnamespace.html
+20,Question Bank,Implement Question Bank with Jquery,20/01/2018,Completed,assignment/questions.html
+21,Ajax Example,Implement example of Ajax in JQuery,20/01/2018,Completed,assignment/ajaxexample.html
+22,loader with Jquery,Implement example of Ajax in JQuery,20/01/2018,Completed,assignment/loader.html
+23,Blog with JQuery,Implement blog with JQuery,20/01/2018,Completed,assignment/blogrefractor.html
+24,Blog with JQuery,Implement blog with JQuery,20/01/2018,Completed,assignment/blogrefractor.html

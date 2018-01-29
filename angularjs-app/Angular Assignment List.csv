@@ -5,3 +5,14 @@ ID,Assignment ,Description,Date ,Status,File Name
 4,Data Bind,Implement Data Binding with help of model and expression,25/01/2018,Completed,DataBind.html
 5,Expression ,Implement concept of Expression,24/01/2018,Completed,expression.html
 6,Image Load ,Create an app to load image on-click of button,24/01/2018,Completed,ImageLoad.html
+7,Module ,Create an example to create concept of Modules ,24/01/2018,Completed,module.html
+8,Numberapi,Implement an app to fetch data from Numberapi.com,25/01/2018,Completed,numberapi.html
+9,Numberapi with Service,Implement an app to fetch data from Numberapi.com with help of Service,25/01/2018,Completed,numberapi.html
+10,Number Guesser Game,Implement an app of guessing the Number,25/01/2018,Completed,numberGuesser.html
+11,One Time Bind,Implement one time binding,25/01/2018,Completed,onetimebind.html
+12,Service,Implement service based example,25/01/2018,Completed,service.html
+13,Students,Implement Students app fetching data from Server,29/01/2018,Completed,studentsCrud.html
+14,Welcome ,Implement Welcome app in angular,25/01/2018,Completed,studentsCrud.html
+15,Wiki ,Implement wiki styled app to mimick SPA,27/01/2018,Completed,wiki.html
+16,SPA ,Implement and demonstrate the concept of Single Page Application in Angular,27/01/2018,Completed,spa/#
+17,Students SPA ,Implement Students App in SPA,29/01/2018,Completed,spa/#

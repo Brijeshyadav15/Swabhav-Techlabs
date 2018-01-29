@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="../source/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap.min.css">
 </head>
 
 <body>
@@ -76,22 +76,28 @@
             <center>
                 <button id="checkOut" class="btn-lg btn-success">Checkout
                 </button>
+                <br>
+                <br>
+                <div id="checkOutArea" style="font-size:24px;font-weight:bold">
+                    Total Price :
+                </div>
             </center>
 
         </div>
+
     </div>
 
 </body>
-<script src="../source/js/jquery.js"></script>
-<script src="../source/js/bootstrap.js"></script>
+<script src="../jquery.js"></script>
+<script src="../bootstrap.js"></script>
 <script>
     $(document).ready(function () {
         var getProducts = JSON.parse(localStorage.getItem("Products")) != null ? JSON.parse(localStorage.getItem("Products")) : [""];
         init();
-
+        $("#checkOutArea").hide();
         function init() {
             $("#checkOut").hide();
-
+            
             if (getProducts.length > 0) {
                 var newHtml = '';
                 for (var i = 0; i < getProducts.length; i++) {
@@ -127,7 +133,7 @@
             var product = { productID, productName, quantity, price, totalPrice };
             return product;
         }
-        
+
         //Add Product 
         function addProduct(product) {
             var oldProduct;
@@ -151,6 +157,19 @@
                 getProducts.splice(0, 1);
             }
             localStorage.setItem("Products", JSON.stringify(getProducts));
+        }
+
+        $(document).on("click", "#checkOut", function () {
+            calcCheckout();
+            $("#checkOutArea").show();
+        });
+
+        function calcCheckout() {
+            var total = 0;
+            for (var p of getProducts) {
+                total += p.totalPrice;
+            }
+            $("#checkOutArea").append(total);
         }
 
     });
