@@ -1,48 +1,43 @@
-<center>
-    <h2> Update Student Details</h2>
-</center>
+<h2 class="jumbotron">
+    <center> Update Student Details</center>
+</h2>
 
+<div id="addArea" class="container">
 
-<div id="addArea" class="row container">
+    <label for="Id" class="col-md-3">ID</label> :
+    <input type="text" ng-model="student.rollNo" placeholder="Enter Student ID" class="col-md-3" disabled>
 
-    <div class="col-md-6">
-        <label for="Id" class="col-md-3">ID:</label>
-        <input type="text" ng-model="student.rollNo" placeholder="Enter Student ID" class="col-md-3" disabled>
-    </div>
+    <br>
 
-    <div class="col-md-6">
-        <label for="Id" class="col-md-3">Name:</label>
-        <input type="text" ng-model="student.name" placeholder="Enter Student Name" class="col-md-3">
-    </div>
+    <label for="Id" class="col-md-3">Name</label> :
+    <input type="text" ng-model="student.name" placeholder="Enter Student Name" class="col-md-3">
+    
+    <br>
 
-    <div class="col-md-6">
-        <label for="Id" class="col-md-3">Email:</label>
-        <input type="text" ng-model="student.email" placeholder="Enter Student ID" class="col-md-3">
-    </div>
+    <label for="Id" class="col-md-3">Email</label> :
+    <input type="text" ng-model="student.email" placeholder="Enter Student ID" class="col-md-3">
 
-    <div class="col-md-6">
-        <label for="Id" class="col-md-3">Joining Date:</label>
-        <input type="text" ng-model="student.date" placeholder="Enter Student Name" class="col-md-3">
-    </div>
+    <br>
 
-    <div class="col-md-6">
-        <label for="Age" class="col-md-3">Age:</label>
-        <input type="text" ng-model="student.age" class="col-md-3">
-    </div>
+    <label for="Id" class="col-md-3">Joining Date</label> :
+    <input type="text" ng-model="student.date" placeholder="Enter Student Name" class="col-md-3">
 
-    <div class="col-md-6">
-        <label for="Id">Gender:</label>
-        <input type="radio" ng-model="gender" value="Male" ng-checked="gender1">Male
-        <input type="radio" ng-model="gender" value="Female" ng-checked="gender2">Female
-    </div>
+    <br>
 
-    <div class="col-md-6">
+    <label for="Age" class="col-md-3">Age</label> :
+    <input type="text" ng-model="student.age" class="col-md-3">
+    
+    <br>
 
-    </div>
-
-    <div class="col-md-12">
-        <center>
-            <input type="submit" name="submitForm" id="submitForm" class="btn-primary" ng-click="editStudent()">
-        </center>
-    </div>
+    <label for="Id" class="col-md-3">Gender</label> :
+    <input type="radio" ng-model="gender" value="Male" ng-checked="gender1">Male
+    <input type="radio" ng-model="gender" value="Female" ng-checked="gender2">Female
+    
+    <br>
+    <br>
+    
+    <center>
+        <input type="submit" name="submitForm" id="submitForm" class="btn-success btn-lg" ng-click="editStudent()">
+    </center>
+</div>
 </div>

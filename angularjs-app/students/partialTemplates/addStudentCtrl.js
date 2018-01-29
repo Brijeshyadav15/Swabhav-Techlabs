@@ -1,5 +1,8 @@
 angular.module('studentSPA').controller('addStudentCtrl', ['$scope', 'studentSVC', function ($scope, studentSVC) {
     $scope.addStudent = function () {
+        // if (isValid) {
+        //     alert('our form is amazing');
+        //   }
         var isMale = $scope.gender == 'Male' ? 'true' : 'false';
 
         var student = {
