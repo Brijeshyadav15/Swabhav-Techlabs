@@ -29,37 +29,37 @@
 
         <div class="col-md-6">
             <label for="Id" class="col-md-3">ID:</label>
-            <input type="text" name="idText" id="idText" placeholder="Enter Student ID" class="col-md-3" data-edit="0">
+            <input type="text" ng-model="id" placeholder="Enter Student ID" class="col-md-3" data-edit="0">
         </div>
 
         <div class="col-md-6">
             <label for="Id" class="col-md-3">Name:</label>
-            <input type="text" name="NameText" id="NameText" placeholder="Enter Student Name" class="col-md-3">
+            <input type="text" ng-model="name" placeholder="Enter Student Name" class="col-md-3">
         </div>
 
         <div class="col-md-6">
             <label for="Id" class="col-md-3">Email:</label>
-            <input type="text" name="EmailText" id="EmailText" placeholder="Enter Student ID" class="col-md-3">
+            <input type="text" ng-model="email" placeholder="Enter Student ID" class="col-md-3">
         </div>
 
         <div class="col-md-6">
             <label for="Id" class="col-md-3">Joining Date:</label>
-            <input type="text" name="joiningDateText" id="joiningDateText" placeholder="Enter Student Name" class="col-md-3">
+            <input type="text" ng-model="joining" placeholder="Enter Student Name" class="col-md-3">
         </div>
 
         <div class="col-md-6">
             <label for="Age" class="col-md-3">Age:</label>
-            <input type="text" name="ageText" id="ageText" class="col-md-3">
+            <input type="text" ng-model="age" class="col-md-3">
         </div>
 
         <div class="col-md-6">
             <label for="Id">Gender:</label>
-            <input type="radio" name="gender" id="gender" value="Male">Male
-            <input type="radio" name="gender" id="gender" value="Female">Female
+            <input type="radio" name="gender" ng-checked="male">Male
+            <input type="radio" name="gender" ng-checked="female">Female
         </div>
         <div class="col-md-12">
             <center>
-                <input type="submit" name="submitForm" id="submitForm" class="btn-primary">
+                <input type="submit" name="submitForm" id="submitForm" class="btn-primary" ng-click="addStudent()">
             </center>
         </div>
     </div>
@@ -76,6 +76,23 @@
         <div class="col-md-1" id="age">Age</div>
         <div class="col-md-1" id="gender">Gender</div>
         <div class="col-md-4" id="operations">Operations</div>
+    </div>
+
+    <br>
+    <br>
+
+    <div ng-repeat=" student in studentsData" class="row container">
+        <div class="col-md-1">{{student.rollNo}}</div>
+        <div class="col-md-1">{{student.name}}</div>
+        <div class="col-md-2">{{student.email}}</div>
+        <div class="col-md-2">{{student.date}}</div>
+        <div class="col-md-1">{{student.age}}</div>
+        <div class="col-md-1">{{student.isMale}}</div>
+        <div class="col-md-4">
+            <button ng-click="deleteStudent(student.rollNo)">Delete</button>
+            <button ng-click="editStudent(student)">Edit</button>
+        </div>
+
     </div>
     </div>
 </body>
