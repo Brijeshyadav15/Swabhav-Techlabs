@@ -1,0 +1,30 @@
+<center>
+    <h2> Students Details</h2>
+</center>
+
+<div id="dataDisplay" name="displayArea" class="row container">
+    <div class="col-md-1" id="RollNo">RollNo</div>
+    <div class="col-md-1" id="name">Name</div>
+    <div class="col-md-2" id="email">Email</div>
+    <div class="col-md-2" id="joining">Joining Date</div>
+    <div class="col-md-1" id="age">Age</div>
+    <div class="col-md-1" id="gender">Gender</div>
+    <div class="col-md-4" id="operations">Operations</div>
+</div>
+
+<br>
+<br>
+
+<div ng-repeat="student in studentsData" class="row container">
+    <div class="col-md-1">{{student.rollNo}}</div>
+    <div class="col-md-1">{{student.name}}</div>
+    <div class="col-md-2">{{student.email}}</div>
+    <div class="col-md-2">{{student.date}}</div>
+    <div class="col-md-1">{{student.age}}</div>
+    <div class="col-md-1">{{student.isMale}}</div>
+    <div class="col-md-4">
+        <button ng-click="deleteStudent(student.rollNo)">Delete</button>
+        <button ng-click="editStudent(student.rollNo)">Edit</button>
+    </div>
+
+</div>
