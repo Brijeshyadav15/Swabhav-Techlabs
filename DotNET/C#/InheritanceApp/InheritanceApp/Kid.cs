@@ -9,7 +9,7 @@ namespace InheritanceApp
             Console.WriteLine("Kid is created");
         }
 
-        new public void Play()
+        public void Play()
         {
             Console.WriteLine("Kid is playing");
         }

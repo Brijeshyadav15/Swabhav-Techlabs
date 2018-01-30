@@ -15,7 +15,7 @@ namespace InheritanceApp
             Console.WriteLine("Boy is eating");
         }
 
-        new public void Play()
+        public void Play()
         {
             Console.WriteLine("Boy is playing");
         }

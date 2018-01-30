@@ -14,7 +14,7 @@ namespace InheritanceApp
             Console.WriteLine("Man is reading");
         }
 
-        public void Play()
+        public virtual void Play()
         {
             Console.WriteLine("Man is playing");
         }
