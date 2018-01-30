@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+<script src="angular.js"></script>
+<script src="shoppingcart.js"></script>
+
+<body ng-app="shoppingcart" ng-controller="productsCtrl">
+    <div class="container">
+        <center>
+            <h1 class="jumbotron" style="background-color:cornflowerblue"> Shoppping Cart</h1>
+        </center>
+
+        <div class="container jumbotron row">
+            <center class="col-md-12 col-lg-12">
+                <h3> Add Products</h3>
+            </center>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <label for="selectProducts" class="col-lg-3 col-md-3">
+                Products :
+            </label>
+
+            <select class="col-lg-2 col-md-2" ng-model="productSelect">
+                <option ng-repeat="product in products" id="{{product.id}}" ng-value="{{product.id}}">{{product.productName}}</option>
+            </select>
+
+            &nbsp;&nbsp; &nbsp;&nbsp;
+            <input type="text" ng-model="quantity" class="col-lg-3 col-md-3"> &nbsp;&nbsp;
+            <input type="button" name="addProduct" id="addProduct" value="Add to Cart" class="btn-primary" ng-click="addProduct(productSelect)">
+        </div>
+
+        <div class="container jumbotron">
+            <center>
+                <h3> Added Products</h3>
+            </center>
+
+            <div class="row" id="productDisplayPane">
+
+                <span class="col-lg-2 col-md-2">
+                    ID
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    Product
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    Quantity
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    Unit Price
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    Total Product Price
+                </span>
+
+                <br>
+                <br>
+            </div>
+
+            <div class="row" ng-repeat="product in addedProducts track by $index"">
+                <span class="col-lg-2 col-md-2">
+                    {{product.id}}
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    {{product.name}}
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    {{product.quantity}}
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    {{product.unitprice}}
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    {{product.totalprice}}
+                </span>
+
+                <span class="col-lg-2 col-md-2">
+                    <button class="btn-danger" ng-click="deleteProduct(product)">Remove</button>
+                </span>
+
+                <br>
+                <br>
+
+            </div>
+
+            <br>
+            <br>
+
+            <center>
+                <button class="btn-lg btn-success" ng-click="checkout()">Checkout
+                </button>
+                <br>
+                <br>
+                <div id="checkOutArea" style="font-size:24px;font-weight:bold">
+                    Total Price : {{totalprice}}
+                </div>
+            </center>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
