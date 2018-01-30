@@ -70,6 +70,5 @@ namespace StudentAPP
             Balance = Balance + amount;
             Console.WriteLine("Deposit Successful. Main Balance is " + Balance);
         }
-
     }
 }
