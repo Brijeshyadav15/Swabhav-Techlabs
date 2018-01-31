@@ -9,6 +9,7 @@ namespace EmployeeLibrary
     {
         public override int CalculateSalary()
         {
+
             return Basic + Pa + HRA;
         }
     }

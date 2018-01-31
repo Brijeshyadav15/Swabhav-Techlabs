@@ -50,8 +50,10 @@ namespace EmployeeLibrary
 
         public int HRA
         {
-            get;
-            set;
+            get
+            {
+                return (Basic * 50) / 100; ;
+            }
         }
 
         public int CalculateAge()
