@@ -1,6 +1,14 @@
 ID,Assignment ,Description,Date ,Status,App Name
-1,Welcome App,Basics of C#,30/01/2018,Completed,WelcomeApp
-2,Player App ,Conversion of Player App from Core Java to C#,30/01/2018,Completed,PlayerApp
-3,Student App,Conversion of Student App from Core Java to C#,30/01/2018,Completed,StudentApp
-4,Inheritance App,Conversion of Inheritance App from Core Java to C#,30/01/2018,Completed,InheritanceApp
-4,Account Polymorphism,Conversion of Account Polymorphism App from Core Java to C#,30/01/2018,Completed,AccountPolymorphism
+1,Welcome App,Basics of C#,30/01/2018,Completed,C#/WelcomeApp
+2,Player App ,Conversion of Player App from Core Java to C#,30/01/2018,Completed,C#/PlayerApp
+3,Student App,Conversion of Student App from Core Java to C#,30/01/2018,Completed,C#/StudentApp
+4,Inheritance App,Conversion of Inheritance App from Core Java to C#,30/01/2018,Completed,C#/InheritanceApp
+5,Account Polymorphism,Conversion of Account Polymorphism App from Core Java to C#,30/01/2018,Completed,C#/AccountPolymorphism
+6,Student Serialize App,Conversion of Student Serialized  App from Core Java to C#,31/01/2018,Completed,C#/StudentSerializeApp
+7,Read from File ,Read from a File in C#,31/01/2018,Completed,C#/ReadFromFile
+8,Write to  File ,Write to a  File in C#,31/01/2018,Completed,C#/WriteToFile
+9,Player App,Conversion of Player App from Java to C#,31/01/2018,Completed,C#/PlayerApp
+10,Class Library ,Implement Class Library solution through DLL and use it in another App,31/01/2018,Completed,DLL/ClassLibrarySolution
+11,Employee Solution, Convert the Employee App from Java through DLL and use it in another App,31/01/2018,Completed,DLL/EmployeeSolution
+
+
