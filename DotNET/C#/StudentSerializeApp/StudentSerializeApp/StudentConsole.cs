@@ -81,6 +81,7 @@ namespace StudentSerializeApp
 
         public void Print(List<Student> list)
         {
+            
             foreach (Student student in list)
             {
                 Console.WriteLine("Student Id:" + student.Id);

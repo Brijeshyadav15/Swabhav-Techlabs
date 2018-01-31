@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 
 namespace StudentSerializeApp
 {
@@ -15,12 +13,11 @@ namespace StudentSerializeApp
         public BinaryStore()
         {
             Init();
-            _studentList = new List<Student>();
         }
 
         public void Init()
         {
-            FileStream filestream = new FileStream("Student.binary", FileMode.Open, FileAccess.Read, FileShare.None);
+            FileStream filestream = new FileStream("Data/Student.binary", FileMode.Open, FileAccess.Read, FileShare.None);
             try
             {
                 using (filestream)
@@ -34,6 +31,7 @@ namespace StudentSerializeApp
                 Console.WriteLine("Exception Occured");
 
             }
+
         }
 
         public List<Student> Get()
@@ -50,7 +48,7 @@ namespace StudentSerializeApp
         private void Save()
         {
 
-            FileStream filestream = new FileStream("Student.binary", FileMode.Create, FileAccess.Write, FileShare.None);
+            FileStream filestream = new FileStream("Data/Student.binary", FileMode.Create, FileAccess.Write, FileShare.None);
             try
             {
                 using (filestream)
