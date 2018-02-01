@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace WelcomeApp
 {
@@ -7,8 +8,22 @@ namespace WelcomeApp
         static void Main(string[] names)
         {
             //Case1(names);
+
             //Case2();
 
+            //Case3();
+
+            var namesStartingWIthA = names.Where((n) => { if (n.Contains("s")) { return true; } return false; });
+
+            var top1 = namesStartingWIthA.Take(1);
+            foreach (String name in top1)
+            {
+                Console.WriteLine(name);
+            }
+        }
+
+        private static void Case3()
+        {
             Rectangle[] rect = new Rectangle[3];
             rect[0] = new Rectangle(10, 20, BorderStyle.SINGLE);
             rect[1] = new Rectangle(20, 30, BorderStyle.DOUBLE);
@@ -22,7 +37,6 @@ namespace WelcomeApp
                 Console.WriteLine("Rectangle Area is : " + rec.Area);
                 Console.WriteLine();
             }
-
         }
 
         private static void Case2()
