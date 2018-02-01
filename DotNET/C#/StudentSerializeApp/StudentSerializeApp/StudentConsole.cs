@@ -29,8 +29,24 @@ namespace StudentSerializeApp
             Console.WriteLine("Press 4 to Delete Student");
 
             int choice = Convert.ToInt32(Console.ReadLine());
+            if (choice == ADD_CHOICE)
+            {
+                GetDetails();
+            }
+            else if (choice == DISPLAY_CHOICE)
+            {
+                Print(studentobj.Get());
+            }
+            else if (choice == SEARCH_STUDENT_CHOICE)
+            {
+                Search();
+            }
+            else if (choice == DELETE_STUDENT_CHOICE)
+            {
+                Delete();
+            }
 
-            switch (choice)
+          /*  switch (choice)
             {
                 case ADD_CHOICE:
                     GetDetails();
@@ -44,7 +60,7 @@ namespace StudentSerializeApp
                 case DELETE_STUDENT_CHOICE:
                     Delete();
                     break;
-            }
+            } */
 
         }
 
@@ -81,7 +97,7 @@ namespace StudentSerializeApp
 
         public void Print(List<Student> list)
         {
-            
+
             foreach (Student student in list)
             {
                 Console.WriteLine("Student Id:" + student.Id);

@@ -72,7 +72,7 @@ namespace StudentSerializeApp
                 {
                     _studentList.Remove(studentName);
                     Save();
-                    return "Student Found by name of :" + studentName.Name;
+                    return "Student Deleted by name of :" + studentName.Name;
                 }
             }
             return "No Student found with the Given Name";
