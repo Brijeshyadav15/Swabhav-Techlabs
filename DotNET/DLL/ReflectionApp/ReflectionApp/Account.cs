@@ -1,25 +1,29 @@
 ﻿using System;
 
-namespace AccountPolymorphism
+namespace ReflectionApp
 {
     abstract class Account
     {
-        protected int _accountnum;
-        protected int _balance;
-        protected String _name;
+        public int accountnum;
+        public int balance;
+        public String name;
 
-        protected Account(int accountnum, int balance, String name)
+        public Account()
         {
-            _accountnum = accountnum;
-            _balance = balance;
-            _name = name;
+        }
+
+        public Account(int accountnum, int balance, String name)
+        {
+            this.accountnum = accountnum;
+            this.balance = balance;
+            this.name = name;
         }
 
         public int AccountNum
         {
             get
             {
-                return _accountnum;
+                return accountnum;
             }
         }
 
@@ -27,11 +31,11 @@ namespace AccountPolymorphism
         {
             get
             {
-                return _balance;
+                return balance;
             }
             set
             {
-                _balance = value;
+                balance = value;
             }
         }
 
@@ -39,16 +43,17 @@ namespace AccountPolymorphism
         {
             get
             {
-                return _name;
+                return name;
             }
         }
 
         public void deposit(int amount)
         {
-            _balance += amount;
+            this.balance += amount;
         }
 
         public abstract void withdraw(int amount);
 
     }
 }
+
