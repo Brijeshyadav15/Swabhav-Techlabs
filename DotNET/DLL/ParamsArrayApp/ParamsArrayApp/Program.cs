@@ -16,8 +16,8 @@ namespace ParamsArrayApp
 
             result = Add(10, 10, 10, 10);
             Console.WriteLine(result);
-            result = Add(10, 10, 10, 10, 10);
 
+            result = Add(10, 10, 10, 10, 10);
             Console.WriteLine(result);
 
 

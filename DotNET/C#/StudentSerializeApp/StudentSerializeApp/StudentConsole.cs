@@ -32,16 +32,16 @@ namespace StudentSerializeApp
 
             switch (choice)
             {
-                case 1:
+                case ADD_CHOICE:
                     GetDetails();
                     break;
-                case 2:
+                case DISPLAY_CHOICE:
                     Print(studentobj.Get());
                     break;
-                case 3:
+                case SEARCH_STUDENT_CHOICE:
                     Search();
                     break;
-                case 4:
+                case DELETE_STUDENT_CHOICE:
                     Delete();
                     break;
             }
