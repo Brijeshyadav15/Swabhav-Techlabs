@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StudentAPP
+namespace AccountAPP
 {
     class Account
     {
