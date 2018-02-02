@@ -4,9 +4,9 @@ namespace ReflectionApp
 {
     abstract class Account
     {
-        public int accountnum;
-        public int balance;
-        public String name;
+        public int _accountnum;
+        public int _balance;
+        public String _name;
 
         public Account()
         {
@@ -14,16 +14,16 @@ namespace ReflectionApp
 
         public Account(int accountnum, int balance, String name)
         {
-            this.accountnum = accountnum;
-            this.balance = balance;
-            this.name = name;
+            _accountnum = accountnum;
+            _balance = balance;
+            _name = name;
         }
 
         public int AccountNum
         {
             get
             {
-                return accountnum;
+                return _accountnum;
             }
         }
 
@@ -31,11 +31,11 @@ namespace ReflectionApp
         {
             get
             {
-                return balance;
+                return _balance;
             }
             set
             {
-                balance = value;
+                _balance = value;
             }
         }
 
@@ -43,13 +43,13 @@ namespace ReflectionApp
         {
             get
             {
-                return name;
+                return _name;
             }
         }
 
         public void deposit(int amount)
         {
-            this.balance += amount;
+            _balance += amount;
         }
 
         public abstract void withdraw(int amount);
