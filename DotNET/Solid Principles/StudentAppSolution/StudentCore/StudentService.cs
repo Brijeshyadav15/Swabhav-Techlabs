@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace StudentCore
 {
@@ -24,11 +25,9 @@ namespace StudentCore
         {
             if (loader.GetStudents().Count > 0)
             {
-                List<Student> _students = loader.GetStudents();
-                
-                //_students.Sele(Find(s => s.Age > age && s.Id == id && s.Name.Contains(name) && s.Location.Contains(location)));
-
-                //return _students.Find(s => s.Age > age && s.Id == id && s.Name.Contains(name) && s.Location.Contains(location));
+                List<Student> students = loader.GetStudents();
+                List<Student> resultStudents = new List<Student>();
+                return (List<Student>)students.Where(s => s.Age > age && s.Id == id && s.Name.Contains(name) && s.Location.Contains(location));
             }
             return null;
         }

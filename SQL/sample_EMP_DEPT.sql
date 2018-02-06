@@ -73,7 +73,33 @@ Select * from EMP where ENAME = 'SCOTT';
 -- Display all the top 3 salary
 Select TOP (3) ENAME, SAL, COMM, (SAL* 12) + (ISNULL(COMM, 0 ) *12) as CTC from EMP ORDER BY CTC DESC;
 
--- Display years of tenure of Employees
-Select *,(YEAR(GETDATE()) - YEAR(HIREDATE))as Tenure from EMP;
+-- Display emp whose name starts with a
+Select ENAME  from EMP WHERE ENAME LIKE 'A%';
 
-Select * from EMP;
+-- Display emp whose name contains  s
+Select ENAME  from EMP WHERE ENAME LIKE '%S%';
+
+-- Display emp whose name ends with n
+Select ENAME  from EMP WHERE ENAME LIKE '%N';
+
+-- Display emp whose DEPT NO of SCOTT
+Select *  from EMP WHERE DEPTNO = (Select DEPTNO from EMP WHERE ENAME ='SCOTT');
+
+-- Display emp whose salary = SCOTT
+Select *  from EMP WHERE SAL = (Select SAL from EMP WHERE ENAME ='SCOTT');
+
+-- Display unique Dept no
+Select DEPTNO  from EMP ;
+Select DISTINCT(DEPTNO) as UNIQUE_DEPT from EMP ;
+
+-- Display Date in DD-MM-YY format
+Select Convert(varchar,CONVERT(date,HIREDATE,6),3)  from EMP ;
+
+-- Display HEADCOUNT
+Select COUNT(*) as HEADCOUNT  from EMP ;
+
+-- Display Total Salary
+Select SUM((SAL* 12) + (ISNULL(COMM, 0 ) *12)) as TOTAL_SAL  from EMP ;
+
+-- Display Total Salary
+Select COUNT(*) as EMP_IN_10  from EMP WHERE DEPTNO = 10 ;

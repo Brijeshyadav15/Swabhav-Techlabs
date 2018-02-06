@@ -36,7 +36,11 @@ namespace StudentWinForm
             ResultGrid.Rows.Clear();
             StudentService service = new StudentService();
 
-            //   Student result = service.Search(Convert.ToInt32(txtId.Text), txtName.Text, Convert.ToInt32(txtAge.Text), txtLocation.Text);
+            List<Student> result = service.Search(Convert.ToInt32(txtId.Text), txtName.Text, Convert.ToInt32(txtAge.Text), txtLocation.Text);
+            foreach (Student student in result)
+            {
+                this.ResultGrid.Rows.Add(student.Id, student.Name, student.Age, student.Location);
+            }
             // this.ResultGrid.Rows.Add(result.Id, result.Name, result.Age, result.Location);
 
         }
