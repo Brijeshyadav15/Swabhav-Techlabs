@@ -25,6 +25,9 @@ namespace StudentCore
             if (loader.GetStudents().Count > 0)
             {
                 List<Student> _students = loader.GetStudents();
+                
+                //_students.Sele(Find(s => s.Age > age && s.Id == id && s.Name.Contains(name) && s.Location.Contains(location)));
+
                 //return _students.Find(s => s.Age > age && s.Id == id && s.Name.Contains(name) && s.Location.Contains(location));
             }
             return null;
