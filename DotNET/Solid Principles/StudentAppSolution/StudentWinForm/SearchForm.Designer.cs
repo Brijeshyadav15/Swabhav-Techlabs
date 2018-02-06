@@ -42,6 +42,7 @@
             this.NameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LocationCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AgeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblWelcomeMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ResultGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(453, 155);
+            this.lblName.Location = new System.Drawing.Point(453, 181);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(86, 25);
             this.lblName.TabIndex = 0;
@@ -57,7 +58,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(545, 161);
+            this.txtName.Location = new System.Drawing.Point(557, 186);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(169, 20);
             this.txtName.TabIndex = 4;
@@ -66,7 +67,7 @@
             // 
             this.lblLocation.AutoSize = true;
             this.lblLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocation.Location = new System.Drawing.Point(78, 150);
+            this.lblLocation.Location = new System.Drawing.Point(78, 186);
             this.lblLocation.Name = "lblLocation";
             this.lblLocation.Size = new System.Drawing.Size(116, 25);
             this.lblLocation.TabIndex = 2;
@@ -74,7 +75,7 @@
             // 
             // txtLocation
             // 
-            this.txtLocation.Location = new System.Drawing.Point(225, 155);
+            this.txtLocation.Location = new System.Drawing.Point(225, 186);
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.Size = new System.Drawing.Size(169, 20);
             this.txtLocation.TabIndex = 3;
@@ -83,7 +84,7 @@
             // 
             this.lblAge.AutoSize = true;
             this.lblAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAge.Location = new System.Drawing.Point(453, 58);
+            this.lblAge.Location = new System.Drawing.Point(453, 65);
             this.lblAge.Name = "lblAge";
             this.lblAge.Size = new System.Drawing.Size(67, 25);
             this.lblAge.TabIndex = 4;
@@ -91,7 +92,7 @@
             // 
             // txtAge
             // 
-            this.txtAge.Location = new System.Drawing.Point(545, 63);
+            this.txtAge.Location = new System.Drawing.Point(557, 65);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(169, 20);
             this.txtAge.TabIndex = 2;
@@ -101,7 +102,7 @@
             // 
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(78, 59);
+            this.lblId.Location = new System.Drawing.Point(78, 65);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(48, 25);
             this.lblId.TabIndex = 6;
@@ -109,7 +110,7 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(225, 58);
+            this.txtId.Location = new System.Drawing.Point(225, 65);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(169, 20);
             this.txtId.TabIndex = 1;
@@ -164,11 +165,22 @@
             this.AgeCol.Name = "AgeCol";
             this.AgeCol.ReadOnly = true;
             // 
+            // lblWelcomeMessage
+            // 
+            this.lblWelcomeMessage.AutoSize = true;
+            this.lblWelcomeMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcomeMessage.Location = new System.Drawing.Point(350, 9);
+            this.lblWelcomeMessage.Name = "lblWelcomeMessage";
+            this.lblWelcomeMessage.Size = new System.Drawing.Size(114, 33);
+            this.lblWelcomeMessage.TabIndex = 10;
+            this.lblWelcomeMessage.Text = "Hello , ";
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 500);
+            this.Controls.Add(this.lblWelcomeMessage);
             this.Controls.Add(this.ResultGrid);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtId);
@@ -204,5 +216,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NameCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn LocationCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn AgeCol;
+        private System.Windows.Forms.Label lblWelcomeMessage;
     }
 }

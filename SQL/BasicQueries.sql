@@ -18,3 +18,6 @@ Organizer_id int FOREIGN KEY REFERENCES organizers(Organizer_id),
 
 Select * from organizers;
 Select * from exhibitions;
+
+Insert into dbo.organizers(organizer_id,organizer_name,Organizer_contact)
+Values(1,'Brijesh','987653410');

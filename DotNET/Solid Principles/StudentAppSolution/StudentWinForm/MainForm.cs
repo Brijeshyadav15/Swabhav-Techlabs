@@ -17,6 +17,9 @@ namespace StudentWinForm
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            String name = new LoginForm().Username;
+            lblWelcomeMessage.Text += name;
+
             GridStudents.Rows.Clear();
             StudentService service = new StudentService();
             foreach (Student student in service.GetStudents())

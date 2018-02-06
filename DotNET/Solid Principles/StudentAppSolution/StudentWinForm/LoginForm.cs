@@ -12,6 +12,20 @@ namespace StudentWinForm
 {
     public partial class LoginForm : Form
     {
+        private static string _username = "";
+
+        public String Username
+        {
+            get
+            {
+                return _username;
+            }
+            set
+            {
+                _username = value;
+            }
+        }
+
         public LoginForm()
         {
             InitializeComponent();
@@ -22,6 +36,7 @@ namespace StudentWinForm
             LoginService loginservice = new LoginService();
             if (loginservice.checkLogin(txtUser.Text, txtPassword.Text))
             {
+                new LoginForm().Username = txtUser.Text;
                 Form MDI = (Form)Application.OpenForms["MDIForm"];
                 MenuStrip menu = (MenuStrip)MDI.Controls["menuStrip1"];
                 menu.Items.Remove(menu.Items.Find("mnuLogin", true)[0]);
@@ -40,6 +55,11 @@ namespace StudentWinForm
             {
                 MessageBox.Show("Invalid Username/Password");
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

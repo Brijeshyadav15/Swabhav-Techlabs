@@ -28,5 +28,11 @@ namespace StudentWinForm
             this.Visible = false;
             new MainForm().Show();
         }
+
+        private void AddStudent_Load(object sender, EventArgs e)
+        {
+            String name = new LoginForm().Username;
+            lblWelcomeMessage.Text += name;
+        }
     }
 }

@@ -19,6 +19,9 @@ namespace StudentWinForm
 
         private void SearchForm_Load(object sender, EventArgs e)
         {
+            String name = new LoginForm().Username;
+            lblWelcomeMessage.Text += name;
+
             this.ResultGrid.Hide();
             ResultGrid.Columns[0].Width = 100;
             ResultGrid.Columns[1].Width = 200;
@@ -32,18 +35,10 @@ namespace StudentWinForm
         {
             ResultGrid.Rows.Clear();
             StudentService service = new StudentService();
-            
-            List<Student> results = service.Search(Convert.ToInt32(txtId.Text), txtName.Text, Convert.ToInt32(txtAge.Text), txtLocation.Text);
 
-            if (results.Count > 0)
-            {
-                //MessageBox.Show("No of Students :" + results.Count);
-                foreach (Student student in results)
-                {
-                    ResultGrid.Show();
-                    this.ResultGrid.Rows.Add(student.Id, student.Name, student.Age, student.Location);
-                }
-            }
+            //   Student result = service.Search(Convert.ToInt32(txtId.Text), txtName.Text, Convert.ToInt32(txtAge.Text), txtLocation.Text);
+            // this.ResultGrid.Rows.Add(result.Id, result.Name, result.Age, result.Location);
+
         }
     }
 }

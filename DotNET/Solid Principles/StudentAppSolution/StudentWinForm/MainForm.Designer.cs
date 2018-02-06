@@ -33,6 +33,7 @@
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblWelcomeMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridStudents)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,17 +75,29 @@
             this.colLocation.HeaderText = "Location";
             this.colLocation.Name = "colLocation";
             // 
+            // lblWelcomeMessage
+            // 
+            this.lblWelcomeMessage.AutoSize = true;
+            this.lblWelcomeMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcomeMessage.Location = new System.Drawing.Point(263, 23);
+            this.lblWelcomeMessage.Name = "lblWelcomeMessage";
+            this.lblWelcomeMessage.Size = new System.Drawing.Size(114, 33);
+            this.lblWelcomeMessage.TabIndex = 10;
+            this.lblWelcomeMessage.Text = "Hello , ";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(720, 412);
+            this.Controls.Add(this.lblWelcomeMessage);
             this.Controls.Add(this.GridStudents);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridStudents)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -94,6 +107,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAge;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLocation;
+        private System.Windows.Forms.Label lblWelcomeMessage;
     }
 }
 

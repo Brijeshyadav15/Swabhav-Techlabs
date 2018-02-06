@@ -22,25 +22,12 @@ namespace StudentCore
 
         public List<Student> Search(int id, String name, int age, String location)
         {
-            List<Student> resultstudents = new List<Student>();
-
             if (loader.GetStudents().Count > 0)
             {
                 List<Student> _students = loader.GetStudents();
-
-                foreach (Student student in _students)
-                {
-                    if (name != null && student.Name.Equals(name))
-                        resultstudents.Add(student);
-                    else if (location != null && student.Location.Equals(location))
-                        resultstudents.Add(student);
-                    else if (age > 0 && student.Age == age)
-                        resultstudents.Add(student);
-                    else if (id > 0 && student.Id == id)
-                        resultstudents.Add(student);
-                }
+                //return _students.Find(s => s.Age > age && s.Id == id && s.Name.Contains(name) && s.Location.Contains(location));
             }
-            return resultstudents;
+            return null;
         }
     }
 }
