@@ -125,3 +125,12 @@ SELECT D.DEPTNO,DNAME , ENAME
 SELECT D.ENAME AS BOSS, E.ENAME AS EMPLOYEE 
 	FROM EMP AS E INNER JOIN EMP AS D 
 	ON E.MGR = D.EMPNO; 
+
+-- Display all the number of employees by Dept Wise
+SELECT DEPTNO, COUNT(DEPTNO) as NO_OF_EMP FROM EMP GROUP BY DEPTNO;
+
+-- Display all the number of employees by Job Wise
+SELECT JOB, COUNT(JOB) as NO_OF_EMP FROM EMP GROUP BY JOB;
+
+-- Display all the number of employees by Deptwise, Jobwise
+SELECT DEPTNO , JOB, COUNT(JOB) as NO_OF_EMP FROM EMP GROUP BY JOB,DEPTNO;
