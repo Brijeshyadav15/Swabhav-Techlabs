@@ -15,18 +15,35 @@ namespace TransactionApp
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             
-            SqlCommand command = conn.CreateCommand();
+            SqlCommand command1 = conn.CreateCommand();
+            SqlCommand command2 = conn.CreateCommand();
+
+            SqlCommand selectMerchant = conn.CreateCommand();
+            SqlCommand selectCustomer = conn.CreateCommand();
+
             SqlTransaction transaction = conn.BeginTransaction("Transaction Example");
 
-            command.Connection = conn;
-            command.Transaction = transaction;
+            command1.CommandText = "update Merchant Set balance = balance + 250";
+            command1.CommandText = "update Customer Set balance = balance - 0F";
+
+            command1.Connection = conn;
+            command1.Transaction = transaction;
+
+            command2.Connection = conn;
+            command2.Transaction = transaction;
+
+            selectMerchant.CommandText = "Select * from  Merchant";
+            selectCustomer.CommandText = "Select * from  Merchant";
 
             try
             {
-                command.CommandText = "update Merchant Set balance = balance + 250";
-                command.ExecuteNonQuery();
-                command.CommandText = "update Customer Set balance = balance - '0F'";
-                command.ExecuteNonQuery();
+                
+                command1.ExecuteNonQuery();
+
+                selectMerchant.ExecuteReader();
+                selectCustomer.ExecuteReader();
+
+                command2.ExecuteNonQuery();                
 
                 transaction.Commit();
 
