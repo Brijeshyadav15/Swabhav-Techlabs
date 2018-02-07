@@ -18,8 +18,8 @@ namespace BasicConnectApp
             
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            SqlCommand insertCommand = new SqlCommand("Insert into organizers(organizer_id,organizer_name,organizer_contact)Values(1,'Brijesh','9876543210')", conn);
-            insertCommand.ExecuteNonQuery();
+            //SqlCommand insertCommand = new SqlCommand("Insert into organizers(organizer_id,organizer_name,organizer_contact)Values(1,'Brijesh','9876543210')", conn);
+            //insertCommand.ExecuteNonQuery();
             SqlCommand fetchCommand = new SqlCommand("Select * from organizers", conn);
 
 

@@ -1,3 +1,5 @@
+Use Techlabs;
+
 Create table Merchant(
 balance int
 );
