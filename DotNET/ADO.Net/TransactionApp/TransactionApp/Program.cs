@@ -18,12 +18,14 @@ namespace TransactionApp
             SqlCommand command1 = conn.CreateCommand();
             SqlCommand command2 = conn.CreateCommand();
 
-            
+
 
             SqlTransaction transaction = conn.BeginTransaction("Transaction Example");
 
             SqlCommand selectMerchant = new SqlCommand("Select * from  Merchant", conn);
             SqlCommand selectCustomer = new SqlCommand("Select * from  Customer", conn);
+
+            SqlDataReader selectreader;
 
             command1.CommandText = "update Merchant Set balance = balance + 250";
             command1.CommandText = "update Customer Set balance = balance - 0";
@@ -39,16 +41,10 @@ namespace TransactionApp
 
                 command1.ExecuteNonQuery();
 
-                SqlDataReader selectreader = selectMerchant.ExecuteReader();
+                selectreader = selectMerchant.ExecuteReader();
                 while (selectreader.Read())
                 {
-                    Console.WriteLine(selectreader[1]);
-                }
-
-                selectreader = selectCustomer.ExecuteReader();
-                while (selectreader.Read())
-                {
-                    Console.WriteLine(selectreader[1]);
+                    Console.WriteLine(selectreader[0]);
                 }
 
                 command2.ExecuteNonQuery();
@@ -63,7 +59,6 @@ namespace TransactionApp
                 try
                 {
                     transaction.Rollback();
-
                 }
                 catch (Exception ex2)
                 {
