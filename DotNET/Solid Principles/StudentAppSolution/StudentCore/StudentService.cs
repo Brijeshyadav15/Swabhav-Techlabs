@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace StudentCore
 {
@@ -21,13 +22,16 @@ namespace StudentCore
             saver.SaveStudents(students);
         }
 
-        public List<Student> Search(int id, String name, int age, String location)
+        public List<Student> Search(Expression<Func<Student, bool>> query)
         {
             if (loader.GetStudents().Count > 0)
             {
                 List<Student> students = loader.GetStudents();
-                List<Student> resultStudents = new List<Student>();
-                return (List<Student>)students.Where(s => s.Age > age && s.Id == id && s.Name.Contains(name) && s.Location.Contains(location));
+                List<Student> resultStudents = new List<Student>();                
+                var newList = from x in students
+                   .Where(query.Compile())
+                              select x;
+                return newList.ToList();
             }
             return null;
         }

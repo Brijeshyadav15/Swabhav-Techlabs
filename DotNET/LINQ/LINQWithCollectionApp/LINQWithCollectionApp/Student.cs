@@ -16,7 +16,7 @@ namespace LINQWithCollectionApp
 
         public Student(int id, string fname, string lastname, int cgpa, string location, int age)
         {
-            _id = Id;
+            _id = id;
             _fname = fname;
             _lastName = lastname;
             _cgpa = cgpa;

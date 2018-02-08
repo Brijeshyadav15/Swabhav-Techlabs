@@ -35,15 +35,12 @@ namespace StudentWinForm
         {
             ResultGrid.Rows.Clear();
             StudentService service = new StudentService();
-
-            List<Student> result = service.Search(Convert.ToInt32(txtId.Text), txtName.Text, Convert.ToInt32(txtAge.Text), txtLocation.Text);
-            MessageBox.Show(result.Count.ToString());
-            //foreach (Student student in result)
-            //{
-              //  this.ResultGrid.Rows.Add(student.Id, student.Name, student.Age, student.Location);
-            //}
-            // this.ResultGrid.Rows.Add(result.Id, result.Name, result.Age, result.Location);
-
+            ResultGrid.Show();
+            List<Student> result = service.Search(s => s.Name.Contains(txtName.Text));
+            foreach (Student student in result)
+            {
+                this.ResultGrid.Rows.Add(student.Id, student.Name, student.Age, student.Location);
+            }
         }
     }
 }
