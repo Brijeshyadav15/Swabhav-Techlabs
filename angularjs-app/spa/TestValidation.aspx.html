@@ -1,0 +1,175 @@
+﻿
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+
+</title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 127px;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="./TestValidation.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTc3NDAwOTI0N2Rk56zXpjjl5czEuxrp5AbFfmUEOmkUhV4y2LCOXvYjDm4=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/BasicApp/WebResource.axd?d=jFAFlJVu7xewZ5c7LLyiuseR0n6CE_CXMoIoONDZLmiVAfAIXRmVbpi7JSMIxk2pI5OHnBchG6d5DQFP00aDguuIZkCcZGIJmvV_Rikoplo1&amp;t=636355105360000000" type="text/javascript"></script>
+
+
+<script src="/BasicApp/WebResource.axd?d=f4c5OpkqsDfp9mvHVkMQUbug_GyWnw7cEjU2ye-eJR0SAFKFs3dnM3OSMSykfxgtz07T7QNVfA8sjJ7HaMlxfZWJ5nf-PNexTP1sEKBMJfE1&amp;t=636355105360000000" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+        <table style="width: 100%;">
+            <tr>
+                <td class="auto-style1">
+                    <span id="Label1">Name</span>
+                </td>
+                <td>
+                    <input name="NameTxt" type="text" id="NameTxt" />
+                    <span id="RequiredFieldValidator1" style="visibility:hidden;">Name is Required</span>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style1">
+                    <span id="Label2">Age</span>
+                </td>
+                <td>
+                    <input name="AgeTxt" type="text" id="AgeTxt" />
+                    <span id="RangeValidator1" style="visibility:hidden;">Age should be in the range of 18 - 35</span>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style1">
+                    <span id="Label3">Salary</span>
+                </td>
+                <td style="margin-left: 160px">
+                    <input name="SalaryTxt" type="text" id="SalaryTxt" />
+                    <span id="CompareValidator1" style="visibility:hidden;">Salary should be greater than 5000</span>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style1">
+                    <span id="Label4">Email</span>
+                </td>
+                <td>
+                    <input name="EmailTxt" type="text" id="EmailTxt" />
+                    <span id="RegularExpressionValidator1" style="visibility:hidden;">Incorrect Email Address</span>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style1">&nbsp;</td>
+                <td>
+                    <input type="submit" name="registerBtn" value="Register" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;registerBtn&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="registerBtn" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <p>
+            <span id="ResponseLbl"></span>
+        </p>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("RequiredFieldValidator1"), document.getElementById("RangeValidator1"), document.getElementById("CompareValidator1"), document.getElementById("RegularExpressionValidator1"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var RequiredFieldValidator1 = document.all ? document.all["RequiredFieldValidator1"] : document.getElementById("RequiredFieldValidator1");
+RequiredFieldValidator1.controltovalidate = "NameTxt";
+RequiredFieldValidator1.errormessage = "Name is Required";
+RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator1.initialvalue = "";
+var RangeValidator1 = document.all ? document.all["RangeValidator1"] : document.getElementById("RangeValidator1");
+RangeValidator1.controltovalidate = "AgeTxt";
+RangeValidator1.errormessage = "Age should be in the range of 18 - 35";
+RangeValidator1.type = "Integer";
+RangeValidator1.evaluationfunction = "RangeValidatorEvaluateIsValid";
+RangeValidator1.maximumvalue = "35";
+RangeValidator1.minimumvalue = "18";
+var CompareValidator1 = document.all ? document.all["CompareValidator1"] : document.getElementById("CompareValidator1");
+CompareValidator1.controltovalidate = "SalaryTxt";
+CompareValidator1.errormessage = "Salary should be greater than 5000";
+CompareValidator1.evaluationfunction = "CompareValidatorEvaluateIsValid";
+CompareValidator1.valuetocompare = "5000";
+CompareValidator1.operator = "GreaterThanEqual";
+var RegularExpressionValidator1 = document.all ? document.all["RegularExpressionValidator1"] : document.getElementById("RegularExpressionValidator1");
+RegularExpressionValidator1.controltovalidate = "EmailTxt";
+RegularExpressionValidator1.errormessage = "Incorrect Email Address";
+RegularExpressionValidator1.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator1.validationexpression = "\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*\\s*";
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="3636F1CF" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAYi3Oy2Jq+rM5p92g9K69m9EJmyGp5WqfHc2tEC79hcc9Sd75U+6QOtqzDEtWGY3FjEtfxPk6URbbLjH2qCPoQuYAXEGEzSt96zUSXv30O8TN4Xcj+yyOoBNCPOW5xUI+LNwIGAza9DEoWu68kzKzPfzz6DNmV6WTq+k5jEiE6U4w==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        //]]>
+</script>
+</form>
+    
+
+<!-- Visual Studio Browser Link -->
+<script type="application/json" id="__browserLink_initializationData">
+    {"appName":"Chrome","requestId":"1badfa8e1d544c6fa5e0493a2dbae588"}
+</script>
+<script type="text/javascript" src="http://localhost:49296/465dc658b65648b58b40dc440e260fea/browserLink" async="async"></script>
+<!-- End Browser Link -->
+
+</body>
+</html>
