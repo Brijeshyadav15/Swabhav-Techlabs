@@ -8,9 +8,17 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="height: 288px">
 
-            <asp:Button ID="PopulateBtn" runat="server" Text="Populate" />
+            <asp:Button ID="PopulateBtn" runat="server" Text="Populate"  OnClick="PopulateGrid"/>
+
+            <br />
+            <br />
+            <asp:Button ID="PostbackBtn" runat="server" Text="Postback" />
+            <br />
+            <br />
+            <asp:GridView ID="EmpGrid" runat="server" Width="274px">
+            </asp:GridView>
 
 
         </div>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -13,12 +14,14 @@ public partial class TestGrid : System.Web.UI.Page
 
     }
 
-    protected void ConnectToDB(object sender, EventArgs e)
+    protected void PopulateGrid(object sender, EventArgs e)
     {
         var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["developmentserver"].ConnectionString;
         SqlConnection conn = new SqlConnection(connectionString);
-
         conn.Open();
-
+        SqlCommand fetchCommand = new SqlCommand("Select * from EMP", conn);
+        SqlDataReader reader = fetchCommand.ExecuteReader();
+        EmpGrid.DataSource = reader;
+        EmpGrid.DataBind();
     }
 }

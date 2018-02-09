@@ -29,9 +29,5 @@ public partial class TestConnection : System.Web.UI.Page
         InfoLabel.Text += "DataSource :" + conn.DataSource + "<br>";
         InfoLabel.Text += "Database :" + conn.Database + "<br>";
         InfoLabel.Text += "ConnectionString :" + conn.ConnectionString + "<br>";
-
-
-
-
     }
 }
