@@ -26,7 +26,62 @@ namespace LINQwithEmployeeApp
                             new Employee(7934, "MILLER", "CLERK", 7782, Convert.ToDateTime("23-JAN-82"), 1300, 0, 10)
                             };
 
+            List<Department> departments = new List<Department>
+                                        {
+                                            new Department(10,"ACCOUNTING","NEW YORK"),
+                                            new Department(20,"RESEARCH","DALLAS"),
+                                            new Department(30,"SALES","CHICAGO"),
+                                            new Department(40,"OPERATIONS","BOSTON")
+                                        };
 
+            //BasicQueries(employees);
+
+            var enameDeptname = from e in employees
+                                join d in departments on e.DeptNum equals d.DeptId
+                                select new
+                                {
+                                    d.DeptId,
+                                    d.Name,
+                                    e.Ename,
+
+                                };
+
+            Console.WriteLine("Department Id\t Department Name\tEmployee Name");
+
+            //foreach (var d in enameDeptname)
+            //  Console.WriteLine(d.DeptId + "\t\t" + d.Name + "\t\t" + d.Ename);
+
+
+            var deptname = from d in departments
+                           join e in employees on d.DeptId equals e.DeptNum into ed
+                           from eds in ed
+                           select new
+                           {
+                               departname = d.Name,
+                               employeename = eds.Ename != null ? eds.Ename : "No Employee"
+                           };
+
+            Console.WriteLine("Ename\t\t DName");
+            foreach (var d in deptname)
+                Console.WriteLine(d.departname + "\t\t" + d.employeename);
+
+            var deptwithoutEmployee = from d in departments
+                                      join e in employees on d.DeptId equals e.DeptNum into ed
+                                      from eds in ed
+                                      select new
+                                      {
+                                          departname = d.Name,
+                                          employeename = eds.Ename != null ? eds.Ename : "No Employee"
+                                      };
+
+
+
+
+
+        }
+
+        private static void BasicQueries(List<Employee> employees)
+        {
             var employeesByAscendingOrderofFirstname = employees.OrderBy(E => E.Ename);
 
             var employeesByLower = employees.OrderBy(E => E.Ename.ToLower());
@@ -102,9 +157,6 @@ namespace LINQwithEmployeeApp
 
             var empsin10 = deptNo.Count();
             Console.WriteLine("Total Employee in Dept 10:" + empsin10);
-
-
-
         }
     }
 }
