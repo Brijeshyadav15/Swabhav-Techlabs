@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="Header" runat="server">
-                <asp:Menu ID="HomeMenu" runat="server" Orientation="Horizontal">
+                    <asp:Menu ID="HomeMenu" runat="server" Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem Text="Home" Value="Home" NavigateUrl="Home.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="About" Value="About" NavigateUrl="About.aspx"></asp:MenuItem>

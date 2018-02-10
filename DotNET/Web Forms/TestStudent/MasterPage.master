@@ -1,0 +1,39 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .Menu {
+            //background-color:dimgrey;
+            width:initial;
+            align-content:space-around;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <asp:ContentPlaceHolder ID="menu" runat="server">
+                <asp:Menu ID="NavigationMenu" runat="server" Orientation="Horizontal" BorderColor="Black" BorderStyle="None" CssClass="Menu">
+                    <Items>
+                        <asp:MenuItem Text="Home" Value="Home" NavigateUrl="Home.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Display Students" Value="Display Students" NavigateUrl="DisplayStudents.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Add Students" Value="Add Students" NavigateUrl="AddStudent.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Search Students" Value="Search Students" NavigateUrl="SearchStudent.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Login" Value="Login" NavigateUrl="Login.aspx"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </asp:ContentPlaceHolder>
+
+            <asp:ContentPlaceHolder runat="server" ID="ContentPage">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
