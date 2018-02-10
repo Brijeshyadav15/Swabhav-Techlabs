@@ -1,0 +1,30 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="Header" runat="server">
+                <asp:Menu ID="HomeMenu" runat="server" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem Text="Home" Value="Home" NavigateUrl="Home.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="About" Value="About" NavigateUrl="About.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Contact" Value="Contact" NavigateUrl="Contact.aspx"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </asp:ContentPlaceHolder>
+
+            <asp:ContentPlaceHolder ID="content" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+    </form>
+</body>
+</html>

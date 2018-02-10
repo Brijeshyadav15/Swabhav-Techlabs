@@ -12,18 +12,23 @@ public partial class TestAutoPostBack : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["developmentserver"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand fetchCommand = new SqlCommand("Select * from DEPT", conn);
-            SqlDataReader reader = fetchCommand.ExecuteReader();
-
-            DeptList.DataSource = reader;
-            DeptList.DataTextField = "DNAME";
-            DeptList.DataValueField = "DEPTNO";
-            DeptList.DataBind();
-            PopulateGrid(this, null);
+            PopulateDropdown();
         }
+    }
+
+    private void PopulateDropdown()
+    {
+        var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["developmentserver"].ConnectionString;
+        SqlConnection conn = new SqlConnection(connectionString);
+        conn.Open();
+        SqlCommand fetchCommand = new SqlCommand("Select * from DEPT", conn);
+        SqlDataReader reader = fetchCommand.ExecuteReader();
+
+        DeptList.DataSource = reader;
+        DeptList.DataTextField = "DNAME";
+        DeptList.DataValueField = "DEPTNO";
+        DeptList.DataBind();
+        PopulateGrid(this, null);
     }
 
     protected void PopulateGrid(object sender, EventArgs e)
