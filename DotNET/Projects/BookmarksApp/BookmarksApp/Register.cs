@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace BookmarksApp
 {
-    public partial class Form1 : Form
+    public partial class Register : Form
     {
-        public Form1()
+        public Register()
         {
             InitializeComponent();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

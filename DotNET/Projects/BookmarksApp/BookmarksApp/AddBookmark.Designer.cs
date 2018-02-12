@@ -1,6 +1,6 @@
 ﻿namespace BookmarksApp
 {
-    partial class Form1
+    partial class AddBookmark
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // AddBookmark
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(517, 292);
+            this.Name = "AddBookmark";
+            this.Text = "AddBookmark";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-
