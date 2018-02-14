@@ -10,13 +10,13 @@ namespace BookmarkCore
 
     public class UserSaver
     {
-        public void AddUser(int id, string name, string email)
+        public void AddUser(string name, string email)
         {
             var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["developmentserver"].ConnectionString;
             var password = GeneratePassword(8);
 
             SqlConnection conn = new SqlConnection(connectionString);
-            SqlCommand insertCommand = new SqlCommand("Insert into BookMarkUsers Values(" + id + ", '" + name + "','" + email + "','" + password + "')", conn);
+            SqlCommand insertCommand = new SqlCommand("Insert into BookMarkUsers Values('" + name + "','" + email + "','" + password + "')", conn);
 
             //insertCommand.Parameters.Add("@id", SqlDbType.Int);
             //insertCommand.Parameters["@id"].Value = id;

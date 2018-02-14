@@ -11,25 +11,37 @@ namespace BookmarksApp
 {
     public partial class MDIParent : Form
     {
+        private int _id;
         public MDIParent()
         {
-            Login login = new Login();
-            login.MdiParent = this;
-            login.Show();
             InitializeComponent();
+        }
+
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
         }
 
         private void addMenu_Click(object sender, EventArgs e)
         {
-            AddBookmark ab = new AddBookmark();
+            AddBookmark ab = new AddBookmark(Id);
             ab.MdiParent = this;
+            ab.WindowState = FormWindowState.Maximized;
             ab.Show();
         }
 
         private void showMenu_Click(object sender, EventArgs e)
         {
-            ShowBookmark sb = new ShowBookmark(0);
+            ShowBookmark sb = new ShowBookmark(Id);
             sb.MdiParent = this;
+            sb.WindowState = FormWindowState.Maximized;
             sb.Show();
         }
 
@@ -37,6 +49,7 @@ namespace BookmarksApp
         {
             Login login = new Login();
             login.MdiParent = this;
+            login.WindowState = FormWindowState.Maximized;
             login.Show();
         }
 
@@ -44,7 +57,16 @@ namespace BookmarksApp
         {
             Register register = new Register();
             register.MdiParent = this;
+            register.WindowState = FormWindowState.Maximized;
             register.Show();
+        }
+
+        private void MDIParent_Load(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.MdiParent = this;
+            login.WindowState = FormWindowState.Maximized;
+            login.Show();
         }
     }
 }

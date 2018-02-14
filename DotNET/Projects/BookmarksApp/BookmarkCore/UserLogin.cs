@@ -19,9 +19,9 @@ namespace BookmarkCore
             SqlDataReader reader = selectBookmarks.ExecuteReader();
             while (reader.Read())
             {
-                if (email == reader[2].ToString() && password == reader[3].ToString())
+                if (email == reader[1].ToString() && password == reader[2].ToString())
                 {
-                    return reader[0].ToString();
+                    return reader[3].ToString();
                 }
             }
             return null;
@@ -37,7 +37,7 @@ namespace BookmarkCore
             SqlDataReader reader = selectBookmarks.ExecuteReader();
             while (reader.Read())
             {
-                return reader[1].ToString();
+                return reader[0].ToString();
             }
             return null;
         }

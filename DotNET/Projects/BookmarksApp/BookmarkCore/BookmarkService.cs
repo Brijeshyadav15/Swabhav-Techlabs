@@ -7,10 +7,10 @@ namespace BookmarkCore
 {
     public class BookmarkService
     {
-        public void AddUser(int id, string name, string email)
+        public void AddUser(string name, string email)
         {
             UserSaver user = new UserSaver();
-            user.AddUser(id, name, email);
+            user.AddUser(name, email);
         }
 
         public string CheckLogin(string email, string password)
@@ -28,10 +28,10 @@ namespace BookmarkCore
             return resutltLogin;
         }
 
-        public void AddBookmarks(int id, string name, string url, int userID, DateTime date)
+        public void AddBookmarks(string name, string url, int userID, DateTime date)
         {
             BookmarkSaver saver = new BookmarkSaver();
-            saver.AddBookmark(id, name, url, userID, date);
+            saver.AddBookmark(name, url, userID, date);
         }
 
         public List<Bookmark> LoadBookmarks(int userId)

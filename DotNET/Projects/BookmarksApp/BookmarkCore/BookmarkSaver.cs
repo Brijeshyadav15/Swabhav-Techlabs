@@ -8,12 +8,12 @@ namespace BookmarkCore
 {
     class BookmarkSaver
     {
-        public void AddBookmark(int id, string name, string url, int userId, DateTime date)
+        public void AddBookmark(string name, string url, int userId, DateTime date)
         {
             var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["developmentserver"].ConnectionString;
 
             SqlConnection conn = new SqlConnection(connectionString);
-            SqlCommand insertCommand = new SqlCommand("Insert into Bookmarks Values(" + id + ", '" + name + "','" + userId + "','" + date + "','" + url + "')", conn);
+            SqlCommand insertCommand = new SqlCommand("Insert into Bookmarks Values('" + name + "','" + userId + "','" + date + "','" + url + "')", conn);
             //insertCommand.Parameters.AddWithValue("@id", id);
             //insertCommand.Parameters.AddWithValue("@name", name);
             //insertCommand.Parameters.AddWithValue("@userId", userId);

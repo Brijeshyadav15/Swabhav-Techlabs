@@ -18,7 +18,7 @@ namespace BookmarksApp
             SqlConnection conn = new SqlConnection(connectionString);
             var id = 5;
             BookmarkService service = new BookmarkService();
-            service.AddUser(id, "Brijesh", "brijeshyadav152@gmail.com");
+            service.AddUser("Brijesh", "brijeshyadav152@gmail.com");
 
             //Arrange
             SqlCommand insertCommand = new SqlCommand("Select id from BookMarkUsers where id =" + id + "", conn);

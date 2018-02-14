@@ -21,6 +21,7 @@ namespace BookmarksApp
         {
             Register register = new Register();
             register.MdiParent = this.ParentForm;
+            this.Hide();
             register.Show();
         }
 
@@ -32,9 +33,11 @@ namespace BookmarksApp
             var result = service.CheckLogin(email, password);
             if (result != null)
             {
+                //new MDIParent().Id = Convert.ToInt32(result);
                 ShowBookmark bookmarks = new ShowBookmark(Convert.ToInt32(result));
                 bookmarks.MdiParent = this.ParentForm;
                 this.Hide();
+                bookmarks.WindowState = FormWindowState.Maximized;
                 bookmarks.Show();
             }
         }

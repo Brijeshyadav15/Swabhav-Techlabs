@@ -113,7 +113,7 @@
             this.PasswordTxt.Location = new System.Drawing.Point(316, 189);
             this.PasswordTxt.Name = "PasswordTxt";
             this.PasswordTxt.Size = new System.Drawing.Size(140, 20);
-            this.PasswordTxt.TabIndex = 8;
+            this.PasswordTxt.TabIndex = 2;
             // 
             // Login
             // 
