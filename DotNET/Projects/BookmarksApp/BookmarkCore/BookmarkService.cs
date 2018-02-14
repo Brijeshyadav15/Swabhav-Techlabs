@@ -13,10 +13,18 @@ namespace BookmarkCore
             user.AddUser(id, name, email);
         }
 
-        public Object CheckLogin(string email, string password)
+        public string CheckLogin(string email, string password)
         {
             UserLogin login = new UserLogin();
             var resutltLogin = login.CheckLogin(email, password);
+            Console.WriteLine(resutltLogin);
+            return resutltLogin;
+        }
+
+        public string GetUser(int id)
+        {
+            UserLogin login = new UserLogin();
+            var resutltLogin = login.GetUser(id);
             return resutltLogin;
         }
 
@@ -26,7 +34,7 @@ namespace BookmarkCore
             saver.AddBookmark(id, name, url, userID, date);
         }
 
-        public Object LoadBookmarks(int userId)
+        public List<Bookmark> LoadBookmarks(int userId)
         {
             BookmarksLoader saver = new BookmarksLoader();
             var result = saver.LoadBookmarks(userId);

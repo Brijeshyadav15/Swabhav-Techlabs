@@ -40,10 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bookmark.cs" />
     <Compile Include="BookmarkSaver.cs" />
     <Compile Include="BookmarkService.cs" />
     <Compile Include="BookmarksLoader.cs" />
-    <Compile Include="UnitTestService.cs" />
     <Compile Include="UserLogin.cs" />
     <Compile Include="UserSaver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -13,6 +13,9 @@ namespace BookmarksApp
     {
         public MDIParent()
         {
+            Login login = new Login();
+            login.MdiParent = this;
+            login.Show();
             InitializeComponent();
         }
 
@@ -25,7 +28,7 @@ namespace BookmarksApp
 
         private void showMenu_Click(object sender, EventArgs e)
         {
-            ShowBookmark sb = new ShowBookmark();
+            ShowBookmark sb = new ShowBookmark(0);
             sb.MdiParent = this;
             sb.Show();
         }

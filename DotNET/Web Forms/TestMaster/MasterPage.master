@@ -17,6 +17,8 @@
                         <asp:MenuItem Text="Home" Value="Home" NavigateUrl="Home.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="About" Value="About" NavigateUrl="About.aspx"></asp:MenuItem>
                         <asp:MenuItem Text="Contact" Value="Contact" NavigateUrl="Contact.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Passbook" Value="Passbook" NavigateUrl="Passbook.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Transaction" Value="Transaction" NavigateUrl="Transaction.aspx"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </asp:ContentPlaceHolder>
