@@ -1,0 +1,19 @@
+﻿@using BookmarksMVC_App.ViewModel;
+@model RegisterViewModel
+
+
+<article>
+    @using (Html.BeginForm("Register", "User", FormMethod.Post))
+    {
+        @Html.Label("Register")
+
+        <p>
+            Name : @Html.TextBox("name")
+        </p>
+
+        <p>
+            Email : @Html.TextBox("email")
+        </p>
+        <input type="submit" name="SubmitUser" value="Register" />
+    }
+</article>

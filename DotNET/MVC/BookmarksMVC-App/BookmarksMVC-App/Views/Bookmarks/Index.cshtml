@@ -1,0 +1,22 @@
+﻿@using BookmarksMVC_App.ViewModel;
+@model IndexViewModel
+
+
+<article>
+    @using (Html.BeginForm("Index", "Bookmarks", FormMethod.Post))
+    {
+        @Html.Label("Login")
+
+        <p>
+            Username : @Html.TextBoxFor(ivm => ivm.Username, new { Value = "" })
+            @Html.ValidationMessageFor(ivm => ivm.Username, "", new { @class = "text-danger" })
+        </p>
+
+        <p>
+            Password : @Html.PasswordFor(ivm => ivm.Password, new { Value = "" })
+            @Html.ValidationMessageFor(ivm => ivm.Password, "", new { @class = "text-danger" })
+
+        </p>
+        <input type="submit" name="SubmitUser" value="Login" />
+    }
+</article>

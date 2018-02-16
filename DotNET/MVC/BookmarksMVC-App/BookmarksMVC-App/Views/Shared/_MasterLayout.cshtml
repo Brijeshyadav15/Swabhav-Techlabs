@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Bookmarks App</title>
+</head>
+<body>
+    <nav>
+
+        @if (Session["UserId"] == null)
+        {
+            @Html.ActionLink("Login", "Login", "Bookmarks")
+
+            @Html.ActionLink("Register", "Register", "Bookmarks")
+        }
+
+        @if (Session["UserId"] != null)
+        {
+            @Html.ActionLink("Add Bookmarks", "AddBookmarks", "Bookmarks")
+
+            @Html.ActionLink("Show Bookmarks", "ShowBookmarks", "Bookmarks")
+        }
+    </nav>
+
+    <section>
+        @RenderBody()
+    </section>
+
+    <footer>
+        Copyright BookCO © @DateTime.Now.Year;
+    </footer>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿@using BookmarksMVC_App.ViewModel;
+@model ShowBookmarksViewModel
+
+<article>
+    Hello , @Session["Username"]
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>URL</th>
+            <th>Date</th>
+        </tr>
+        @foreach (var book in @Model.Bookmarks)
+        {
+
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Name</td>
+                <td>@book.URL</td>
+                <td>@book.Date</td>
+            </tr>
+
+        }
+    </table>
+</article>

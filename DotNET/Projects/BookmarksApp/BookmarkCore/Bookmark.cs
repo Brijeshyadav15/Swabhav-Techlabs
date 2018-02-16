@@ -24,11 +24,7 @@ namespace BookmarkCore
 
         public int Id
         {
-            get
-            {
-                return _id;
-            }
-
+            get { return _id; }
         }
 
         public string Name
@@ -50,6 +46,5 @@ namespace BookmarkCore
         {
             get { return _date; }
         }
-
     }
 }

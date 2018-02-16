@@ -1,0 +1,22 @@
+﻿@using BookmarksMVC_App.ViewModel;
+@model AddBookmarksViewModel
+
+
+<article>
+    @using (Html.BeginForm("AddBookmarks", "Bookmark", FormMethod.Post))
+    {
+        @Html.Label("Add Bookmarks")
+
+        <p>
+            Bookmark Name : @Html.TextBoxFor(rvm => rvm.Name, new { Value = "" })
+            @Html.ValidationMessageFor(ivm => ivm.Name, "", new { @class = "text-danger" })
+        </p>
+
+        <p>
+            Bookmark Url : @Html.TextBoxFor(rvm => rvm.URL, new { Value = "" })
+            @Html.ValidationMessageFor(ivm => ivm.URL, "", new { @class = "text-danger" })
+
+        </p>
+        <input type="submit" name="SubmitUser" value="Login" />
+    }
+</article>
