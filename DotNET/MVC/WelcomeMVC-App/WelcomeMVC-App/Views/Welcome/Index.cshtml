@@ -24,6 +24,12 @@
             @Html.Raw("<h" + i + ">Swabhav Techlabs</h" + i + ">");
             <br />
         }
+
+        @foreach (var std in ViewData["Username"] as IList<Users>)
+        {
+            @Html.Raw("<li>" + @std.Username + "</li>");
+            <br />
+        }
     </div>
 </body>
 </html>

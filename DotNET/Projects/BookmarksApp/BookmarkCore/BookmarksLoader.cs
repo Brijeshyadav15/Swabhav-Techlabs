@@ -21,7 +21,7 @@ namespace BookmarkCore
             {
                 if (tempresult[0] != null)
                 {
-                    result.Add(new Bookmark(Convert.ToInt32(tempresult[0]), tempresult[1].ToString(), Convert.ToInt32(tempresult[2]), Convert.ToDateTime(tempresult[3]), tempresult[4].ToString()));
+                    result.Add(new Bookmark(Convert.ToInt32(tempresult[3]), tempresult[0].ToString(), Convert.ToInt32(tempresult[2]), Convert.ToDateTime(tempresult[3]), tempresult[4].ToString()));
                 }
             }
             return result;

@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+
+@using EmployeeMVC_App.ViewModel;
+@model IndexViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <table>
+            @foreach (var emp in Model.Employees)
+            {
+                <tr>
+                    <td>@emp.Id</td>
+                    <td>@emp.Name</td>
+                    <td>@emp.DeptNo</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new
+                   {
+                       id = emp.Id
+                   })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new
+                   {
+                       id = emp.Id
+                   })
+                    </td>
+                </tr>
+            }
+        </table>
+        <input type="button" value="Add Employee" onclick="location.href='@Url.Action("Add", "Employee")'" />
+    </div>
+</body>
+</html>

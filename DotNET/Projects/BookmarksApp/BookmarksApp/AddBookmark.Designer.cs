@@ -60,21 +60,21 @@
             this.txtName.Location = new System.Drawing.Point(259, 70);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 2;
+            this.txtName.TabIndex = 1;
             // 
             // txtUrl
             // 
             this.txtUrl.Location = new System.Drawing.Point(259, 120);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(100, 20);
-            this.txtUrl.TabIndex = 3;
+            this.txtUrl.TabIndex = 2;
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(187, 206);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(141, 23);
-            this.btnAdd.TabIndex = 4;
+            this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Add Bookmark";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);

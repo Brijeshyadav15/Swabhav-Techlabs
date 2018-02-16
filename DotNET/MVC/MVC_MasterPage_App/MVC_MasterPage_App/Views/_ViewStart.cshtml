@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        @if(Request.Browser.IsMobileDevice)
+        {
+            <h1>Mobile Layout</h1>
+        }
+        else
+        {
+            <h1>Desktop Layout</h1>
+        }
+    </div>
+</body>
+</html>

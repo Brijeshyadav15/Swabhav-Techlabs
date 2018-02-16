@@ -41,5 +41,10 @@ namespace BookmarksApp
                 bookmarks.Show();
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            PasswordTxt.PasswordChar = '*';
+        }
     }
 }

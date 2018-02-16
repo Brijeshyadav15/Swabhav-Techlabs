@@ -23,8 +23,22 @@ namespace WelcomeMVC_App.Controllers
         {
             return Content("<h1>Display Student in Dept No " + rollNo + "</h1>");
         }
+        //public ActionResult Index()
+        //{
+
+        //    return View();
+        //}
+
         public ActionResult Index()
         {
+            ViewData["Username"] = "Brijesh";
+            ViewBag.Username = "Akash";
+
+            ViewData["Username"] = "Jay";
+            ViewData["Username"] = "Akash";
+
+            ViewData["Username"] = "Jay";
+            ViewData["Username"] = "Akash";
 
             return View();
         }

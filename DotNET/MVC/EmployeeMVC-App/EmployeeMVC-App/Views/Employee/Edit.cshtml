@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+@using EmployeeMVC_App.ViewModel;
+@model EditViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Edit", "Employee", FormMethod.Post))
+        {
+            <p>
+                Emp No: @Html.TextBoxFor(vm => vm.Employee.Id)
+                @Html.ValidationMessageFor(vm => vm.Employee.Id, "", new { @class = "text-danger" })
+
+
+            </p>
+
+            <p>
+                Emp Name: @Html.TextBoxFor(vm => vm.Employee.Name)
+                @Html.ValidationMessageFor(vm => vm.Employee.Name, "", new { @class = "text-danger" })
+            </p>
+
+            <p>
+                Emp Department No: @Html.TextBoxFor(vm => vm.Employee.DeptNo)
+                @Html.ValidationMessageFor(vm => vm.Employee.DeptNo, "", new { @class = "text-danger" })
+            </p>
+            <p>
+                <input type='submit' value='Done Editing'>
+            </p>
+        }
+    </div>
+    @if (this.IsPost)
+    {
+        <p style="color:red;">Please fill all the fields</p>
+    }
+</body>
+</html>

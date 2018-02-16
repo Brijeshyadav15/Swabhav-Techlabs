@@ -30,6 +30,12 @@ namespace BookmarksApp
             var temptoday = DateTime.ParseExact(DateTime.Now.ToString("YYYY-MM-DD"), "YYYY-MM-DD", CultureInfo.InvariantCulture);
             service.AddBookmarks(txtName.Text, txtUrl.Text, Id, temptoday);
 
+            ShowBookmark sb = new ShowBookmark(Id);
+            sb.MdiParent = this.ParentForm;
+            this.Hide();
+            sb.WindowState = FormWindowState.Maximized;
+            sb.Show();
+
         }
 
         private void AddBookmark_Load(object sender, EventArgs e)

@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using EmployeeMVC_App.ViewModel;
+@model AddViewModel
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Add", "Employee", FormMethod.Post))
+        {
+            <p>
+                Emp No: @Html.TextBoxFor(vm => vm.Employee.Id, new { Value = "" })
+            </p>
+
+            <p>
+                Emp Name: @Html.TextBoxFor(vm => vm.Employee.Name, new { Value = "" })
+            </p>
+
+            <p>
+                Emp Department No: @Html.TextBoxFor(vm => vm.Employee.DeptNo, new { Value = "" })
+            </p>
+            <p>
+                <input type='submit' value='Add Employee'>
+            </p>
+        }
+
+        @if(this.IsPost){
+            <p style="color:red;">Please fill all the fields</p>
+        }
+    </div>
+    <div>
+        
+    </div>
+</body>
+</html>
