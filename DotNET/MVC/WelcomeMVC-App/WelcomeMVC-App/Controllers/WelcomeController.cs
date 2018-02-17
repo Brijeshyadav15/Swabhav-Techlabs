@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace WelcomeMVC_App.Controllers
 {
@@ -29,6 +30,7 @@ namespace WelcomeMVC_App.Controllers
         //    return View();
         //}
 
+
         public ActionResult Index()
         {
             ViewData["Username"] = "Brijesh";
@@ -41,6 +43,28 @@ namespace WelcomeMVC_App.Controllers
             ViewData["Username"] = "Akash";
 
             return View();
+        }
+
+        public ActionResult GetData()
+        {
+            var data = new[]
+            {
+                new
+                {
+                    Price = 11000,
+                    LineItem = "Laptop",
+                    Quantity = 3,
+                    ProductName = "Dell"
+                },
+                new
+                {
+                    Price = 11000,
+                    LineItem = "Laptop",
+                    Quantity = 3,
+                    ProductName = "Dell"
+                }
+            };
+            return Json(data);
         }
     }
 }

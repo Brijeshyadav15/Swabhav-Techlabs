@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+</head>
+<body>
+    <div>
+        <label> Search</label>
+        <input type="text" id="SearchUser" name="SearchUser" />
+        <button id="SearchBtn" name="SearchBtn">Find</button>
+    </div>
+    <table id="dataTable">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Dept</th>
+        </tr>
+    </table>
+</body>
+</html>
+
+<script src="~/scripts/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#SearchBtn").click(function () {
+            $.ajax({
+                url: "",
+                type: "POST",
+                data: { name: $("#SearchUser").val() },
+                success: function (data) {
+                    console.log(data);
+                    var temphtml;
+                    for (d in data) {
+                        temphtml += "<tr><th>" + data[d].Id + "</th><th>" + data[d].Name + "</th><th>" + data[d].DeptNo + "</th></tr>";
+                        console.log(temphtml);
+                    }
+                    $("#dataTable").html(temphtml);
+                }
+
+            });
+        });
+    });
+</script>

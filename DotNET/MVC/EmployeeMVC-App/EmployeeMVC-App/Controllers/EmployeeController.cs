@@ -44,6 +44,22 @@ namespace EmployeeMVC_App.Controllers
 
         }
 
+
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Search(string name)
+        {
+            EmployeeService svc = new EmployeeService();
+            var TestEmployees = svc.GetEmployees();
+
+            var data = TestEmployees.Where(e => e.Name.Contains(name));
+            return Json(data);
+        }
+
         public ActionResult Delete(int id)
         {
             EmployeeService svc = new EmployeeService();

@@ -8,7 +8,11 @@ namespace WelcomeMVC_App
     public class Users
     {
         private string _username;
-
+        
+        public Users(string username)
+        {
+            _username = username;
+        }
         public string Username
         {
             get
