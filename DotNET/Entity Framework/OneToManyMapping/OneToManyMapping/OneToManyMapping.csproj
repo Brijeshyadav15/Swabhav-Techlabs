@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
+    <Compile Include="LineItem.cs" />
     <Compile Include="Migrations\201802200949159_InitialCreate.cs" />
     <Compile Include="Migrations\201802200949159_InitialCreate.Designer.cs">
       <DependentUpon>201802200949159_InitialCreate.cs</DependentUpon>
@@ -61,9 +62,14 @@
     <Compile Include="Migrations\201802201007201_Added_NameCost.Designer.cs">
       <DependentUpon>201802201007201_Added_NameCost.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802201120108_Added_NameCost1.cs" />
+    <Compile Include="Migrations\201802201120108_Added_NameCost1.Designer.cs">
+      <DependentUpon>201802201120108_Added_NameCost1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDbContext.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802201007201_Added_NameCost.resx">
       <DependentUpon>201802201007201_Added_NameCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802201120108_Added_NameCost1.resx">
+      <DependentUpon>201802201120108_Added_NameCost1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,7 +11,7 @@ namespace OneToManyMapping
         public Guid Id { get; set; }
         public Customer customer { get; set; }
         public Guid customerId { get; set; }
-        public string ProductName { get; set; }
-        public int ProductCost { get; set; }
+        public List<LineItem> LineItems { get; set; }
+        public int OrderTotal { get; set; }
     }
 }

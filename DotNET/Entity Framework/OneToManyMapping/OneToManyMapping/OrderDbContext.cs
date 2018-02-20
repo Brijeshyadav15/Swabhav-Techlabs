@@ -12,6 +12,8 @@ namespace OneToManyMapping
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<LineItem> LineItem { get; set; }
+        public DbSet<Product> Product { get; set; }
 
         public OrderDbContext()
         {
