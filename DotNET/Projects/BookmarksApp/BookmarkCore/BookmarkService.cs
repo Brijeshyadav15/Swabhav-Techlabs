@@ -16,16 +16,13 @@ namespace BookmarkCore
         public string CheckLogin(string email, string password)
         {
             UserLogin login = new UserLogin();
-            var resutltLogin = login.CheckLogin(email, password);
-            Console.WriteLine(resutltLogin);
-            return resutltLogin;
+            return login.CheckLogin(email, password);
         }
 
         public string GetUser(int id)
         {
             UserLogin login = new UserLogin();
-            var resutltLogin = login.GetUser(id);
-            return resutltLogin;
+            return login.GetUser(id);
         }
 
         public void AddBookmarks(string name, string url, int userID, DateTime date)
@@ -37,8 +34,13 @@ namespace BookmarkCore
         public List<Bookmark> LoadBookmarks(int userId)
         {
             BookmarksLoader saver = new BookmarksLoader();
-            var result = saver.LoadBookmarks(userId);
-            return result;
+            return saver.LoadBookmarks(userId);
+        }
+
+        public string ChangePassword(int id, string oldPassword, string newPassword)
+        {
+            UserPassword user = new UserPassword();
+            return user.ChangePassword(id, oldPassword, newPassword);
         }
     }
 }

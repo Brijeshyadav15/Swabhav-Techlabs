@@ -45,6 +45,7 @@
     <Compile Include="BookmarkService.cs" />
     <Compile Include="BookmarksLoader.cs" />
     <Compile Include="UserLogin.cs" />
+    <Compile Include="UserPassword.cs" />
     <Compile Include="UserSaver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

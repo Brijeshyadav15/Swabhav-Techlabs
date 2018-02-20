@@ -74,7 +74,7 @@ namespace BookmarksApp
 
             var id = 1;
             BookmarkService service = new BookmarkService();
-            service.AddBookmarks(id, "Google", "https://www.google.co.in/?gfe_rd=cr&dcr=0&ei=y4SBWpiHKqry8AeBvIqoAQ", 5, DateTime.Today);
+            //service.AddBookmarks(id, "Google", "https://www.google.co.in/?gfe_rd=cr&dcr=0&ei=y4SBWpiHKqry8AeBvIqoAQ", 5, DateTime.Today);
 
             //Arrange
             SqlCommand insertCommand = new SqlCommand("Select id from Bookmarks where id =" + id + "", conn);

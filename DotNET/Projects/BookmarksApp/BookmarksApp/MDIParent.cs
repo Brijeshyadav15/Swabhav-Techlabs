@@ -68,5 +68,10 @@ namespace BookmarksApp
             login.WindowState = FormWindowState.Maximized;
             login.Show();
         }
+
+        private void exitMenu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

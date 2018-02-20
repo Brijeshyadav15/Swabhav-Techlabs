@@ -33,7 +33,7 @@
             this.registerMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.addMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.showMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +44,7 @@
             this.registerMenu,
             this.addMenu,
             this.showMenu,
-            this.exitMenu});
+            this.changePasswordMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(666, 24);
@@ -80,11 +80,12 @@
             this.showMenu.Text = "Show Bookmark";
             this.showMenu.Click += new System.EventHandler(this.showMenu_Click);
             // 
-            // exitMenu
+            // changePasswordMenu
             // 
-            this.exitMenu.Name = "exitMenu";
-            this.exitMenu.Size = new System.Drawing.Size(37, 20);
-            this.exitMenu.Text = "Exit";
+            this.changePasswordMenu.Name = "changePasswordMenu";
+            this.changePasswordMenu.Size = new System.Drawing.Size(113, 20);
+            this.changePasswordMenu.Text = "Change Password";
+            this.changePasswordMenu.Click += new System.EventHandler(this.exitMenu_Click);
             // 
             // MDIParent
             // 
@@ -111,6 +112,6 @@
         private System.Windows.Forms.ToolStripMenuItem registerMenu;
         private System.Windows.Forms.ToolStripMenuItem addMenu;
         private System.Windows.Forms.ToolStripMenuItem showMenu;
-        private System.Windows.Forms.ToolStripMenuItem exitMenu;
+        private System.Windows.Forms.ToolStripMenuItem changePasswordMenu;
     }
 }

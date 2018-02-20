@@ -43,5 +43,14 @@ namespace BookmarksApp
             bookmarks.WindowState = FormWindowState.Maximized;
             bookmarks.Show();
         }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            ChangePassword change = new ChangePassword(Id);
+            change.MdiParent = this.ParentForm;
+            this.Hide();
+            change.WindowState = FormWindowState.Maximized;
+            change.Show();
+        }
     }
 }

@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>SPA Index</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1> This is Index Page</h1>
+    <div id="getStudents">
+        <button id="getStudents">Get All Students</button>
+        <table id="dataTable"></table>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div id="AddStudents">
+        <table>
+            <tr>
+                <td>Id :</td>
+                <td><input type="text" id="txtId" /></td>
+            </tr>
+            <tr>
+                <td>Name : </td>
+                <td><input type="text" id="txtName" /></td>
+            </tr>
+            <tr>
+                <td>Age :</td>
+                <td><input type="text" id="txtAge" /></td>
+            </tr>
+            <tr>
+                <td>Location :</td>
+                <td><input type="text" id="txtLocation" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="buttonArea">
+                    <button id="addStudent">Add New Student</button>
+                    <button id="Student">Send Student</button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>
+
+<script src="../scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#getStudents").click(function () {
+            $.ajax({
+                url: "/api/v1/SwabhavTech/Student/GetAllStudents",
+                type: "GET",
+                success: function (data) {
+                    console.log(data);
+                    var temphtml = "<tr><th>ID</th><th>Name</th><th>Age</th><th>Location</th></tr>";
+                    for (d in data) {
+                        temphtml += "<tr><td>" + data[d]._id + "</td><td>" + data[d]._name + "</td><td>" + data[d]._age + "</td><td>" + data[d]._location + "</td><td><button id='updateData' data-value=" + data[d]._id + " onclick='changeValue(this)'>Update</button></td></tr>";
+                    }
+                    $("#dataTable").html(temphtml);
+                }
+            });
+        });
+
+        $("#addStudent").click(function () {
+            alert(newStudent);
+            $.ajax({
+                url: "/api/v1/SwabhavTech/Student/AddStudent",
+                type: "POST",
+                data: { 'Id': $("#txtId").val(), 'Name': $("#txtName").val(), 'Age': $("#txtAge").val(), 'Location': $("#txtLocation").val() },
+                success: function (data) {
+                    console.log("Data added successfully");
+                }
+            });
+        });
+
+
+    });
+
+    $(document).on('click', '#Student', function () {
+        $.ajax({
+            type: "POST",
+            url: "/api/v1/SwabhavTech/Student/AddStudent",
+            data: { 'Id': 5, 'Name': 'Brijesh', 'Age': 25, 'Location': 'mumbai' },
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
+
+    //$(document).on('click', '#updateData', function () {
+    //    var id = $("#updateData").data("value");
+    //    $.ajax({
+    //        url: "/api/v1/SwabhavTech/Student/GetAllStudents/" + id,
+    //        type: "GET",
+    //        data: { studentId: id },
+    //        success: function (data) {
+    //            $("#txtId").val(data._id);
+    //            $("#txtId").attr("disabled", "disabled");
+    //            $("#txtName").val(data._name);
+    //            $("#txtAge").val(data._age);
+    //            $("#txtLocation").val(data._location);
+    //            $("#addStudent").remove();
+    //            var button = "<button id='UpdateStudent'>Update Student</button>";
+    //            $("#buttonArea").html("");
+    //            $("#buttonArea").append(button);
+    //            console.log(data);
+    //        }
+    //    });
+    //});
+
+    function changeValue(e) {
+        console.log(e.value);
+        //console.log(id);
+        //$.ajax({
+        //    url: "/api/v1/SwabhavTech/Student/GetAllStudents/" + id,
+        //    type: "GET",
+        //    data: { studentId: id },
+        //    success: function (data) {
+        //        $("#txtId").val(data._id);
+        //        $("#txtId").attr("disabled", "disabled");
+        //        $("#txtName").val(data._name);
+        //        $("#txtAge").val(data._age);
+        //        $("#txtLocation").val(data._location);
+        //        $("#addStudent").remove();
+        //        var button = "<button id='UpdateStudent'>Update Student</button>";
+        //        $("#buttonArea").html("");
+        //        $("#buttonArea").append(button);
+        //        console.log(data);
+        //    }
+        //});
+    }
+
+
+    $(document).on('click', '#UpdateStudent', function () {
+        $.ajax({
+            url: "/api/v1/SwabhavTech/Student/AddStudent",
+            type: "POST",
+            data: { 'Id': $("#txtId").val(), 'Name': $("#txtName").val(), 'Age': $("#txtAge").val(), 'Location': $("#txtLocation").val() },
+            success: function (data) {
+                console.log("Data added successfully");
+            }
+        });
+    });
+
+</script>
