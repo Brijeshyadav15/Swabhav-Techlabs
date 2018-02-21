@@ -8,6 +8,19 @@ namespace OneToManyMapping
 {
     class LineItem
     {
+        public LineItem()
+        {
+        }
+
+        public LineItem(Guid id, Guid order, Guid product, int quantity, int tot)
+        {
+            Id = id;
+            OrderId = order;
+            ProductId = product;
+            Quantity = quantity;
+            Total = tot;
+        }
+
         public Guid Id { get; set; }
         public Guid OrderId { get; set; }
         public Guid ProductId { get; set; }

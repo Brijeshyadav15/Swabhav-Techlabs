@@ -11,37 +11,21 @@ namespace OneToManyMapping
         static void Main(string[] args)
         {
             //case1();
-            case2();
+            //case2();
+            Customer brijesh = new Customer();
+            brijesh.Id = Guid.Parse("7A54B3B8-3ADC-4457-8966-6672F477ABDD");// (Guid);
+            printInvoice(brijesh);
         }
 
         private static void case2()
         {
             OrderDbContext odc = new OrderDbContext();
 
-            Product laptop = new Product();
-            laptop.Id = Guid.NewGuid();
-            laptop.ProductName = "Laptop";
-            laptop.ProductCost = 25000;
-
-            Product mobile = new Product();
-            mobile.Id = Guid.NewGuid();
-            mobile.ProductCost = 10000;
-            mobile.ProductName = "Mobile";
-
-            Product hdd = new Product();
-            hdd.Id = Guid.NewGuid();
-            hdd.ProductCost = 5000;
-            hdd.ProductName = "Mobile";
-
-            Product books = new Product();
-            books.Id = Guid.NewGuid();
-            books.ProductCost = 1000;
-            books.ProductName = "Books";
-
-            Product peripherals = new Product();
-            peripherals.Id = Guid.NewGuid();
-            peripherals.ProductCost = 1500;
-            peripherals.ProductName = "Peripherals";
+            Product laptop = new Product(Guid.NewGuid(), "Laptop", 2500);
+            Product mobile = new Product(Guid.NewGuid(), "Mobile", 10000);
+            Product hdd = new Product(Guid.NewGuid(), "Mobile", 5000);
+            Product books = new Product(Guid.NewGuid(), "Books", 1000);
+            Product peripherals = new Product(Guid.NewGuid(), "Peripherals", 1500);
 
             Customer brijesh = new Customer();
             brijesh.Id = Guid.NewGuid();
@@ -53,46 +37,12 @@ namespace OneToManyMapping
             Order order2 = new Order();
             order2.Id = Guid.NewGuid();
 
-            LineItem l1 = new LineItem();
-            l1.Id = Guid.NewGuid();
-            l1.ProductId = laptop.Id;
-            //l1.Order = order1;
-            l1.OrderId = order1.Id;
-            l1.Quantity = 2;
-            l1.Total = laptop.ProductCost * l1.Quantity;
+            LineItem l1 = new LineItem(Guid.NewGuid(), order1.Id, laptop.Id, 3, laptop.ProductCost * 2);
+            LineItem l2 = new LineItem(Guid.NewGuid(), order1.Id, mobile.Id, 3, mobile.ProductCost * 3);
+            LineItem l3 = new LineItem(Guid.NewGuid(), order1.Id, books.Id, 3, books.ProductCost * 3);
+            LineItem l4 = new LineItem(Guid.NewGuid(), order2.Id, mobile.Id, 3, mobile.ProductCost * 3);
 
-
-            LineItem l2 = new LineItem();
-            l2.Id = Guid.NewGuid();
-            l2.ProductId = mobile.Id;
-            //l2.Order = order1;
-            l2.OrderId = order1.Id;
-            l2.Quantity = 3;
-            l2.Total = mobile.ProductCost * l2.Quantity;
-
-            LineItem l3 = new LineItem();
-            l3.Id = Guid.NewGuid();
-            l3.ProductId = books.Id;
-            //l3.Order = order1;
-            l3.OrderId = order1.Id;
-            l3.Quantity = 3;
-            l3.Total = books.ProductCost * l3.Quantity;
-
-            LineItem l4 = new LineItem();
-            l4.Id = Guid.NewGuid();
-            l4.ProductId = mobile.Id;
-            //l4.Order = order2;
-            l4.OrderId = order2.Id;
-            l4.Quantity = 3;
-            l4.Total = mobile.ProductCost * l4.Quantity;
-
-            LineItem l5 = new LineItem();
-            l5.Id = Guid.NewGuid();
-            l5.ProductId = peripherals.Id;
-            //l5.Order = order2;
-            l5.OrderId = order2.Id;
-            l5.Quantity = 4;
-            l5.Total = peripherals.ProductCost * l5.Quantity;
+            LineItem l5 = new LineItem(Guid.NewGuid(), order2.Id, peripherals.Id, 4, peripherals.ProductCost * 4);
 
             order1.LineItems = new List<LineItem> { l1, l2 };
             order1.customer = brijesh;
@@ -126,7 +76,7 @@ namespace OneToManyMapping
             odc.LineItem.Add(l3);
             odc.LineItem.Add(l4);
             odc.LineItem.Add(l5);
-            
+
             odc.Customers.Add(brijesh);
             odc.SaveChanges();
 
@@ -190,6 +140,20 @@ namespace OneToManyMapping
             aakashorder.Add(order5);
 
             odc.SaveChanges();
+        }
+        private static void printInvoice(Customer customer)
+        {
+            OrderDbContext odc = new OrderDbContext();
+            var custID = odc.Customers.Single(c => c.Id == customer.Id);
+            Console.WriteLine("Customer ID:" + custID.Id + "\t Customer Name:" + custID.Name);
+
+            var orders = odc.Orders.Where(c => c.customerId == custID.Id).ToList();
+            foreach (var o in orders)
+            {
+                Console.WriteLine(o.OrderTotal);
+            }
+
+
         }
     }
 }
