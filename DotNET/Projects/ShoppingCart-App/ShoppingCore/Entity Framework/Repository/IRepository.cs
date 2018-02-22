@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Entity_Framework.Repository
 {
-    class IRepository
+    interface IRepository<T>
     {
+        void Add(T entity);
 
+        IQueryable<T> Get();
     }
 }
