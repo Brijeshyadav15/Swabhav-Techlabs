@@ -11,5 +11,11 @@ namespace ShoppingCore.Entity_Framework.Repository
         void Add(T entity);
 
         IQueryable<T> Get();
+
+        T GetById(Guid entityId);
+
+        void Delete(Guid entityId);
+
+        void Update(T entity);
     }
 }

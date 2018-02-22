@@ -12,10 +12,12 @@ namespace ShoppingCore.Models
         {
         }
 
-        public Customer(Guid id, string name, int age, Gender gender, string contact, string location, IEnumerable<Order> orders)
+        public Customer(Guid id, string name, string email, IEnumerable<Address> addresses, int age, Gender gender, string contact, string location, IEnumerable<Order> orders)
         {
             Id = id;
             Name = name;
+            Email = email;
+            Addresses = addresses;
             Age = age;
             Location = location;
             Contact = contact;
@@ -25,6 +27,8 @@ namespace ShoppingCore.Models
 
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public string Email { get; set; }
+        public IEnumerable<Address> Addresses { get; set; }
         public int Age { get; set; }
         public Gender Gender { get; set; }
         public string Contact { get; set; }
