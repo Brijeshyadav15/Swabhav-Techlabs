@@ -1,0 +1,27 @@
+<h1>Binding App</h1>
+
+<br><br>
+
+<label for="txtname">Enter Your Name :</label>
+<input type="text" [(ngModel)]='Name'>
+
+<label for="fontColor">Choose Font Color :</label>
+<select [(ngModel)]="selectedFontColor">
+    <option *ngFor='let i of HTMLcolors'>{{i}}</option>
+</select>
+
+<label for="backGroundColor">Choose Background Color :</label>
+<select [(ngModel)]="selectedBackColor">
+    <option *ngFor='let i of HTMLcolors'>{{i}}</option>
+</select>
+
+<label for="fontSize">Choose Font Size :</label>
+<select [(ngModel)]="selectedSize">
+    <option *ngFor='let i of fontsizes'>{{i}}</option>
+</select>
+
+<br><br>
+
+<span [ngModel]='outputModel'>
+    {{Name}}
+</span>

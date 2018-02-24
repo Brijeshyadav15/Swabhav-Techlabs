@@ -1,0 +1,37 @@
+<section>
+	<h1>TwoWay Binding</h1>
+	<br><br>
+	<input type="text" [ngModel]="firstName" (ngModelChange)="firstNameChanged($event)">
+	<br><br>
+	<label>First name is {{firstName  | uppercase}}</label>
+	<br>
+	<br>
+	<input type="text" [(ngModel)]='lastName'>
+	<br>
+	<br>
+	<label>Last name is {{lastName}}</label>
+	<br><br>
+
+	Company Name : <select [(ngModel)]="selectedName" >
+		<option *ngFor='let i of names'>{{i}}</option>
+	</select>
+
+	<br><br>
+	<label>Selected Company is {{selectedName}}</label>
+</section>
+
+<section class="jumbotron">
+	<h1>Prime Number Checker</h1>
+	<input type="text" [ngModel] = 'NumberInput' [style.backgroundColor] = 'backColor' (blur)='checkNumber($event)'>
+	<br>
+	<br>
+	<label>{{result}}</label>
+</section>
+
+<section class="jumbotron">
+	<h1>Number's API Checker</h1>
+	<input type="text" [ngModel] = 'NumbersAPIValue' [style.backgroundColor] = 'backColor' (blur)='getData($event.target.value)'>
+	<br>
+	<br>
+	<label>{{facts}}</label>
+</section>

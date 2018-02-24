@@ -107,6 +107,5 @@ namespace ShoppingCore.Entity_Framework.Repository
             shp.Addresses.Remove(address);
             shp.SaveChanges();
         }
-
     }
 }

@@ -1,0 +1,25 @@
+    <h1>using Expression</h1>
+    <h2>{{student | json }}</h2>
+    <p>
+    Roll Number : {{student.rollno}}
+    First Name : {{student.firstName}}
+    Last Name : {{student.lastName}}
+    </p>
+
+    <h1>using Property</h1>
+    <h2>{{student | json }}</h2>
+    <p>
+    Roll Number : {{student[rollno]}}
+    First Name : {{student['firstName']}}
+    Last Name : {{student['lastName']}}
+    </p>
+    
+    <p [innerHtml]='student.CGPA'[style.background-color]= 'Color'></p>
+    <p [innerHtml]='someData'></p>
+    <img  [src]='student.profilePic' [style.width.px]='100'/>
+
+    <input type="button" (click)='LoadCourses($event)' value="Load Courses">
+
+    <li *ngFor="let course of courses">
+        {{course}}
+    </li>
