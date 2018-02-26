@@ -1,6 +1,6 @@
 import { Response } from '@angular/http';
-import { NumberAPI } from './../MathService/NumberApiService';
-import { MathService } from './../MathService/MathService';
+import { NumberAPI } from './../Services/NumberApiService';
+import { MathService } from './../Services/MathService';
 import { Component } from "@angular/core";
 
 
@@ -46,7 +46,7 @@ export class TwoWayComponent{
     {
         
         let res=this._apisvc.getDatafromNumbersAPI(no)
-        .then((Response)=>{ 
+        .then((Response:any)=>{ 
             if(no != null && no > 0)
         {
             console.log(Response._body);

@@ -1,0 +1,9 @@
+<section>
+    <h1>{{message | uppercase}}</h1>
+
+    <label for="Questions" *ngFor='let i of questions;let in= index;' >
+        {{in+1}} : {{i[1]}}
+        <br>
+        <input type="radio" *ngFor='let j of options[in];let je= index;'>{{j}}
+    </label>
+</section>
