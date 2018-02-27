@@ -1,0 +1,38 @@
+<div class="container">
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Product List
+    </div>
+    <div class="panel-body">
+        <span> Filter By : <input type="text" [(ngModel)]='filter'></span>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th><button class='btn btn-primary'(click)= 'showImage()'>{{showImages ? 'Hide' : 'Show'}} Image</button>
+                    </th>
+                    <th>Product</th>
+                    <th>Code</th>
+                    <th>Available</th>
+                    <th>Price</th>
+                    <th>5 Star Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let p of products'>
+                        <td><img *ngIf='showImages && p.imageUrl' [src]='p.imageUrl' [style.width.px]='100'
+                            [style.height.px]='100'></td>
+                        <td><a [routerLink]="['/ProductDetails', p.productId]">{{p.productName}}</a></td>
+                        <td>{{p.productCode}}</td>
+                        <td>{{p.releaseDate}}</td>
+                        <td>{{p.price}}</td>
+                        <td>
+                            <ht-star [rating]='p.starRating'></ht-star>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

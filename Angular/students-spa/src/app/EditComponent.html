@@ -1,0 +1,28 @@
+<h1 class="jumbotron text-center">Edit Student</h1>
+<div class="row container">
+    <label for="Id" class="col-md-4">ID  :</label>
+    <input type="text" [(ngModel)]='student.rollNo' placeholder="Enter Student ID" class="col-md-4" disabled>
+    <br><br>
+
+    <label for="Id" class="col-md-4">Name  :</label>
+    <input type="text" [(ngModel)]='student.name' placeholder="Enter Student Name" class="col-md-4" required>
+    <br><br>
+
+    <label for="Id" class="col-md-4">Email  :</label>
+    <input type="email" name="email" [(ngModel)]='student.email' placeholder="Enter Student Email" class="col-md-4" required>
+    <br><br>
+
+    <label for="Id" class="col-md-4">Joining Date  :</label>
+    <input type="date" [(ngModel)]='student.date' placeholder="Enter Student Name" class="col-md-4">
+    <br><br>
+
+    <label for="Age" class="col-md-4">Age  :</label>
+    <input type="text" class="col-md-4" [(ngModel)]='student.age' placeholder="Enter Age">
+    <br><br>
+
+    <label for="Id" class="col-md-4">Gender  :</label>
+    <input type="radio" [(ngModel)]="gender" [value]='"Male"'>Male<input type="radio" [(ngModel)]="gender" [value]='"Female"'>Female<br><br>
+
+    <span class="col-md-4"></span>
+    <input type="submit" class="btn-lg btn-primary text-center" (click)="editStudent()" ng-disabled="">
+</div>

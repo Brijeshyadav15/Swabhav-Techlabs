@@ -1,0 +1,27 @@
+<h1 class="jumbotron text-center">Student Details</h1>
+
+<div class="row container">
+    <div class="col-md-1">Roll No</div>
+    <div class="col-md-1">Name</div>
+    <div class="col-md-2">Email</div>
+    <div class="col-md-2">Joining Date</div>
+    <div class="col-md-1">Age </div>
+    <div class="col-md-1">Gender</div>
+    <div class="col-md-2">Opearations</div>
+</div>
+
+<div *ngFor="let student of students" class="row container" id="data">
+    <div class="col-md-1">{{student.rollNo}}</div>
+    <div class="col-md-1">{{student.name}}</div>
+    <div class="col-md-2">{{student.email}}</div>
+    <div class="col-md-2">{{student.date}}</div>
+    <div class="col-md-1">{{student.age}}</div>
+    <div class="col-md-1">{{student.isMale}}</div>
+    <div class="col-md-2">
+        <button (click)="deleteStudent(student.rollNo)" class="btn-danger">Delete</button>
+        <a [routerLink]="['/Edit', student.rollNo]">
+            <button class="btn-info">Edit</button>
+        </a>
+    
+    </div>
+</div>
