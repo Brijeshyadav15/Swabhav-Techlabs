@@ -1,4 +1,26 @@
-<div class='panel panel-primary'>
+<div class="container">
+    <div class='panel panel-primary'>
         <div class='panel-heading'>
-          Product Details: {{product.productName}}
+            <h4>  Product Details: {{product.productName}}</h4>
         </div>
+        <div class="panel-body row">
+          <div class="row col-md-8">
+            <span class="col-md-6">Name :</span> <span class="col-md-6">{{product.productName}}</span><br>
+            <span class="col-md-6">Code :</span> <span class="col-md-6">{{product.productCode}}</span><br>
+            <span class="col-md-6">Description :</span> <span class="col-md-6">{{product.description}}</span><br><br>
+            <span class="col-md-6">Availablity :</span> <span class="col-md-6">{{product.releaseDate}}</span><br>
+            <span class="col-md-6">Price :</span> <span class="col-md-6">{{product.price}}</span><br>
+            <span class="col-md-6">5- Star Rating :</span> <span class="col-md-6"><ht-star [rating]='product.starRating'></ht-star></span><br>
+          </div>
+          <div class="col-md-4">
+            <img [src]='product.imageUrl' class='center-block img-responsive' [style.width.px]='200'
+            [style.height.px]='200'>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <a (click)='back()'>
+            <i class='glyphicon glyphicon-chevron-left'></i>Back
+          </a>
+        </div>
+      </div>
+</div>

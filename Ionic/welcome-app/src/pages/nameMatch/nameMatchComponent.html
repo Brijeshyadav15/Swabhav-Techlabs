@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar primary>
+      <ion-title>
+        Name Match App
+      </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h1>Welcome to NameMatch App    </h1>
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Name 1</ion-label>
+            <ion-input type="text" [ngModel]='name1' (ngModelChange)='calculateResult()'></ion-input>
+            <button ion-button icon-only item-right (click)='fetchContact1()'>
+                    <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
+            </button>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label floating>Name 2</ion-label>
+            <ion-input type="text" [ngModel]='name2' (ngModelChange)='calculateResult()'></ion-input>
+            <button ion-button icon-only item-right (click)='fetchContact2()'>
+                    <ion-icon ios="ios-contacts" md="md-contacts"></ion-icon>
+            </button>
+        </ion-item>  
+    </ion-list>
+    <ion-card>
+        <ion-card-content *ngIf='result'>
+                {{name1}}
+                <ion-icon ios="ios-heart" md="md-heart"></ion-icon>
+                {{name2}}
+                <ion-label>{{result}}</ion-label>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
+
+<style>
+    ion-icon {
+    font-size: 60px;
+    color: red;
+    }
+</style>

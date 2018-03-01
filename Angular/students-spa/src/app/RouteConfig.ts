@@ -6,7 +6,7 @@ import { Routes } from '@angular/router';
 
 export const routeArray : Routes = [
     {path:"Home", component: HomeComponent},
-    // {path:" ", redirectTo: HomeComponent},
+    {path:"", component: HomeComponent},
     { path: 'Edit/:id', component: EditComponent },
     {path:"Edit", component: EditComponent},
     //{ path: 'Delete/:id', component: CareerComponent },

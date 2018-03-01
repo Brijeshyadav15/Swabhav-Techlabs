@@ -10,6 +10,6 @@ export const routeArray : Routes = [
                             {path:"ProductDetails/:ProductId", component: ProductDetailComponent},
                             {path:"ProductDetails", component: ProductDetailComponent},
                             { path: 'ProductList', component: ProductListComponent },
-                            //{path:'', component:WelcomeComponent},
+                            {path:'', component:WelcomeComponent},
                             //{path:"", component:NotFoundComponent}
 ];

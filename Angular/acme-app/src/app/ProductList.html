@@ -4,7 +4,9 @@
         Product List
     </div>
     <div class="panel-body">
-        <span> Filter By : <input type="text" [(ngModel)]='filter'></span>
+        <span> Filter By : <input type="text" [ngModel]='filterString' (ngModelChange)='productfilter($event)' ></span>
+        <br>
+        <h2 *ngIf='filterString'> Filtered By : {{filterString}}</h2>
         <div class="table-responsive">
             <table class="table">
                 <thead>

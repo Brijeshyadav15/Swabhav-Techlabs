@@ -1,10 +1,15 @@
 import { Component } from "@angular/core";
+
 import { ProductDataService } from "./product-data.service";
 
+import "rxjs/add/operator/filter";
+
+import { IProduct } from './IProduct';
 @Component({templateUrl:'ProductList.html',selector:'ht-list'})
 export class ProductListComponent{
-    products:any;    
+    products:IProduct;    
     showImages: boolean = false;
+    filterString:string;
     constructor(private _dataservice: ProductDataService){
     }
 
@@ -13,10 +18,20 @@ export class ProductListComponent{
     }
     ngOnInit(): void {
         this._dataservice.getProducts()
-          .subscribe(products => this.products = products);
-      }
+          .subscribe(products => {
+              this.products = products;
+            });
+    }
     
-      showImage(){
+    showImage(){
         this.showImages = !this.showImages;
-      }
+    }
+
+    productfilter(e){
+        this.filterString = e;
+        this._dataservice.getFilteredProducts(e)
+            .subscribe(products => {
+                this.products = products;
+              });
+    }
 };
