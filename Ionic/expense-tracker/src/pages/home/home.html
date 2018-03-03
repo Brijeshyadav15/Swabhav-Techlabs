@@ -10,23 +10,14 @@
   
   <h1 text-center>Welcome to Expense Tracker</h1>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-item>
-        <ion-label>₹ 100</ion-label>
-        <button ion-button item-right icon-only>
-            <ion-icon ios="ios-create" md="md-create"></ion-icon>&nbsp;&nbsp;Edit
-        </button>
-      </ion-item>
-    </ion-card-header>
-    <ion-card-content>
-        <ion-select [(ngModel)]="categories">
-            <ion-option value="Travel" selected>Travel</ion-option>
-            <ion-option value="Food">Food</ion-option>
-            <ion-option value="Entertainment">Entertainment</ion-option>
-        </ion-select>
-    </ion-card-content>
-  </ion-card>
+  <ion-list *ngFor="let expense of expenses;let in = index;">
+    <button ion-item value="3" (click)='onSelectExpense(2)'>
+        <h1>₹ {{expense.cost}}</h1>
+
+        <p>{{expense.description}} - {{expense.date}} </p>
+
+        <ion-note item-end>{{expense.category}}</ion-note>
+
+    </button>
+    </ion-list>
 </ion-content>
-
-
