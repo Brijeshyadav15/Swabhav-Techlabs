@@ -3,6 +3,7 @@ import { ExpenseTracker } from './../../app/expenseTracker.service';
 
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'page-expense',
@@ -14,8 +15,7 @@ export class ExpenseList {
   }
 
   ngOnInit() {        
-    this.expenses = JSON.parse(this.service.getExpenses());
-    console.log(this.expenses);
+    this.expenses = this.service.getExpenses();
   }
   
   onSelectExpense(e){
@@ -23,5 +23,10 @@ export class ExpenseList {
     console.log(res);
     this.navCtrl.push(ExpenseDetail,res);
   }
-  
+
+  onSelectAdd(){
+    
+    let res ={"id":0,"cost":0,"description":"","category":"","date":""}
+    this.navCtrl.push(ExpenseDetail,JSON.stringify(res));
+  }
 }

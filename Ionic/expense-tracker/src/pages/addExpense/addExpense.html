@@ -8,13 +8,9 @@
                         <ion-icon ios="ios-close" md="md-close"></ion-icon>
                     </button>
                     
-                    <button ion-button  icon-only item-right (click)='submitChanges(expense.id)' color='secondary'>
+                    <button ion-button  icon-only item-right (click)='addExpense(expense)' color='secondary'>
                         <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
-                    </button>
-
-                    <button ion-button  icon-only item-right (click)='deleteItem(expense.id)' color='dark'>
-                            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-                    </button>
+                    </button>                    
             </ion-buttons>
         </ion-navbar>
     </ion-header>
@@ -28,14 +24,14 @@
             <ion-label floating>
                 Cost
             </ion-label>
-            <ion-input type="text" [(ngModel)]='expense.cost'></ion-input>
+            <ion-input type="text" [ngModel]='cost'></ion-input>
         </ion-item>
         
         <ion-item>
                 <ion-label floating>
                     Category 
                 </ion-label>
-                <ion-select [(ngModel)]='expense.category'>                        
+                <ion-select [ngModel]='category'>                        
                         <ion-option *ngFor="let category of categories" [value]="category.name">{{category.name}}</ion-option>
                 </ion-select>        
         </ion-item>
@@ -44,13 +40,13 @@
                 <ion-label floating>
                     Date
                 </ion-label>
-                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]='expense.date'></ion-datetime>
+                <ion-input type="text" [ngModel]='date'></ion-input>
         </ion-item>
         
         <ion-item>
                 <ion-label floating>
                     Description
                 </ion-label>
-                <ion-input type="text" [(ngModel)]='expense.description'></ion-input>
+                <ion-input type="text" [ngModel]='description'></ion-input>
         </ion-item>
     </ion-content>

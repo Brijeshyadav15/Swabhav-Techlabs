@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class ExpenseTracker{
-
     categories = [
         {
         "id":1,
@@ -25,62 +24,31 @@ export class ExpenseTracker{
             "name":"Other"
         }
     ];
+    expenses:any;
 
-    expenses=[
-            { 
-                "id":1,
-                "cost":100,
-                "description":"Travel from Office to Home",
-                "category" : "Travel",
-                "date" : "21/02/2018"
-            },
-            { 
-                "id":2,
-                "cost": 250,
-                "description":"Lunch on 21/02/2018",
-                "category" : "Food",
-                "date" : "21/02/2018"
-            },
-            { 
-                "id":3,
-                "cost":150,
-                "description":"Movie Tickets",
-                "category" : "Entertainment",
-                "date" : "21/02/2018"
-            },
-            { 
-                "id":4,
-                "cost":50,
-                "description":"Snacks at Movie",
-                "category" : "Other",
-                "date" : "21/02/2018"
-            },
-            { 
-                "id":5,
-                "cost":2000,
-                "description":"Hotel Rent",
-                "category" : "Rent",
-                "date" : "21/02/2018"
-            }
-    ];
-
-
-    ExpenseTracker(){
-        localStorage.setItem('expenses',JSON.stringify(this.expenses));
-        let ex= localStorage.getItem('expenses');
-        console.log(ex);
-    }
-
-    
-
-    getCategories(){
-        return JSON.stringify(this.categories);
+    getCategories(){        
+        return this.categories;
     }
 
     getExpenses(){
-        return JSON.stringify(this.expenses);
+        this.expenses =JSON.parse(localStorage.getItem('expenses')) != null  ?JSON.parse(localStorage.getItem('expenses')) : [''];
+        console.log(this.expenses);
+        //console.log(this.expenses.length);
+        return this.expenses;
     }
 
+    saveExpenses(){        
+        localStorage.setItem('expenses',JSON.stringify(this.expenses));
+    }
+
+    saveCategories(){
+        localStorage.setItem('categories',JSON.stringify(this.categories));
+    }
+
+    addExpense(ex){
+        this.expenses.push(ex);
+        this.saveExpenses();
+    }
     getExpensesById(id){
         for(let e of this.expenses){
             if(e.id == id)
@@ -99,15 +67,28 @@ export class ExpenseTracker{
                 expense = ex;
             }
         }
-        this.expenses.splice(expense);
+        let val = this.expenses.indexOf(expense);
+        if(val >-1)
+        {
+            this.expenses.splice(val,1);
+        }        
+        this.saveExpenses();
     }
 
     updateExpense(expense){
+        let exp :any
         for(let ex of this.expenses){
             if(ex.id == expense.id){
-                this.expenses.splice(ex.id);
+                expense = ex;
             }
         }
+
+        let val = this.expenses.indexOf(exp);
+        if(val >-1){
+            this.expenses.splice(val,1);
+        }        
         this.expenses.push(expense);
+        this.saveExpenses();
     }
 }
+
