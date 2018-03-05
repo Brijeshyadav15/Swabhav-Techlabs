@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar color='customgrey'>
+        <ion-title text-center>My Notes</ion-title>
+        <ion-buttons end>
+                <button ion-button icon-only item-right (click)='checkReorder()'>
+                    <ion-icon ios="ios-close" md="md-shuffle"></ion-icon> Reorder
+                </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+      
+<ion-content padding>
+    <ion-list [reorder]='reorder' (ionItemReorder)="reorderNotes($event)">
+        <ion-item-sliding  *ngFor="let note of notes;">
+            <ion-item *ngIf='note !=""' (click)='editNote(note)'>
+                <h1>{{note.title}}</h1>
+                <p>{{note.description}}</p>
+      
+                <ion-note item-end>
+                    <ion-icon ios="ios-play" md="md-play" color='dark'></ion-icon>
+                </ion-note>
+            </ion-item>
+
+            <ion-item-options side="right">
+                    <button ion-button color="danger" (click)='deleteNote(note)'>  
+                        <ion-icon ios="ios-trash" md="md-trash"></ion-icon>Delete
+                    </button>
+            </ion-item-options>
+        
+        </ion-item-sliding>    
+    </ion-list>
+</ion-content>

@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color='customgrey'>
+    <ion-title text-center>Add New Note</ion-title>
+  </ion-navbar>
+</ion-header>
+      
+      <ion-content padding>
+        <ion-list >
+            <form [formGroup]="noteFormGroup" >
+                <ion-input class="form-control" [formControl]="noteFormGroup.controls['title']" name="title" type="text" [(ngModel)]='note.title' placeholder="Title" required></ion-input>
+                
+                <ion-textarea class="form-control" [formControl]="noteFormGroup.controls['description']" name="description" [(ngModel)]='note.description' placeholder="Description" required></ion-textarea>
+
+                <button ion-button full (click)='addNote()' [disabled]="!noteFormGroup.valid">Save</button>
+            </form>
+        </ion-list>
+      </ion-content>
+      
