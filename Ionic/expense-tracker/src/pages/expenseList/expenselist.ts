@@ -3,7 +3,6 @@ import { ExpenseTracker } from './../../app/expenseTracker.service';
 
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'page-expense',

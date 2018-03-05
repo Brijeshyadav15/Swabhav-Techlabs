@@ -1,4 +1,3 @@
-import { AddExpense } from './../pages/addExpense/addExpense';
 import { ExpenseDetail } from './../pages/expenseDetail/expenseDetail';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -15,8 +14,7 @@ import { DatePicker } from '@ionic-native/date-picker';
   declarations: [
     MyApp,
     ExpenseList,
-    ExpenseDetail,
-    AddExpense
+    ExpenseDetail,    
   ],
   imports: [
     BrowserModule,
@@ -26,8 +24,7 @@ import { DatePicker } from '@ionic-native/date-picker';
   entryComponents: [
     MyApp,
     ExpenseList,
-    ExpenseDetail,
-    AddExpense
+    ExpenseDetail,    
   ],
   providers: [
     StatusBar,

@@ -32,8 +32,6 @@ export class ExpenseTracker{
 
     getExpenses(){
         this.expenses =JSON.parse(localStorage.getItem('expenses')) != null  ?JSON.parse(localStorage.getItem('expenses')) : [''];
-        console.log(this.expenses);
-        //console.log(this.expenses.length);
         return this.expenses;
     }
 
@@ -49,6 +47,7 @@ export class ExpenseTracker{
         this.expenses.push(ex);
         this.saveExpenses();
     }
+
     getExpensesById(id){
         for(let e of this.expenses){
             if(e.id == id)
@@ -79,7 +78,7 @@ export class ExpenseTracker{
         let exp :any
         for(let ex of this.expenses){
             if(ex.id == expense.id){
-                expense = ex;
+                exp = ex;
             }
         }
 
