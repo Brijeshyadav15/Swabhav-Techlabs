@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title text-center>Login to Expense Tracker</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list >
+        <form [formGroup]="loginGroup" >
+            <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input class="form-control" [formControl]="loginGroup.controls['username']" name="title" type="text" [(ngModel)]='user.username' required></ion-input>
+            </ion-item>
+
+            <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input type='password' class="form-control" [formControl]="loginGroup.controls['password']" name="description" [(ngModel)]='user.password' required></ion-input>
+            </ion-item>
+
+            <button ion-button full (click)='login()' [disabled]="!loginGroup.valid">Login</button>
+            
+        </form>
+    </ion-list>
+</ion-content>

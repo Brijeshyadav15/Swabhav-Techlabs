@@ -1,3 +1,4 @@
+import { Authenication } from './../pages/authenication/authenication';
 import { ExpenseList } from './../pages/expenseList/expenselist';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
@@ -9,7 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = ExpenseList;
+  rootPage = Authenication;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

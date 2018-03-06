@@ -8,7 +8,7 @@
                         <ion-icon ios="ios-close" md="md-close"></ion-icon>
                     </button>
                     
-                    <button ion-button  icon-only item-right (click)='submitChanges(expense.id)' color='secondary' [disabled]="ionform.invalid">
+                    <button ion-button  icon-only item-right (click)='submitChanges(expense.id)' color='secondary'>
                         <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
                     </button>
 
@@ -23,19 +23,19 @@
         <ion-item>
             <h1 text-center>Welcome to Expense Detail</h1>
         </ion-item>
-        <form name="ionform">
+
         <ion-item>
             <ion-label floating>
                 Cost
             </ion-label>
-            <ion-input  name="cost" type="text" [(ngModel)]='expense.cost' required></ion-input>
+            <ion-input type="text" [(ngModel)]='expense.cost'></ion-input>
         </ion-item>
         
         <ion-item>
                 <ion-label floating>
                     Category 
                 </ion-label>
-                <ion-select name="category" [(ngModel)]='expense.category' required>                        
+                <ion-select name="category" [(ngModel)]='expense.category'>                        
                         <ion-option *ngFor="let category of categories" [value]="category.name">{{category.name}}</ion-option>
                 </ion-select>        
         </ion-item>
@@ -44,18 +44,13 @@
                 <ion-label floating>
                     Date
                 </ion-label>
-                <ion-datetime name="date" required displayFormat="DD/MM/YYYY" [(ngModel)]='expense.date'></ion-datetime>
+                <ion-datetime name="date" displayFormat="DD/MM/YYYY" [(ngModel)]='expense.date'></ion-datetime>
         </ion-item>
         
         <ion-item>
                 <ion-label floating>
                     Description
                 </ion-label>
-                <ion-input name="description" type="text" [(ngModel)]='expense.description' required class="form-control"
-                required minlength="4" #name="ngModel"></ion-input>
-                <!-- <div *ngIf="ionform.controls['expense.description'].invalid" class="alert alert-danger">
-                    Description is required.
-                </div> -->
+                <ion-input name="description" type="text" [(ngModel)]='expense.description'></ion-input>
         </ion-item>
-        </form>
     </ion-content>

@@ -24,7 +24,6 @@ export class ExpenseList {
   }
 
   onSelectAdd(){
-    
     let res ={"id":0,"cost":0,"description":"","category":"","date":""}
     this.navCtrl.push(ExpenseDetail,JSON.stringify(res));
   }

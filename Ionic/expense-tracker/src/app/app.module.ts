@@ -1,3 +1,5 @@
+import { AuthenicationService } from './authenicationService';
+import { Authenication } from './../pages/authenication/authenication';
 import { ExpenseDetail } from './../pages/expenseDetail/expenseDetail';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -15,6 +17,7 @@ import { DatePicker } from '@ionic-native/date-picker';
     MyApp,
     ExpenseList,
     ExpenseDetail,    
+    Authenication
   ],
   imports: [
     BrowserModule,
@@ -25,13 +28,15 @@ import { DatePicker } from '@ionic-native/date-picker';
     MyApp,
     ExpenseList,
     ExpenseDetail,    
+    Authenication
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ExpenseTracker,
-    DatePicker
+    DatePicker,
+    AuthenicationService
   ]
 })
 export class AppModule {}

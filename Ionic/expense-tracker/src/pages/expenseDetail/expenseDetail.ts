@@ -17,10 +17,8 @@ export class ExpenseDetail {
 
   ngOnInit() {    
     this.categories = this.service.getCategories();    
-    if(this.expense.id == 0){
-      this.expense = Object.assign(JSON.parse(this.navParams.data));
-      this.expense.id =UUID.UUID();
-    }
+    this.expense = Object.assign(JSON.parse(this.navParams.data));
+    this.expense.id =UUID.UUID();
 
     if(this.expense.date.length > 3)
       this.expense.date = new Date(this.expense.date).toISOString();  
@@ -28,11 +26,6 @@ export class ExpenseDetail {
       this.expense.date = new Date().toISOString(); 
   }
 
-  checkValid(){
-    //ionform.description.$dirty && ionform.description.$invalid
-    return true;
-  }
-  
   deleteItem(id){
     let alert = this.alertCtrl.create({
       title: 'Delete Expense',
@@ -42,7 +35,6 @@ export class ExpenseDetail {
           text: 'Cancel',
           role: 'cancel',
           handler: () => {
-            //this.navCtrl.pop();
           }
         },
         {
