@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingCore.Entity_Framework.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class ProductCategory
+    class ProductCategory : Entity
     {
 
         public ProductCategory()
@@ -22,7 +23,6 @@ namespace ShoppingCore.Models
             ParentCategory = parentCategory;
         }
 
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public DateTime CreatedDate { get; set; }
         public ProductCategory ParentCategory { get; set; }

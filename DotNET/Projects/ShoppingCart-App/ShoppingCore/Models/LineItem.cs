@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingCore.Entity_Framework.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class LineItem
+    class LineItem : Entity
     {
         public LineItem()
         {
@@ -20,7 +21,6 @@ namespace ShoppingCore.Models
             ProductId = productid;
         }
 
-        public Guid Id { get; set; }
         public Guid OrderId { get; set; }
         public Guid ProductId { get; set; }
         public int Quantity { get; set; }

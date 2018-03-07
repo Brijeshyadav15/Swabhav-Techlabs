@@ -1,4 +1,5 @@
 ﻿using System;
+using ShoppingCore.Entity_Framework.Repository;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class Order
+    class Order : Entity
     {
         public Order()
         {
@@ -21,7 +22,6 @@ namespace ShoppingCore.Models
             OrderStatus = orderstatus;
         }
 
-        public Guid Id { get; set; }
         public DateTime Date { get; set; }
         public Guid CustomerId { get; set; }
         public double OrderTotal { get; set; }

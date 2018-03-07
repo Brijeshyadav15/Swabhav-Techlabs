@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingCore.Entity_Framework.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class User
+    class User : Entity 
     {
         public User()
         {
@@ -29,7 +30,6 @@ namespace ShoppingCore.Models
             Role = role;
         }
 
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public IEnumerable<Address> Addresses { get; set; }

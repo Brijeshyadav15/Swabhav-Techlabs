@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingCore.Entity_Framework.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class Address
+    class Address : Entity
     {
         public Address()
         {
@@ -20,8 +21,7 @@ namespace ShoppingCore.Models
             City = city;
             Pincode = pincode;
         }
-
-        public Guid Id { get; set; }
+ 
         public Guid CustomerId { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }

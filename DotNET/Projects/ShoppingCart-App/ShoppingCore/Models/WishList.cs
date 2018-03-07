@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShoppingCore.Entity_Framework.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class WishList
+    class WishList : Entity
     {
         public WishList()
         {
@@ -20,7 +21,6 @@ namespace ShoppingCore.Models
             LineItem = lineitem;
         }
 
-        public Guid Id { get; set; }
         public Guid CustomerId { get; set; }
         public string Name { get; set; }
         public List<LineItem> LineItem { get; set; }

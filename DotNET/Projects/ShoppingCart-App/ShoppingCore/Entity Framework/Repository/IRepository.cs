@@ -8,14 +8,12 @@ namespace ShoppingCore.Entity_Framework.Repository
 {
     interface IRepository<T>
     {
-        void Add(T entity);
-
-        IQueryable<T> Get();
-
-        T GetById(Guid entityId);
-
+        Guid Add(T entity);
+        void Update(T entity);
         void Delete(Guid entityId);
 
-        void Update(T entity);
+        T GetById(Guid entityId);
+        IList<T> Find(ISpecification<T> specification);
+        int Count(ISpecification<T> specifivation);
     }
 }
