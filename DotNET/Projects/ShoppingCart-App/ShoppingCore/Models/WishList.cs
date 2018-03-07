@@ -12,15 +12,17 @@ namespace ShoppingCore.Models
         {
         }
 
-        public WishList(Guid id, string name,List<Product> products)
+        public WishList(Guid id, Guid customerid, string name,List<LineItem> lineitem)
         {
             Id = id;
+            CustomerId = customerid;
             Name = name;
-            Products = products;
+            LineItem = lineitem;
         }
 
         public Guid Id { get; set; }
+        public Guid CustomerId { get; set; }
         public string Name { get; set; }
-        public List<Product> Products { get; set; }
+        public List<LineItem> LineItem { get; set; }
     }
 }

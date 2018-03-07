@@ -12,18 +12,20 @@ namespace ShoppingCore.Models
         {
         }
 
-        public Order(Guid id, DateTime date, Guid customerid, double total)
+        public Order(Guid id, DateTime date, Guid customerid, double total,OrderStatus orderstatus)
         {
             Id = id;
             Date = date;
             CustomerId = customerid;
             OrderTotal = total;
+            OrderStatus = orderstatus;
         }
 
         public Guid Id { get; set; }
         public DateTime Date { get; set; }
         public Guid CustomerId { get; set; }
         public double OrderTotal { get; set; }
+        public OrderStatus OrderStatus { get; set; }
 
     }
 }

@@ -11,9 +11,7 @@ namespace ShoppingCore.Entity_Framework
 {
     class ShoppingCartContext : DbContext
     {
-        public DbSet<Customer> Customers { get; set; }
-
-        public DbSet<Admin> Admins { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public DbSet<Order> Orders { get; set; }
 
@@ -22,6 +20,11 @@ namespace ShoppingCore.Entity_Framework
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Address> Addresses { get; set; }
+
+        public DbSet<WishList> WishLists { get; set; }
+
+        public DbSet<ProductCategory> ProductCategory { get; set; }
+
 
         public ShoppingCartContext() : base("ShoppingCartContext")
         {

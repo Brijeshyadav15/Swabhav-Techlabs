@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    enum PurchaseStatus
+    enum OrderStatus
     {
         ORDERED, CONFIRMED, INTRANSIT,DELIVERED
     }

@@ -8,42 +8,42 @@ using ShoppingCore.Models;
 
 namespace ShoppingCore.Entity_Framework.Repository
 {
-    class CustomerRepository : IRepository<Customer>
+    class CustomerRepository : IRepository<User>
     {
-        public void Add(Customer entity)
+        public void Add(User entity)
         {
             ShoppingCartContext shp = new ShoppingCartContext();
-            shp.Customers.Add(entity);
+            shp.Users.Add(entity);
             shp.SaveChanges();
         }
 
         public void Delete(Guid entityId)
         {
             ShoppingCartContext shp = new ShoppingCartContext();
-            var customer = shp.Customers.Single(c => c.Id == entityId);
-            shp.Customers.Remove(customer);
+            var customer = shp.Users.Single(c => c.Id == entityId);
+            shp.Users.Remove(customer);
             shp.SaveChanges();
         }
 
-        public IQueryable<Customer> Get()
+        public IQueryable<User> Get()
         {
             ShoppingCartContext shp = new ShoppingCartContext();
-            return shp.Customers;
+            return shp.Users;
         }
 
-        public Customer GetById(Guid entityId)
+        public User GetById(Guid entityId)
         {
             ShoppingCartContext shp = new ShoppingCartContext();
-            var result = shp.Customers.Single(c => c.Id == entityId);
+            var result = shp.Users.Single(c => c.Id == entityId);
             return result;
         }
 
-        public void Update(Customer entity)
+        public void Update(User entity)
         {
             ShoppingCartContext shp = new ShoppingCartContext();
-            var customer = shp.Customers.Single(c => c.Id == entity.Id);
-            shp.Customers.Remove(customer);
-            shp.Customers.Add(entity);
+            var customer = shp.Users.Single(c => c.Id == entity.Id);
+            shp.Users.Remove(customer);
+            shp.Users.Add(entity);
             shp.SaveChanges();
         }
 
@@ -107,5 +107,29 @@ namespace ShoppingCore.Entity_Framework.Repository
             shp.Addresses.Remove(address);
             shp.SaveChanges();
         }
+
+        public void AddWishList(WishList wishlist)
+        {
+            ShoppingCartContext shp = new ShoppingCartContext();
+            shp.WishLists.Add(wishlist);
+            shp.SaveChanges();
+        }
+
+        public void DeleteWishList(WishList wishlist)
+        {
+            ShoppingCartContext shp = new ShoppingCartContext();
+            shp.WishLists.Remove(wishlist);
+            shp.SaveChanges();
+        }
+
+        public void UpdateWishList(WishList wishlist)
+        {
+            ShoppingCartContext shp = new ShoppingCartContext();
+            var oldWishlist = shp.WishLists.Single(c => c.Id == wishlist.Id);
+            shp.WishLists.Remove(oldWishlist);
+            shp.WishLists.Add(wishlist);
+            shp.SaveChanges();
+        }
+
     }
 }
