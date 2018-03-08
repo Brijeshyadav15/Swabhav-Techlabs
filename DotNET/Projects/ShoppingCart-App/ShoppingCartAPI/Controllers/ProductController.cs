@@ -9,6 +9,7 @@ using ShoppingCore.Models;
 
 namespace ShoppingCartAPI.Controllers
 {
+    [RoutePrefix("api/v1/ShoppingCart/Product")]
     public class ProductController : ApiController
     {
         private EntityFrameworkRepository<Product> _efr = new EntityFrameworkRepository<Product>();
