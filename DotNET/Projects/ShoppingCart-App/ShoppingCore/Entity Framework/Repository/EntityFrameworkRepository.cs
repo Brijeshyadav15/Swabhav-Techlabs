@@ -28,6 +28,14 @@ namespace ShoppingCore.Entity_Framework.Repository
             }
         }
 
+        public int CountAll()
+        {
+            using (var unitOfWork = new UnitOfWorkScope<ShoppingCartContext>(UnitOfWorkScopePurpose.Reading))
+            {
+                return unitOfWork.DbContext.Set<T>().AsExpandable().Count();
+            }
+        }
+
         public void Delete(Guid entityId)
         {
             using (var unitOfWork = new UnitOfWorkScope<ShoppingCartContext>(UnitOfWorkScopePurpose.Writing))
@@ -58,7 +66,7 @@ namespace ShoppingCore.Entity_Framework.Repository
         {
             using (var unitOfWork = new UnitOfWorkScope<ShoppingCartContext>(UnitOfWorkScopePurpose.Reading))
             {
-                return unitOfWork.DbContext.Set<T>().SingleOrDefault(x => x.Id == entityId);
+               return unitOfWork.DbContext.Set<T>().SingleOrDefault(x => x.Id == entityId);
             }
         }
 

@@ -7,31 +7,32 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class User : Entity 
+    public class User : Entity 
     {
         public User()
         {
         }
-
-        public User(Guid id, string name, string email, IEnumerable<Address> addresses, int age, Gender gender, string contact, string location, IEnumerable<Order> orders,string password,UserType role)
+        //IEnumerable<Address> addresses, Gender gender,UserType role, IEnumerable<Order> orders,
+        public User(Guid id, string name, string email,  int age, string contact, string location, string password)
         {
             Id = id;
             Name = name;
             Email = email;
-            Addresses = addresses;
+            //Addresses = addresses;
             Age = age;
             Location = location;
             Contact = contact;
-            Gender = gender;
-            Orders = orders;
+            //Gender = gender;
+            //Orders = orders;
             Id = id;
             Name = name;
             Password = password;
-            Role = role;
+            //Role = role;
         }
 
         public string Name { get; set; }
         public string Email { get; set; }
+        public string ProfilePic { get; set; }
         public IEnumerable<Address> Addresses { get; set; }
         public int Age { get; set; }
         public Gender Gender { get; set; }

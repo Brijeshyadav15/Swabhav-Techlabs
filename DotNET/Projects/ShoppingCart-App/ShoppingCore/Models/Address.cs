@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class Address : Entity
+    public class Address : Entity
     {
         public Address()
         {

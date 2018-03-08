@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    enum UserType
+    public enum UserType
     {
         CUSTOMER, ADMIN
     }

@@ -1,16 +1,17 @@
-﻿using System;
+﻿using ShoppingCore.Entity_Framework.Repository;
+using ShoppingCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentCore
+namespace TestApp
 {
     class Program
     {
         static void Main(string[] args)
-        {
-
+        {        
         }
     }
 }

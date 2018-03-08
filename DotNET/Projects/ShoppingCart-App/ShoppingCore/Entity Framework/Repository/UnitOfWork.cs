@@ -68,8 +68,15 @@ namespace ShoppingCore.Entity_Framework.Repository
                 {
                     ForWriting = forWriting;
                     DbContext = new TDbContext();
-                    ((IObjectContextAdapter)DbContext).ObjectContext.SavingChanges
+                    try
+                    {
+                        ((IObjectContextAdapter)DbContext).ObjectContext.SavingChanges
                         += GuardAgainstDirectSaves;
+                    }
+                    catch
+                    { 
+                    }
+                    
                 }
 
                 void GuardAgainstDirectSaves(object sender, EventArgs e)

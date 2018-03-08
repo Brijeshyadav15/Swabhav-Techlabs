@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class Order : Entity
+    public class Order : Entity
     {
         public Order()
         {
         }
 
-        public Order(Guid id, DateTime date, Guid customerid, double total,OrderStatus orderstatus)
+        Order(Guid id, DateTime date, Guid customerid, double total,OrderStatus orderstatus)
         {
             Id = id;
             Date = date;

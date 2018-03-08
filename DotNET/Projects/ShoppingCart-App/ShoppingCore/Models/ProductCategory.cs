@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class ProductCategory : Entity
+    public class ProductCategory : Entity
     {
 
         public ProductCategory()

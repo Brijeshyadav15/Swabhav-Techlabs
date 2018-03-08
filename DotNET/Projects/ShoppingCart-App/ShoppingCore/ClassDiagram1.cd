@@ -1,51 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="ShoppingCore.Models.User" Collapsed="true">
-    <Position X="5" Y="1.25" Width="1.5" />
+  <Class Name="ShoppingCore.Models.User">
+    <Position X="5" Y="1.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAFCAAAAACAAAACAGEIAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AAFAAAAAACAAAACAGEIAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Models\User.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShoppingCore.Models.Address" Collapsed="true">
+  <Class Name="ShoppingCore.Models.Address">
     <Position X="8.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAABIAAAAAAAAAAAAABAAAAAAAAAAABA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABIAAAAAAAAAAAAABAAAAAAAAAAABA=</HashCode>
       <FileName>Models\Address.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShoppingCore.Models.LineItem" Collapsed="true">
-    <Position X="2.5" Y="2.5" Width="1.5" />
+  <Class Name="ShoppingCore.Models.LineItem">
+    <Position X="2.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAACAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAA=</HashCode>
       <FileName>Models\LineItem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShoppingCore.Models.Order" Collapsed="true">
+  <Class Name="ShoppingCore.Models.Order">
     <Position X="2.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACgAAAAAACAAAAAAAAAAAAAAAAABABAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAACAAAAAAAAAAAAAAAAABABAAAAAAAAAAA=</HashCode>
       <FileName>Models\Order.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShoppingCore.Models.Product" Collapsed="true">
-    <Position X="2.5" Y="3.5" Width="1.5" />
+  <Class Name="ShoppingCore.Models.Product">
+    <Position X="4.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAQAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQgAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Models\Product.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShoppingCore.Models.ProductCategory" Collapsed="true">
-    <Position X="5" Y="3.5" Width="1.5" />
+  <Class Name="ShoppingCore.Models.ProductCategory">
+    <Position X="8.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAgAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAgAAAAAgAAA=</HashCode>
       <FileName>Models\ProductCategory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ShoppingCore.Models.WishList" Collapsed="true">
-    <Position X="5" Y="2.5" Width="1.5" />
+  <Class Name="ShoppingCore.Models.WishList">
+    <Position X="6.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAACAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\WishList.cs</FileName>
     </TypeIdentifier>
   </Class>

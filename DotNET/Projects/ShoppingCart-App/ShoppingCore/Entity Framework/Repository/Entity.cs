@@ -13,6 +13,5 @@ namespace ShoppingCore.Entity_Framework.Repository
         [Key]
         [Column(Order = 1)]
         public Guid Id { get; set; }
-        public int Version { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    enum Gender
+    public enum Gender
     {
         MALE, FEMALE
     }

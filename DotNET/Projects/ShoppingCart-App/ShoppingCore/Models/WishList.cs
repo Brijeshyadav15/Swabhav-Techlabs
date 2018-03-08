@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class WishList : Entity
+    public class WishList : Entity
     {
         public WishList()
         {

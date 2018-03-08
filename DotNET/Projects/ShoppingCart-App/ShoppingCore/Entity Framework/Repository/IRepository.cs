@@ -15,5 +15,6 @@ namespace ShoppingCore.Entity_Framework.Repository
         T GetById(Guid entityId);
         IList<T> Find(ISpecification<T> specification);
         int Count(ISpecification<T> specifivation);
+        int CountAll();
     }
 }

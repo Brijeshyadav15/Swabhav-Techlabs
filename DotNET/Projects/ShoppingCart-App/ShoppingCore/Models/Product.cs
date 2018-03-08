@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Models
 {
-    class Product : Entity
+    public class Product : Entity
     {
         public Product()
         {
@@ -24,6 +24,7 @@ namespace ShoppingCore.Models
 
         public string Name { get; set; }
         public double Price { get; set; }
+        public string ProductImage { get; set; }
         public ProductCategory ProductCategory { get; set; }
         public ProductCategory parentCategory { get; set; }
     }
