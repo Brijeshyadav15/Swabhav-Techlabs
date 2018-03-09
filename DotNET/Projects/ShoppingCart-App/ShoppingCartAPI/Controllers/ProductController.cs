@@ -43,11 +43,14 @@ namespace ShoppingCartAPI.Controllers
             _efr.Delete(ProductID);
             var countAfter = _efr.CountAll();
 
-            return countBefore == countAfter - 1 ? Ok("Product Deleted") : Ok("Product not Found!!");
+            if (countBefore - 1 == countAfter)
+                return Ok("Product Deleted");
+            else
+                return Ok("Product not Found!!");
         }
 
         [Route("UpdateProduct")]
-        [HttpGet]
+        [HttpPost]
         public IHttpActionResult Update(Product product)
         {
             _efr.Update(product);

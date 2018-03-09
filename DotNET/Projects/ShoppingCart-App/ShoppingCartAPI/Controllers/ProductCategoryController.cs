@@ -16,7 +16,7 @@ namespace ShoppingCartAPI.Controllers
 
         [Route("AddProductCategory")]
         [HttpPost]
-        public IHttpActionResult PostAddProduct(ProductCategory productCategory)
+        public IHttpActionResult PostAddProductCategory(ProductCategory productCategory)
         {
             return Ok(_efr.Add(productCategory));
         }
@@ -35,15 +35,18 @@ namespace ShoppingCartAPI.Controllers
             return Ok(_efr.GetById(ProductCategoryID));
         }
 
-        [Route("DeleteProductCategoryID/{ProductCategoryID}")]
+        [Route("DeleteProductCategory/{ProductCategoryID}")]
         [HttpGet]
-        public IHttpActionResult DeleteLineItemID([FromUri] Guid ProductCategoryID)
+        public IHttpActionResult DeleteProductCategory([FromUri] Guid ProductCategoryID)
         {
             var countBefore = _efr.CountAll();
             _efr.Delete(ProductCategoryID);
             var countAfter = _efr.CountAll();
 
-            return countBefore == countAfter - 1 ? Ok("LineItem Deleted") : Ok("LineItem not Found!!");
+            if (countBefore - 1 == countAfter)
+                return Ok("ProductCategory Deleted");
+            else
+                return Ok("ProductCategory not Found!!");
         }
 
         [Route("UpdateProductCategory")]

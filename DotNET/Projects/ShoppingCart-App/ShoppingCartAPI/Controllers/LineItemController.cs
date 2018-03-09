@@ -16,7 +16,7 @@ namespace ShoppingCartAPI.Controllers
 
         [Route("AddLineItem")]
         [HttpPost]
-        public IHttpActionResult PostAddProduct(LineItem lineitem)
+        public IHttpActionResult PostAddLineItem(LineItem lineitem)
         {
             return Ok(_efr.Add(lineitem));
         }
@@ -43,11 +43,14 @@ namespace ShoppingCartAPI.Controllers
             _efr.Delete(LineItemID);
             var countAfter = _efr.CountAll();
 
-            return countBefore == countAfter - 1 ? Ok("LineItem Deleted") : Ok("LineItem not Found!!");
+            if (countBefore - 1 == countAfter)
+                return Ok("LineItem Deleted");
+            else
+                return Ok("LineItem not Found!!");
         }
 
         [Route("UpdateLineItem")]
-        [HttpGet]
+        [HttpPost]
         public IHttpActionResult Update(LineItem lineitem)
         {
             _efr.Update(lineitem);

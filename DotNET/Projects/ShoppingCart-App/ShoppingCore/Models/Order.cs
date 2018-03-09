@@ -26,6 +26,6 @@ namespace ShoppingCore.Models
         public Guid CustomerId { get; set; }
         public double OrderTotal { get; set; }
         public OrderStatus OrderStatus { get; set; }
-
+        public List<LineItem> LineItem { get; set; }
     }
 }

@@ -13,19 +13,17 @@ namespace ShoppingCore.Models
         {
         }
 
-        public Product(Guid id, string name, double price, ProductCategory productCategory, ProductCategory baseCategory)
+        public Product(Guid id, string name, double price,Guid productcategory)
         {
             Id = id;
             Name = name;
             Price = price;
-            ProductCategory = productCategory;
-            parentCategory = baseCategory;
+            ProductCategory = productcategory;
         }
 
         public string Name { get; set; }
         public double Price { get; set; }
         public string ProductImage { get; set; }
-        public ProductCategory ProductCategory { get; set; }
-        public ProductCategory parentCategory { get; set; }
+        public Guid ProductCategory { get; set; }
     }
 }

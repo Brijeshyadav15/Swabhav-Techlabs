@@ -40,14 +40,19 @@ namespace ShoppingCartAPI.Controllers
         public IHttpActionResult DeleteLineItemID([FromUri] Guid AddressID)
         {
             var countBefore = _efr.CountAll();
-            _efr.Delete(AddressID);
+            if(countBefore > 0)
+                _efr.Delete(AddressID);
+
             var countAfter = _efr.CountAll();
 
-            return countBefore == countAfter - 1 ? Ok("Address Deleted") : Ok("Address not Found!!");
+            if (countBefore - 1 == countAfter)
+                return Ok("Address  Deleted");
+            else
+                return Ok("Address not Found!!");
         }
 
         [Route("UpdateAddress")]
-        [HttpGet]
+        [HttpPost]
         public IHttpActionResult Update(Address address)
         {
             _efr.Update(address);

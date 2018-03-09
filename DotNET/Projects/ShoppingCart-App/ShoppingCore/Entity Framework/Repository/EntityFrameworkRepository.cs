@@ -72,7 +72,12 @@ namespace ShoppingCore.Entity_Framework.Repository
 
         public void Update(T entity)
         {
-            //Changes will be reflected by Entity Frameworks automatically
+            using (var unitOfWork = new UnitOfWorkScope<ShoppingCartContext>(UnitOfWorkScopePurpose.Writing))
+            {
+                unitOfWork.DbContext.Set<T>().Remove(GetById(entity.Id));
+                unitOfWork.DbContext.Set<T>().Add(entity);
+                unitOfWork.SaveChanges();
+            }
         }
     }
 }

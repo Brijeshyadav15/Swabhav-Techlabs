@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace ShoppingCartAPI.Controllers
 {
+    [RoutePrefix("api/v1/ShoppingCart/Order")]
     public class OrderController : ApiController
     {
         private EntityFrameworkRepository<Order> _efr = new EntityFrameworkRepository<Order>();
@@ -34,23 +35,26 @@ namespace ShoppingCartAPI.Controllers
             return Ok(_efr.GetById(OrderID));
         }
 
-        [Route("DeleteProduct/{OrderID}")]
+        [Route("DeleteOrder/{OrderID}")]
         [HttpGet]
-        public IHttpActionResult DeleteProduct([FromUri] Guid OrderID)
+        public IHttpActionResult DeleteOrder([FromUri] Guid OrderID)
         {
             var countBefore = _efr.CountAll();
             _efr.Delete(OrderID);
             var countAfter = _efr.CountAll();
 
-            return countBefore == countAfter - 1 ? Ok("Product Deleted") : Ok("Product not Found!!");
+            if (countBefore - 1 == countAfter)
+                return Ok("Order Deleted");
+            else
+                return Ok("Order not Found!!");
         }
 
         [Route("UpdateOrder")]
-        [HttpGet]
+        [HttpPost]
         public IHttpActionResult Update(Order order)
         {
             _efr.Update(order);
-            return Ok("Product Updated");
+            return Ok("Order Updated");
         }
     }
 }

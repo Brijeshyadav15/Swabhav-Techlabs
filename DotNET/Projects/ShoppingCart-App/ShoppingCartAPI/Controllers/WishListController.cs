@@ -16,7 +16,7 @@ namespace ShoppingCartAPI.Controllers
 
         [Route("AddWishList")]
         [HttpPost]
-        public IHttpActionResult PostAddProduct(WishList wishlist)
+        public IHttpActionResult PostAddWishList(WishList wishlist)
         {
             return Ok(_efr.Add(wishlist));
         }
@@ -35,19 +35,22 @@ namespace ShoppingCartAPI.Controllers
             return Ok(_efr.GetById(WishListID));
         }
 
-        [Route("WishList/{WishListID}")]
+        [Route("DeleteWishList/{WishListID}")]
         [HttpGet]
-        public IHttpActionResult DeleteLineItemID([FromUri] Guid WishListID)
+        public IHttpActionResult DeleteLineItem([FromUri] Guid WishListID)
         {
             var countBefore = _efr.CountAll();
             _efr.Delete(WishListID);
             var countAfter = _efr.CountAll();
 
-            return countBefore == countAfter - 1 ? Ok("Wishlist Deleted") : Ok("Wishlist not Found!!");
+            if (countBefore - 1 == countAfter)
+                return Ok("WishList Deleted");
+            else
+                return Ok("WishList not Found!!");
         }
 
         [Route("UpdateWishList")]
-        [HttpGet]
+        [HttpPost]
         public IHttpActionResult Update(WishList wishlist)
         {
             _efr.Update(wishlist);

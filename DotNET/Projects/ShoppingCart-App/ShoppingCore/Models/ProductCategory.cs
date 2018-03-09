@@ -12,20 +12,16 @@ namespace ShoppingCore.Models
 
         public ProductCategory()
         {
-
         }
 
-        public ProductCategory(Guid id, string name, DateTime createdDate,ProductCategory parentCategory)
+        public ProductCategory(Guid id, string name, DateTime createdDate)
         {
             Id = id;
             Name = name;
             CreatedDate = createdDate;
-            ParentCategory = parentCategory;
         }
 
         public string Name { get; set; }
         public DateTime CreatedDate { get; set; }
-        public ProductCategory ParentCategory { get; set; }
-
     }
 }
