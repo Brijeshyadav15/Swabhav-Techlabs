@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace ShoppingCartAPI.Controllers
 {
-    [RoutePrefix("api/v1/ShoppingCart/Address")]
+    [RoutePrefix("api/v1/ShoppingCart/User/{UserId}/Address")]
     public class AddressController : ApiController
     {
         private EntityFrameworkRepository<Address> _efr = new EntityFrameworkRepository<Address>();

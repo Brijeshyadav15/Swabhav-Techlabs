@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace ShoppingCartAPI.Controllers
 {
-    [RoutePrefix("api/v1/ShoppingCart/LineItem")]
+    [RoutePrefix("api/v1/ShoppingCart/User/{UserId}/Order/{OrderId}/LineItem")]
     public class LineItemController : ApiController
     {
         private EntityFrameworkRepository<LineItem> _efr = new EntityFrameworkRepository<LineItem>();

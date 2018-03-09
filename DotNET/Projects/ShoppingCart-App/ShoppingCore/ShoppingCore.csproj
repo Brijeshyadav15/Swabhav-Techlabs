@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201803091006005_UpdatedDatabase1.Designer.cs">
       <DependentUpon>201803091006005_UpdatedDatabase1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803091159339_UpdatedDatabase11.cs" />
+    <Compile Include="Migrations\201803091159339_UpdatedDatabase11.Designer.cs">
+      <DependentUpon>201803091159339_UpdatedDatabase11.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Enums\Gender.cs" />
@@ -146,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803091006005_UpdatedDatabase1.resx">
       <DependentUpon>201803091006005_UpdatedDatabase1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803091159339_UpdatedDatabase11.resx">
+      <DependentUpon>201803091159339_UpdatedDatabase11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
