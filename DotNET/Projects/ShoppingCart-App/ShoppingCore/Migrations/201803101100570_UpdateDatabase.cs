@@ -3,7 +3,7 @@ namespace ShoppingCore.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddedPlurals : DbMigration
+    public partial class UpdateDatabase : DbMigration
     {
         public override void Up()
         {

@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ShoppingCartAPI.Controllers
 {
     [RoutePrefix("api/v1/ShoppingCart/User/{UserId}/WishList")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class WishListController : ApiController
     {
         private EntityFrameworkRepository<WishList> _efr = new EntityFrameworkRepository<WishList>();

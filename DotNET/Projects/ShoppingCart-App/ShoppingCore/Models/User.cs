@@ -19,21 +19,24 @@ namespace ShoppingCore.Models
             Name = name;
             Email = email;
             Age = age;
+            Gender = gender;
             Location = location;
             Contact = contact;
             Password = password;
+            Role = role;
         }
 
         public string Name { get; set; }
         public string Email { get; set; }
         public string ProfilePic { get; set; }
-        public List<Address> Addresses { get; set; }
+        //public List<Address> Addresses { get; set; }
         public int Age { get; set; }
         public Gender Gender { get; set; }
         public string Contact { get; set; }
         public string Location { get; set; }
-        public List<Order> Orders { get; set; }
+        //public List<Order> Orders { get; set; }
         public string Password { get; set; }
         public UserType Role { get; set; }
+        //public UserType Status { get; set; }
     }
 }

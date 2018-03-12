@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ShoppingCartAPI.Controllers
 {
     [RoutePrefix("api/v1/ShoppingCart/User/{UserId}/Order/{OrderId}/LineItem")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LineItemController : ApiController
     {
         private EntityFrameworkRepository<LineItem> _efr = new EntityFrameworkRepository<LineItem>();

@@ -6,10 +6,12 @@ using System.Net.Http;
 using System.Web.Http;
 using ShoppingCore.Entity_Framework.Repository;
 using ShoppingCore.Models;
+using System.Web.Http.Cors;
 
 namespace ShoppingCartAPI.Controllers
 {
     [RoutePrefix("api/v1/ShoppingCart/Product")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductController : ApiController
     {
         private EntityFrameworkRepository<Product> _efr = new EntityFrameworkRepository<Product>();

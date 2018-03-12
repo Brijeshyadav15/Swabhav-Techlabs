@@ -17,13 +17,10 @@ export class AppComponent {
   data:any;
   students:any;
   constructor(private _http: Http){     
-    this.getData();   
   }
 
   getData(){       
-    let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/User/GetUsers";
-                  
-    console.log(this.students);
+    let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/User/GetUsers";    
     return this._http.get(APIURL)
     .do((response) => { return response; })
     .map(res => res.json())

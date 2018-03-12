@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Service
 {
-    class PasswordService
+    public class PasswordService
     {
         private static Random random = new Random();
 

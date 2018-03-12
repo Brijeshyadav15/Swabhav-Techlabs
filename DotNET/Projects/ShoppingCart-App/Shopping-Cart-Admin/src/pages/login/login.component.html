@@ -6,10 +6,12 @@
     </div>
     <div class="form">
         <div class="login-form">
-            <input type="text" [(ngModel)]="email" placeholder="Email Address"/>
-            <input type="password" [(ngModel)]="password" placeholder="Password"/>
-            <button>login</button>
-            <p class="message">Not registered? <a [routerLink]="'Register'">Create an account</a></p>
+            <form [formGroup]="loginFormGroup">
+                <input type="text" [(ngModel)]="email" placeholder="Email Address" [formControl]="loginFormGroup.controls['email']" [email]="true" required/>
+                <input type="password" [(ngModel)]="password" placeholder="Password" [formControl]="loginFormGroup.controls['password']" required/>
+                <button (click)='loginUser()' [disabled]="!loginFormGroup.valid">login</button>
+            </form>
+            <p class="message">Not registered? <a [routerLink]="'../Register'">Create an account</a></p>
         </div>
     </div>
 </div>

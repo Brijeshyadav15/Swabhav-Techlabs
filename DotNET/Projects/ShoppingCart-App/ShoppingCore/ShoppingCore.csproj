@@ -42,9 +42,29 @@
       <HintPath>..\packages\LinqKit.1.1.15\lib\net45\LinqKit.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.4\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.4\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,45 +82,17 @@
     <Compile Include="Entity Framework\ShoppingCartContext.cs" />
     <Compile Include="Entity Framework\Specification\FindByEmailSpecification.cs" />
     <Compile Include="Entity Framework\Specification\UserSearchCriteria.cs" />
-    <Compile Include="Migrations\201803080658432_Added Database.cs" />
-    <Compile Include="Migrations\201803080658432_Added Database.Designer.cs">
-      <DependentUpon>201803080658432_Added Database.cs</DependentUpon>
+    <Compile Include="Migrations\201803100908528_Updated10thMar.cs" />
+    <Compile Include="Migrations\201803100908528_Updated10thMar.Designer.cs">
+      <DependentUpon>201803100908528_Updated10thMar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803080708444_UpdatedDatabase.cs" />
-    <Compile Include="Migrations\201803080708444_UpdatedDatabase.Designer.cs">
-      <DependentUpon>201803080708444_UpdatedDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\201803101100570_UpdateDatabase.cs" />
+    <Compile Include="Migrations\201803101100570_UpdateDatabase.Designer.cs">
+      <DependentUpon>201803101100570_UpdateDatabase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803080714004_Removed Version.cs" />
-    <Compile Include="Migrations\201803080714004_Removed Version.Designer.cs">
-      <DependentUpon>201803080714004_Removed Version.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803080856398_AddedPlurals.cs" />
-    <Compile Include="Migrations\201803080856398_AddedPlurals.Designer.cs">
-      <DependentUpon>201803080856398_AddedPlurals.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803090731553_Updated DB.cs" />
-    <Compile Include="Migrations\201803090731553_Updated DB.Designer.cs">
-      <DependentUpon>201803090731553_Updated DB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803090746307_Removed Prouduct Options.cs" />
-    <Compile Include="Migrations\201803090746307_Removed Prouduct Options.Designer.cs">
-      <DependentUpon>201803090746307_Removed Prouduct Options.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803090927056_Updated Product Model.cs" />
-    <Compile Include="Migrations\201803090927056_Updated Product Model.Designer.cs">
-      <DependentUpon>201803090927056_Updated Product Model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803090938124_UpdatedProductCategories.cs" />
-    <Compile Include="Migrations\201803090938124_UpdatedProductCategories.Designer.cs">
-      <DependentUpon>201803090938124_UpdatedProductCategories.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803091006005_UpdatedDatabase1.cs" />
-    <Compile Include="Migrations\201803091006005_UpdatedDatabase1.Designer.cs">
-      <DependentUpon>201803091006005_UpdatedDatabase1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803091159339_UpdatedDatabase11.cs" />
-    <Compile Include="Migrations\201803091159339_UpdatedDatabase11.Designer.cs">
-      <DependentUpon>201803091159339_UpdatedDatabase11.cs</DependentUpon>
+    <Compile Include="Migrations\201803111052050_Updated11th.cs" />
+    <Compile Include="Migrations\201803111052050_Updated11th.Designer.cs">
+      <DependentUpon>201803111052050_Updated11th.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
@@ -124,35 +116,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803080658432_Added Database.resx">
-      <DependentUpon>201803080658432_Added Database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803100908528_Updated10thMar.resx">
+      <DependentUpon>201803100908528_Updated10thMar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803080708444_UpdatedDatabase.resx">
-      <DependentUpon>201803080708444_UpdatedDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803101100570_UpdateDatabase.resx">
+      <DependentUpon>201803101100570_UpdateDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803080714004_Removed Version.resx">
-      <DependentUpon>201803080714004_Removed Version.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803080856398_AddedPlurals.resx">
-      <DependentUpon>201803080856398_AddedPlurals.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803090731553_Updated DB.resx">
-      <DependentUpon>201803090731553_Updated DB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803090746307_Removed Prouduct Options.resx">
-      <DependentUpon>201803090746307_Removed Prouduct Options.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803090927056_Updated Product Model.resx">
-      <DependentUpon>201803090927056_Updated Product Model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803090938124_UpdatedProductCategories.resx">
-      <DependentUpon>201803090938124_UpdatedProductCategories.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803091006005_UpdatedDatabase1.resx">
-      <DependentUpon>201803091006005_UpdatedDatabase1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803091159339_UpdatedDatabase11.resx">
-      <DependentUpon>201803091159339_UpdatedDatabase11.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803111052050_Updated11th.resx">
+      <DependentUpon>201803111052050_Updated11th.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,6 +11,9 @@ namespace ShoppingCartAPI
         {
             // Web API configuration and services
 
+            //var cors = new EnableCorsAttribute("www.example.com", "*", "*");
+            config.EnableCors();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

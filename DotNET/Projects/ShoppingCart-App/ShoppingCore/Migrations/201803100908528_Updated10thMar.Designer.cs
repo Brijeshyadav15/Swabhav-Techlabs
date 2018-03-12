@@ -7,13 +7,13 @@ namespace ShoppingCore.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UpdatedProductModel : IMigrationMetadata
+    public sealed partial class Updated10thMar : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedProductModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Updated10thMar));
         
         string IMigrationMetadata.Id
         {
-            get { return "201803090927056_Updated Product Model"; }
+            get { return "201803100908528_Updated10thMar"; }
         }
         
         string IMigrationMetadata.Source

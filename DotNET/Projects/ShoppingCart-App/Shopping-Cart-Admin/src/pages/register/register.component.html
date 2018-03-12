@@ -6,12 +6,27 @@
         </div>
         <div class="form">
             <div class="login-form">
-                <input type="text" [(ngModel)]="email" placeholder="Name"/>
-                <input type="text" [(ngModel)]="email" placeholder="email"/>
-                <input type="password" [(ngModel)]="password" placeholder="Password"/>
-                <input type="password" [(ngModel)]="password" placeholder=" Confirm Password"/>
-                <button>Register</button>
-                <p class="message">Not registered? <a [routerLink]="'Register'">Create an account</a></p>
+            <form [formGroup]="registerFormGroup">
+                <label>Name</label>
+                <input type="text" [(ngModel)]="name" placeholder="Name" [formControl]="registerFormGroup.controls['nameControl']" required/>
+                <label>Email</label>
+                <input type="text" [(ngModel)]="email" placeholder="email" [formControl]="registerFormGroup.controls['emailControl']" required/>
+                <label>Age</label>
+                <input type="text" [(ngModel)]="age" placeholder="Age" [formControl]="registerFormGroup.controls['ageControl']" required/>
+                <label>Contact</label>
+                <input type="text" [(ngModel)]="contact" placeholder="Mobile Number" [formControl]="registerFormGroup.controls['contactControl']" required/>
+                <label>Location</label>
+                <input type="text" [(ngModel)]="location" placeholder="Location" [formControl]="registerFormGroup.controls['locationControl']" required/>
+                <label>Image URL</label>
+                <input type="text" [(ngModel)]="imageUrl" placeholder="Image URL" [formControl]="registerFormGroup.controls['imageUrlControl']"required/>
+                <label>Gender<br>
+                    <input type="radio" value="Male" [(ngModel)]="gender" [ngModelOptions]="{standalone: true}">Male 
+                    <input type="radio" value="Female" [(ngModel)]="gender" [ngModelOptions]="{standalone: true}">Female
+                </label>       
+                <br>
+                <button (click)='registerUser()' [disabled]="!registerFormGroup.valid">Register</button>
+            </form>
+                <strong><p class="message">Already a User? <a [routerLink]="'../Login'">Login Here</a></p></strong>
             </div>
         </div>
     </div>

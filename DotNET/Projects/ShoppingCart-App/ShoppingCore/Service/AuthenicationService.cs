@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCore.Service
 {
-    class AuthenicationService
+    public class AuthenicationService
     {
         public bool CheckLogin(string username,string password)
         {
@@ -24,9 +24,9 @@ namespace ShoppingCore.Service
                 return true;
         }
 
-        public User GetUser(string username, string password)
+        public User GetUser(string username)
         {
-            UserSearchCriteria criteria = new UserSearchCriteria { Email = username, Password = password };
+            UserSearchCriteria criteria = new UserSearchCriteria { Email = username};
             EntityFrameworkRepository<User> efr = new EntityFrameworkRepository<User>();
             User user = efr.Find(new FindByEmailSpecification(criteria)).SingleOrDefault();
 
