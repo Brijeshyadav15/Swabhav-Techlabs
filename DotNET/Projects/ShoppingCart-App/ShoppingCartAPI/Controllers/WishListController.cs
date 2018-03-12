@@ -23,6 +23,14 @@ namespace ShoppingCartAPI.Controllers
             return Ok(_efr.Add(wishlist));
         }
 
+        [Route("GetWishListCount")]
+        [HttpGet]
+        public IHttpActionResult GetWishListCount()
+        {
+            return Ok(_efr.CountAll());
+        }
+
+
         [Route("GetWishLists")]
         [HttpGet]
         public IHttpActionResult Get()

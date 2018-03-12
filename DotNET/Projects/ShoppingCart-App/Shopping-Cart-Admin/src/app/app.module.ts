@@ -1,3 +1,4 @@
+import { ProductCategoryDetailComponent } from './../pages/productCategoryDetails/productCategoryDetails.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Http, HttpModule } from '@angular/http';
@@ -10,7 +11,10 @@ import { LoginComponent } from '../pages/login/login.component';
 import { RegisterComponent } from '../pages/register/register.component';
 import { ProductComponent } from '../pages/products/product.component';
 import { DashboardComponent } from './../pages/Dashboard/dashboard.component';
-
+import { OrdersComponent } from './../pages/orders/order.component';
+import { ProductCategoriesComponent } from './../pages/productCategories/productCategories.component';
+import { ProductDetailComponent } from './../pages/productdetails/productDetail.component';
+import { LogoutComponent } from '../pages/logout.component.ts/logout.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,12 @@ import { DashboardComponent } from './../pages/Dashboard/dashboard.component';
     LoginComponent,
     RegisterComponent,
     ProductComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductCategoriesComponent,
+    OrdersComponent,
+    ProductDetailComponent,
+    ProductCategoryDetailComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

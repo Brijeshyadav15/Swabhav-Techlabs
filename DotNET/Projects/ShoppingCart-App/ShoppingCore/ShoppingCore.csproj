@@ -94,6 +94,10 @@
     <Compile Include="Migrations\201803111052050_Updated11th.Designer.cs">
       <DependentUpon>201803111052050_Updated11th.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803121119526_Updated12thmar.cs" />
+    <Compile Include="Migrations\201803121119526_Updated12thmar.Designer.cs">
+      <DependentUpon>201803121119526_Updated12thmar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Enums\Gender.cs" />
@@ -124,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803111052050_Updated11th.resx">
       <DependentUpon>201803111052050_Updated11th.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803121119526_Updated12thmar.resx">
+      <DependentUpon>201803121119526_Updated12thmar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

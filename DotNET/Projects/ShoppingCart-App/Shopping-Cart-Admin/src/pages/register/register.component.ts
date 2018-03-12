@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { Http, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
@@ -27,7 +28,7 @@ export class RegisterComponent {
   imageUrl:string;
   gender:any;
   registerFormGroup :FormGroup;
-  constructor(private _http: Http){     
+  constructor(private _http: Http,private router:Router){     
     this.registerFormGroup = new FormGroup({
       nameControl: new FormControl(),
       emailControl:new FormControl(),
@@ -60,6 +61,15 @@ export class RegisterComponent {
               console.log(user);
               let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
               let options = new RequestOptions();
-              result = this._http.post(APIURL, user,options).subscribe(res => console.log(res));                 
+              result = this._http.post(APIURL, user,options).subscribe(res =>{
+                  console.log(res)
+                  if(res.ok == true){
+                    alert("User Registered Successfully");
+                    this.router.navigate(['../Login'])
+                  }
+                  else{
+                    alert("Something Wrong Happened");
+                  }
+              });                 
   }
 }

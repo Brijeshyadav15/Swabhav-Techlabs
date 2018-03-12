@@ -64,12 +64,19 @@ namespace ShoppingCartAPI.Controllers
             return Ok("User Updated");
         }
 
+        [Route("GetUserCount")]
+        [HttpGet]
+        public IHttpActionResult GetUserCount()
+        {
+            return Ok(_efr.CountAll());
+        }
+
         [Route("CheckLogin")]
         [HttpPost]
-        public IHttpActionResult CheckLogin(string email, string password)
+        public IHttpActionResult CheckLogin(User user)
         {
             AuthenicationService auth = new AuthenicationService();
-            var result = auth.CheckLogin(email,password);
+            var result = auth.CheckLogin(user.Email,user.Password);
             return Ok(result);
         }
 

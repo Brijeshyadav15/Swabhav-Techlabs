@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { Http, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
@@ -16,22 +17,50 @@ import "rxjs/add/operator/map";
 })
 export class DashboardComponent {
   title = 'Dashboard';
-  email:string = "brijeshyadav152@gmail.com";
+  email:string = localStorage.getItem("userEmail");
   password:string;
   loginFormGroup :FormGroup;
   user:any;
+  userCount:number;
+  productCount:number;
+  productCategoriesCount:number;
+  orderCount:number;
+  constructor(private _http: Http,private router:Router){   
+  }
 
-  constructor(private _http: Http){
-    this.loginFormGroup = new FormGroup({
-      email: new FormControl(),
-      password:new FormControl()
-   }); 
-   this.GetUser();    
+  ngOnInit() {
+    if(this.email == null || this.email == "null"){
+      this.router.navigate(['../Login'])
+    }
+    this.GetUser();
+    this.GetUserCount();
+    this.GetOrdersCount();
+    this.GetProductCount();
+    this.GetProductCategoriesCount();
   }
     GetUser(){
-        let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/User/GetUser"; 
-        let options = new RequestOptions();
-        let result = this._http.post(APIURL, JSON.stringify({"email": this.email}),options).subscribe(res => console.log(res));
+        let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/User/GetUser?email="+this.email+""; 
+        let result = this._http.get(APIURL).subscribe(res => {this.user =JSON.parse(res._body);});
     } 
+
+    GetUserCount(){
+      let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/User/GetUserCount"; 
+      let result = this._http.get(APIURL).subscribe(res => {this.userCount =JSON.parse(res._body); console.log(this.userCount)});
+    } 
+
+    GetProductCount(){
+      let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/Product/GetProductCount"; 
+      let result = this._http.get(APIURL).subscribe(res => {this.productCount =JSON.parse(res._body); console.log(this.userCount)});
+    } 
+
+    GetProductCategoriesCount(){
+      let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/ProductCategory/GetProductCategoryCount"; 
+      let result = this._http.get(APIURL).subscribe(res => {this.productCategoriesCount =JSON.parse(res._body); console.log(this.userCount)});
+    }
+
+    GetOrdersCount(){
+      let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/User/00000000-0000-0000-0000-000000000000/Order/GetOrderCount"; 
+      let result = this._http.get(APIURL).subscribe(res => {this.orderCount =JSON.parse(res._body); console.log(this.userCount)});
+    }
 }
 

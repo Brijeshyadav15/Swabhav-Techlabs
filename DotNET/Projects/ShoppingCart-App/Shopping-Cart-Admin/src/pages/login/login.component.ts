@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { Http, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
@@ -19,44 +20,33 @@ export class LoginComponent {
   email:string;
   password:string;
   loginFormGroup :FormGroup;
-  constructor(private _http: Http){
+
+  constructor(private _http: Http,private router:Router){
     this.loginFormGroup = new FormGroup({
       email: new FormControl(),
       password:new FormControl()
    });     
   }
+  
+  ngOnInit() {      
+      if(localStorage.getItem("userEmail") != "null"){
+        this.router.navigate(['../Dashboard']);
+      }
+  }  
+
     loginUser(){      
-      console.log("into login user");
-      let result :any;      
       let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/User/CheckLogin"; 
-      let options = new RequestOptions();
-      console.log(APIURL);
-      
-      result = this._http.post(APIURL,{
-        "email" : this.email,
-        "password" : this.password
-      },options)
+
+      this._http.post(APIURL,{"Email" : this.email,"Password" : this.password},new RequestOptions())
       .subscribe(res=>{
-        console.log(res);
+        if(res.ok == true){
+          localStorage.setItem("userEmail", this.email);
+          this.router.navigate(['../Dashboard'])
+        }
+        else{
+          alert('Login Unsuccessful');
+        } 
       });
-
-      // if(result == true){
-      //   alert('Login Successful');
-      // }
-      // else{
-      //     alert('Login Unsuccessful');
-      // }
-      // console.log(result);
-
-        // if(result == true){
-        //   alert('Login Successful');
-        //   let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/User/GetUser?email="+this.email+""; 
-        //   result  = this._http.get(APIURL)
-        // .map(result=>result._body)
-        // }
-        // else{
-        //   alert('Login Unsuccessful');
-        // }
     } 
 }
 

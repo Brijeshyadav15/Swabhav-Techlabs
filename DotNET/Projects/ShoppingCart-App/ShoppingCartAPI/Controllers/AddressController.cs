@@ -30,6 +30,13 @@ namespace ShoppingCartAPI.Controllers
             return Ok(_efr.Get());
         }
 
+        [Route("GetAddressCount")]
+        [HttpGet]
+        public IHttpActionResult GetAddressCount()
+        {
+            return Ok(_efr.CountAll());
+        }
+
         [Route("GetAddress/{AddressID}")]
         [HttpGet]
         public IHttpActionResult GetById([FromUri] Guid AddressID)
