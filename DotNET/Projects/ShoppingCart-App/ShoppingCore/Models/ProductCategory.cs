@@ -9,7 +9,6 @@ namespace ShoppingCore.Models
 {
     public class ProductCategory : Entity
     {
-
         public ProductCategory()
         {
         }

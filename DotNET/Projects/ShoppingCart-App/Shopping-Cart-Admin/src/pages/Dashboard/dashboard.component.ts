@@ -18,13 +18,13 @@ import "rxjs/add/operator/map";
 export class DashboardComponent {
   title = 'Dashboard';
   email:string = localStorage.getItem("userEmail");
-  password:string;
   loginFormGroup :FormGroup;
   user:any;
   userCount:number;
   productCount:number;
   productCategoriesCount:number;
   orderCount:number;
+  loadingView:boolean = true;
   constructor(private _http: Http,private router:Router){   
   }
 
@@ -38,6 +38,10 @@ export class DashboardComponent {
     this.GetProductCount();
     this.GetProductCategoriesCount();
   }
+  ngAfterViewInit() {
+    this.loadingView = false;
+  }
+
     GetUser(){
         let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/User/GetUser?email="+this.email+""; 
         let result = this._http.get(APIURL).subscribe(res => {this.user =JSON.parse(res._body);});
@@ -45,22 +49,21 @@ export class DashboardComponent {
 
     GetUserCount(){
       let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/User/GetUserCount"; 
-      let result = this._http.get(APIURL).subscribe(res => {this.userCount =JSON.parse(res._body); console.log(this.userCount)});
+      let result = this._http.get(APIURL).subscribe(res => {this.userCount =JSON.parse(res._body);});
     } 
 
     GetProductCount(){
       let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/Product/GetProductCount"; 
-      let result = this._http.get(APIURL).subscribe(res => {this.productCount =JSON.parse(res._body); console.log(this.userCount)});
+      let result = this._http.get(APIURL).subscribe(res => {this.productCount =JSON.parse(res._body);});
     } 
 
     GetProductCategoriesCount(){
       let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/ProductCategory/GetProductCategoryCount"; 
-      let result = this._http.get(APIURL).subscribe(res => {this.productCategoriesCount =JSON.parse(res._body); console.log(this.userCount)});
+      let result = this._http.get(APIURL).subscribe(res => {this.productCategoriesCount =JSON.parse(res._body);});
     }
 
     GetOrdersCount(){
       let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/User/00000000-0000-0000-0000-000000000000/Order/GetOrderCount"; 
-      let result = this._http.get(APIURL).subscribe(res => {this.orderCount =JSON.parse(res._body); console.log(this.userCount)});
+      let result = this._http.get(APIURL).subscribe(res => {this.orderCount =JSON.parse(res._body);});
     }
 }
-

@@ -1,4 +1,3 @@
-import { ProductCategoryDetailComponent } from './../pages/productCategoryDetails/productCategoryDetails.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Http, HttpModule } from '@angular/http';
@@ -15,6 +14,10 @@ import { OrdersComponent } from './../pages/orders/order.component';
 import { ProductCategoriesComponent } from './../pages/productCategories/productCategories.component';
 import { ProductDetailComponent } from './../pages/productdetails/productDetail.component';
 import { LogoutComponent } from '../pages/logout.component.ts/logout.component';
+import { SidebarComponent } from './../pages/sidebar/sidebar.component';
+import { NavbarComponent } from './../pages/navbar/navbar.component';
+import { OrderDetailsComponent } from './../pages/orderdetails/orderDetails.component';
+import { ProductCategoryDetailComponent } from './../pages/productCategoryDetails/productCategoryDetails.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,12 @@ import { LogoutComponent } from '../pages/logout.component.ts/logout.component';
     DashboardComponent,
     ProductCategoriesComponent,
     OrdersComponent,
+    OrderDetailsComponent,
     ProductDetailComponent,
     ProductCategoryDetailComponent,
-    LogoutComponent
+    LogoutComponent,
+    NavbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

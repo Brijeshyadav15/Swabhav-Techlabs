@@ -1,0 +1,13 @@
+<div class="row">
+        <div class="navbar navbar-inverse navbar-fixed-left col-md-2 col-lg-2"> 
+            <img [src]="user.ProfilePic" alt="User Image" class="img-responsive img-circle profilePic">
+            <a class="navbar-brand">
+                {{user.Name}}
+            </a>
+    
+            <ul class="nav navbar-nav left-profile-list">
+                <li><a>{{user.Email}}</a></li>
+                <li><a>{{user.Location}}</a></li>
+                <li><a>{{user.Contact}}</a></li>
+            </ul>
+        </div>

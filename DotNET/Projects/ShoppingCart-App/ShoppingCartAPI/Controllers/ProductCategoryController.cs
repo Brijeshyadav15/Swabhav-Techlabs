@@ -60,7 +60,7 @@ namespace ShoppingCartAPI.Controllers
         }
 
         [Route("UpdateProductCategory")]
-        [HttpGet]
+        [HttpPost]
         public IHttpActionResult Update(ProductCategory productcategory)
         {
             _efr.Update(productcategory);

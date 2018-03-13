@@ -1,57 +1,91 @@
-<nav class="navbar navbar-inverse navbar-dark">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" [routerLink]='""'>ShopaHolic</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><a [routerLink]='"../Products"'>Products</a></li>
-        <li><a [routerLink]='"../ProductCategories"'>Product Categories</a></li>
-        <li><a [routerLink]='"../Products"'>Orders</a></li>
-        <li><a [routerLink]='"../Logout"'>Logout</a></li>
-      </ul>
-    </div>
-</nav>
-<div class="row">
-        <div class="navbar navbar-inverse navbar-fixed-left text-center col-md-2 col-lg-2"> 
-
-        <img [src]="user.ProfilePic" alt="User Image" class="img-responsive img-circle profilePic">
-
-        <a class="navbar-brand">{{user.Name}}</a>
-            <ul class="nav navbar-nav">
-                <li><a>{{user.Email}}</a></li>
-                <li><a>{{user.Location}}</a></li>
-            </ul>
-    </div>
-
-    <div class="col-md-8 col-lg-8 login-page">
-        <div class="text-center">
-            <h3>
-            Welcome to {{title}}
-            </h3>
-
-            <div class="card col-md-3 col-lg-3" style="width: 8rem;" style="background-color:cadetblue; margin:5%;">
-                <div class="card-body">
-                    <h3 class="card-title">Total Users:{{userCount}}</h3>
+    <div class="col-md-10 col-lg-10 login-page">
+        <h1 class="text-center">Welcome to {{title}}</h1>
+            
+        <a [routerLink]='"../Products"'>    
+            <div class="col-md-4 no-padding lib-item" data-category="view">
+                <div class="lib-panel">
+                    <div class="row box-shadow">
+                        <div class="col-md-6">
+                            <img class="lib-img-show" [src]='"assets/man-user.png"'>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="lib-row lib-header">
+                                Users
+                            </div>
+                            <div class="lib-header-seperator"></div>
+                            <div class="lib-row lib-desc">
+                                {{userCount}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="card col-md-3 col-lg-3" style="width: 8rem;" style="background-color:cadetblue;margin:5%;">
-                    <div class="card-body">
-                        <h3 class="card-title">Total Products:{{productCount}}</h3>
-                    </div>
-            </div>
+        </a>
 
-            <div class="card col-md-3 col-lg-3" style="width: 8rem;" style="background-color:cadetblue;margin:5%;">
-                    <div class="card-body">
-                        <h3 class="card-title">Total Products Categories:{{productCount}}</h3>
+        <a [routerLink]='"../Products"'>
+            <div class="col-md-4 no-padding lib-item" data-category="view">
+                <div class="lib-panel">
+                    <div class="row box-shadow">
+                        <div class="col-md-6">
+                            <img class="lib-img-show" [src]='"assets/shopping-bag.png"'>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="lib-row lib-header">
+                                Products
+                            </div>
+                            <div class="lib-header-seperator"></div>
+                            <div class="lib-row lib-desc">
+                                {{productCount}}
+                            </div>
+                        </div>
                     </div>
+                </div>
             </div>
+        </a>
 
-            <div class="card col-md-3 col-lg-3" style="width: 8rem;" style="background-color:cadetblue;margin:5%;">
-                    <div class="card-body">
-                        <h3 class="card-title">Total Orders :{{orderCount}}</h3>
+        <a [routerLink]='"../Orders"'>
+            <div class="col-md-4 no-padding lib-item" data-category="view">
+                    <div class="lib-panel">
+                        <div class="row box-shadow">
+                            <div class="col-md-6">
+                                <img class="lib-img-show" [src]='"assets/box.png"'>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="lib-row lib-header">
+                                    Orders
+                                </div>
+                                <div class="lib-header-seperator"></div>
+                                <div class="lib-row lib-desc">
+                                    {{userCount}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-            </div>
-        </div>
+                </div>
+            </a>
+
+            <a [routerLink]='"../ProductCategories"'>
+                <div class="col-md-4 no-padding lib-item" data-category="view">
+                    <div class="lib-panel">
+                        <div class="row box-shadow">
+                            <div class="col-md-6">
+                                <img class="lib-img-show" [src]='"assets/shopping-basket.png"'>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="lib-row lib-header">
+                                    Categories
+                                </div>
+                                <div class="lib-header-seperator"></div>
+                                <div class="lib-row lib-desc">
+                                    {{productCategoriesCount}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+    <div class="animationload" *ngIf='loadingView==true'>
+        <div class="loader"></div>
+        <h2>Loading...</h2>
     </div>
-</div>

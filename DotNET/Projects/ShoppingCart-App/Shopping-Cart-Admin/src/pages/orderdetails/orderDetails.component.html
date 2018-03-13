@@ -1,0 +1,57 @@
+<nav class="navbar navbar-inverse navbar-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" [routerLink]='""'>ShopaHolic</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a [routerLink]='"../Products"'>Products</a></li>
+        <li><a [routerLink]='"../ProductCategories"'>Product Categories</a></li>
+        <li><a [routerLink]='"../Orders"'>Orders</a></li>
+        <li><a [routerLink]='"../Logout"'>Logout</a></li>
+      </ul>
+    </div>
+</nav>
+<div class="row">
+    <div class="navbar navbar-inverse navbar-fixed-left text-center col-md-2 col-lg-2"> 
+
+        <img [src]="user.ProfilePic" alt="User Image" class="img-responsive img-circle profilePic">
+
+        <a class="navbar-brand">{{user.Name}}</a>
+            <ul class="nav navbar-nav">
+                <li><a>{{user.Email}}</a></li>
+                <li><a>{{user.Location}}</a></li>
+            </ul>
+    </div>  
+
+    <div class="col-md-8 col-lg-8 login-page">
+        <h3>Welcome to {{title}}</h3>
+            <label for="Id" class="col-md-3">Order ID  :</label>
+            <input type="text" [(ngModel)]='order.Id' class="col-md-6" disabled>
+            <br>
+            <br>
+            <label for="Id" class="col-md-3">Order Date  :</label>
+            <input type="text" [(ngModel)]='order.Date' class="col-md-6" disabled>
+            <br>
+            <br>
+            <label for="Id" class="col-md-3">Order Total  :</label>
+            <input type="text" [(ngModel)]='order.OrderTotal' class="col-md-6" disabled>
+            <br>
+            <br>
+            <label for="Id" class="col-md-3">Customer Email :</label>
+            <input type="text" [(ngModel)]='customer.Email' class="col-md-6" disabled>
+            <br>
+            <br>
+            <label for="Id" class="col-md-3">Customer Name  :</label>
+            <input type="text" [(ngModel)]='customer.Name' class="col-md-6" disabled>
+            <br>
+            <br>
+            <label for="Id" class="col-md-3">Order Status  :</label>
+            <select [(ngModel)]='OrderStatus'>
+                <option *ngFor='let option of OrderStatusOptions' ngModel='OrderStatusOptions["OrderStatus"]'>{{option}}</option>
+            </select>
+            <br>
+            <br>
+            <div class="col-md-3"></div>
+            <input type="submit" class="btn-lg btn-primary text-center" (click)="addProduct()">
+    </div>
+</div> 

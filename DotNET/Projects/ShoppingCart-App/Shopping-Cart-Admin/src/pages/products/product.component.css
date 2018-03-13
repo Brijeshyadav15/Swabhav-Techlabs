@@ -1,57 +1,187 @@
-.glyphicon { margin-right:5px; }
-.thumbnail
-{
-    margin-bottom: 20px;
-    padding: 0px;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
+.navbar-fixed-left {
+    /* width: 200px; */
+    position: fixed;
+    border-radius: 0;
+    height: 100%;
+    margin-top: -20px;
+  }
+  
+  .navbar-fixed-left .navbar-nav > li {
+    float: none;  /* Cancel default li float: left */
+    width: 139px;
+  }
+  
+  .navbar-fixed-left + .container {
+    padding-left: 160px;
+  }
+  
+  /* On using dropdown menu (To right shift popuped) */
+  .navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+    margin-top: -50px;
+    margin-left: 140px;
+  }
+
+  nav{
+    background-color: #080808;
+  }
+  .profilePic{
+      margin: 2%;
+  }
+
+  .card-body
+  {
+    background-color: darkgray;
+    margin:5%;
+    width: 150px;
+    /* height: 150px; */
+  }
+  .card-title
+  {  
+    font-size: 24px;
+    text-align: center;
+    margin-top: 50%;
+    margin-bottom: 50%;
+  }
+
+
+.lib-item{
+  margin: 5%;
+  background-color: darkgray;
 }
 
-.item.list-group-item
-{
-    float: none;
+.lib-panel {
+    margin-bottom: 20Px;
+}
+.lib-panel img {
+    width: 100px;
+    background-color: transparent;
+}
+
+.lib-panel .row,
+.lib-panel .col-md-6 {
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+
+.lib-panel .lib-row {
+    padding: 0 20px 0 20px;
+}
+
+.lib-panel .lib-row.lib-header {
+    background-color: #FFFFFF;
+    font-size: 32px;
+    padding: 10px 20px 0 20px;
+}
+
+.lib-panel .lib-row.lib-header .lib-header-seperator {
+    height: 2px;
+    width: 26px;
+    background-color: #d9d9d9;
+    margin: 7px 0 7px 0;
+}
+
+.lib-panel .lib-row.lib-desc {
+    position: relative;
+    height: 100%;
+    display: block;
+    font-size: 48px;
+}
+.lib-panel .lib-row.lib-desc a{
+    position: absolute;
     width: 100%;
-    background-color: #fff;
-    margin-bottom: 10px;
-}
-.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
-{
-    background: #428bca;
+    bottom: 10px;
+    left: 20px;
 }
 
-.item.list-group-item .list-group-image
-{
-    margin-right: 10px;
-}
-.item.list-group-item .thumbnail
-{
-    margin-bottom: 0px;
-}
-.item.list-group-item .caption
-{
-    padding: 9px 9px 0px 9px;
-}
-.item.list-group-item:nth-of-type(odd)
-{
-    background: #eeeeee;
+.row-margin-bottom {
+    margin-bottom: 20px;
 }
 
-.item.list-group-item:before, .item.list-group-item:after
-{
-    display: table;
-    content: " ";
+.box-shadow {
+    -webkit-box-shadow: 0 0 10px ;
+    box-shadow: 0 0 10px 0 ;
+    background-color: darkgray;
 }
 
-.item.list-group-item img
-{
-    float: left;
+.no-padding {
+    padding: 0;
 }
-.item.list-group-item:after
+
+h2
 {
-    clear: both;
+  text-align: center;
 }
-.list-group-item-text
+.login-page{
+position: relative;
+font-family: 'Cookie', cursive;
+margin-left: 20%;
+}
+
+.left-profile-list
 {
-    margin: 0 0 11px;
+  font-size: 20px;
+}
+.nav
+{
+  font-family: 'Cookie', cursive;
+}
+.navbar-brand
+{
+  font-family: 'Cookie', cursive;
+  font-size: 42px;
+}
+h1
+{
+  font-size: 64px;
+}
+.upper-links
+{
+  font-size: 24px;
+}
+.animationload {
+  background-color: #fff;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}
+.loader {
+  animation: 1.5s linear 0s normal none infinite running loader;
+  background: #fed37f none repeat scroll 0 0;
+  border-radius: 50px;
+  height: 50px;
+  left: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: absolute;
+  top: 50%;
+  width: 50px;
+}
+.loader::after {
+  animation: 1.5s linear 0s normal none infinite running loader_after;
+  border-color: #85d6de transparent;
+  border-radius: 80px;
+  border-style: solid;
+  border-width: 10px;
+  content: "";
+  height: 80px;
+  left: -15px;
+  position: absolute;
+  top: -15px;
+  width: 80px;
+}
+@keyframes loader {
+0% {
+  transform: rotate(0deg);
+}
+50% {
+  background: #85d6de none repeat scroll 0 0;
+  transform: rotate(180deg);
+}
+100% {
+  transform: rotate(360deg);
+}
 }

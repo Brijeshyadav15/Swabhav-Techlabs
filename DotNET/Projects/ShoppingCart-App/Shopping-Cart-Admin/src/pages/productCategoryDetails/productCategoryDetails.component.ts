@@ -53,7 +53,7 @@ export class ProductCategoryDetailComponent {
     this.productId =this.route.snapshot.params['Id'] != null ? this.route.snapshot.params['Id']: UUID.UUID();
       let APIURL  = "http://localhost:56269/api/v1/ShoppingCart/ProductCategory/GetProductCategory/"+this.productId+""; 
       console.log(APIURL);
-      this.ADDAPIURL = this.ADDAPIURL != null ? this.ADDAPIURL :"http://localhost:56269//api/v1/ShoppingCart/ProductCategory/UpdateProductCategory";
+      this.ADDAPIURL = this.ADDAPIURL != null ? this.ADDAPIURL :"http://localhost:56269/api/v1/ShoppingCart/ProductCategory/UpdateProductCategory";
       this._http.get(APIURL).subscribe(res => {
                                                 console.log(res._body);
                                                 this.ProductCategory =JSON.parse(res._body);
@@ -64,20 +64,17 @@ export class ProductCategoryDetailComponent {
   }
 
     addProduct(){            
-      let options = new RequestOptions();
-      this.ADDAPIURL = this.ADDAPIURL != null ? this.ADDAPIURL :"http://localhost:56269//api/v1/ShoppingCart/ProductCategory/AddProductCategory";
+      this.ADDAPIURL = this.ADDAPIURL != null ? this.ADDAPIURL :"http://localhost:56269/api/v1/ShoppingCart/ProductCategory/AddProductCategory";
       this.productId =this.route.snapshot.params['Id'] != null ? this.route.snapshot.params['Id']: UUID.UUID();
       this.product ={
         "Id":this.productId,
         "Name": this.Name,
         "Date" : this.Date
       }
-      console.log(this.ADDAPIURL);
-      console.log(this.product);
-    //   this._http.post(this.ADDAPIURL,this.product,options)
-    //   .subscribe(res=>{ 
-    //   alert("Product Category Added Successfully");
-    //   this.router.navigate(['../ProductCategories']);});
+      this._http.post(this.ADDAPIURL,this.product,new RequestOptions())
+      .subscribe(res=>{ 
+      alert("Product Category Added Successfully");
+      this.router.navigate(['../ProductCategories']);});
     }
 }
 

@@ -1,3 +1,4 @@
+import { OrderDetailsComponent } from './../pages/orderdetails/orderDetails.component';
 import { ProductCategoryDetailComponent } from './../pages/productCategoryDetails/productCategoryDetails.component';
 import { Routes } from '@angular/router';
 
@@ -22,5 +23,7 @@ export const routeArray : Routes = [
     {path:"ProductDetail/:ProductId", component: ProductDetailComponent},
     {path:"ProductDetail", component: ProductDetailComponent},
     {path:"ProductCategoriesDetail/:Id", component: ProductCategoryDetailComponent},
-    {path:"ProductCategoriesDetail", component: ProductCategoryDetailComponent}
+    {path:"ProductCategoriesDetail", component: ProductCategoryDetailComponent},
+    {path:"OrderDetails/:Id", component: OrderDetailsComponent},
+    {path:"OrderDetails", component: OrderDetailsComponent},
 ]; 

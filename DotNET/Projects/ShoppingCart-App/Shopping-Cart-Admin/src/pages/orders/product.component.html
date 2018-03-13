@@ -1,8 +1,34 @@
-        <div class="col-md-10 col-lg-10 login-page">
+<nav class="navbar navbar-inverse navbar-dark">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" [routerLink]='""'>ShopaHolic</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a [routerLink]='"../Products"'>Products</a></li>
+            <li><a [routerLink]='"../ProductCategories"'>Product Categories</a></li>
+            <li><a [routerLink]='"../Orders"'>Orders</a></li>
+            <li><a [routerLink]='"../ProductDetail"'>Add Product</a></li>
+            <li><a [routerLink]='"../Logout"'>Logout</a></li>
+          </ul>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="navbar navbar-inverse navbar-fixed-left text-center col-md-2 col-lg-2"> 
+    
+            <img [src]="user.ProfilePic" alt="User Image" class="img-responsive img-circle profilePic">
+    
+            <a class="navbar-brand">{{user.Name}}</a>
+                <ul class="nav navbar-nav">
+                    <li><a>{{user.Email}}</a></li>
+                    <li><a>{{user.Location}}</a></li>
+                </ul>
+        </div>  
+    
+        <div class="col-md-8 col-lg-8 login-page">
             <h3>Welcome to {{title}}</h3>
 
-            <div id="products" class="row list-group">
-                    <div class="item  col-xs-4 col-lg-4" *ngFor='let product of products;let p=index'>
+            <div id="products" class="row list-group" *ngFor='let product of products;let p=index'>
+                    <div class="item  col-xs-4 col-lg-4">
                         <div class="thumbnail">
                             <img class="group list-group-image" [src]="product.ProductImage" alt="Product Image" />
                             <div class="caption">
@@ -13,7 +39,7 @@
                                 <p class="group inner list-group-item-text">
                                     {{product.Details}}</p>
                                 <div class="row">
-                                    <div class="col-xs-6 col-md-4 col-lg-4">
+                                    <div class="col-xs-12 col-md-6">
                                         <p class="lead">
                                             {{product.Price | currency:"₹":0}}</p>
                                     </div>
@@ -28,3 +54,4 @@
                     </div>
             </div>
         </div>
+    </div> 
