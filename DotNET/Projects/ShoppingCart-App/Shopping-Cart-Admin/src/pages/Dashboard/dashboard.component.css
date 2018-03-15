@@ -185,3 +185,8 @@ h1
   transform: rotate(360deg);
 }
 }
+
+.tabledata
+{
+  font-size:14px;
+}

@@ -1,8 +1,9 @@
 <div class="col-md-10 col-lg-10 login-page">
-        <h3>Welcome to {{title}}</h3>
-        <table class="table-bordered table-responsive">
+    <h1 class="text-center">Welcome to {{title}}</h1>
+
+        <table class="table-bordered table-responsive text-center">
             <tr class="primary">
-                <th class="col-md-1">No</th>
+                <th class="col-md-1 tabledata">No</th>
                 <th class="col-md-3">Name</th>
                 <th class="col-md-2">Date</th>
                 <th class="col-md-2">Operations</th>
@@ -11,9 +12,16 @@
                 <th class="col-md-1">{{p+1}}</th>
                 <th class="col-md-3">{{product.Name}}</th>
                 <th class="col-md-2">{{product.CreatedDate | date}}</th>
-                <th class="col-md-2"><a [routerLink]="['../ProductCategoriesDetail', product.Id]"><button class="btn-info">
-                    <i class="glyphicon glyphicon-pencil"></i> &nbsp;&nbsp;Edit
-                    </button></a></th>
+                <th class="col-md-2">
+                    <a [routerLink]="['../ProductCategoriesDetail', product.Id]">
+                        <button class="btn-info">
+                            <i class="glyphicon glyphicon-pencil"></i> &nbsp;&nbsp;Edit
+                        </button>
+                    </a>
+                    <button class="btn-danger" (click)='deleteCategory(product.Id)'>
+                        <i class="glyphicon glyphicon-trash"></i> &nbsp;&nbsp;Delete
+                    </button>
+                </th>
             </tr>
         </table>
     </div>

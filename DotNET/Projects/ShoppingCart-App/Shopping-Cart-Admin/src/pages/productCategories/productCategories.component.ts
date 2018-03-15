@@ -43,5 +43,10 @@ export class ProductCategoriesComponent {
         let APIURL  = "http://localhost:56269//api/v1/ShoppingCart/ProductCategory/GetProductCategories"; 
         this._http.get(APIURL).subscribe(res => {this.products =JSON.parse(res._body); console.log(this.products)});
     }
+
+    deleteCategory(id){
+      let APIURL  = "http://localhost:56269//api/v1/ShoppingCart/ProductCategory/DeleteProductCategory/"+id+""; 
+      this._http.get(APIURL).subscribe(res => {this.products =JSON.parse(res._body); console.log(this.products)});
+    }
 }
 
